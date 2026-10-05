@@ -1,0 +1,108 @@
+:root {
+  --bg: #15130f;
+  --panel: #1f1c17;
+  --line: #3a342a;
+  --text: #e9e4d8;
+  --muted: #a89f8c;
+  --brass: #c9a65a;
+  --green: #6ee04a;
+  --todo: #ff6b6b;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+a { color: var(--brass); }
+a:hover { color: var(--green); }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+header { border-bottom: 1px solid var(--line); }
+header .wrap { display: flex; align-items: center; gap: 14px; padding-top: 10px; padding-bottom: 10px; }
+header img { width: 56px; }
+header .name { font-weight: 700; font-size: 1.15rem; letter-spacing: .02em; text-decoration: none; color: var(--text); }
+header nav { margin-left: auto; display: flex; gap: 18px; font-size: .95rem; }
+header nav a { text-decoration: none; color: var(--muted); }
+header nav a:hover { color: var(--green); }
+
+/* Banner */
+/* Plaque and apparatus span about 25-77% of the image height, so the banner stays at 3:1 to fit both.
+   It stops at the image's native 1600px; wider screens get the sides faded into the page. */
+.banner { max-width: 1600px; margin: 0 auto; }
+.banner img { width: 100%; aspect-ratio: 3 / 1; min-height: 180px; object-fit: cover; object-position: 50% 50%; }
+@media (min-width: 1600px) {
+  .banner img { mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); }
+}
+
+/* Intro */
+.intro { padding-top: 32px; padding-bottom: 4px; }
+.intro h1 { font-size: clamp(1.3rem, 3vw, 1.7rem); font-weight: 600; line-height: 1.3; margin: 0; }
+
+/* Sections */
+section { padding: 32px 0; }
+h2 { font-size: 1.4rem; color: var(--brass); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 20px; }
+
+.status { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 3px 10px; border-radius: 99px; border: 1px solid; white-space: nowrap; }
+.status.released { color: var(--green); border-color: var(--green); }
+.status.progress { color: var(--brass); border-color: var(--brass); }
+
+/* Home page: one linked entry per build */
+.entry { display: grid; grid-template-columns: 220px 1fr; gap: 22px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 16px; color: var(--text); text-decoration: none; }
+.entry:hover { border-color: var(--green); color: var(--text); }
+.entry img, .entry .no-photo { border-radius: 6px; aspect-ratio: 5 / 4; width: 100%; object-fit: cover; background: #fff; }
+.entry .no-photo { display: grid; place-items: center; background: var(--bg); border: 1px solid var(--line); }
+.entry .no-photo img { width: 50%; aspect-ratio: auto; background: none; opacity: .35; }
+.entry h3 { margin: 0; font-size: 1.4rem; }
+.entry p { margin: 6px 0 10px; }
+.entry .more { color: var(--brass); font-weight: 700; font-size: .95rem; }
+.entry:hover .more { color: var(--green); }
+.entry-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+
+/* Project pages */
+.project { padding-top: 24px; padding-bottom: 40px; }
+.back { display: inline-block; margin-bottom: 14px; font-size: .95rem; text-decoration: none; }
+.project-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; margin-bottom: 10px; }
+.project-head h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.2; }
+.project h2 { font-size: 1.1rem; margin: 36px 0 14px; }
+.lede { margin: 0 0 22px; font-size: 1.05rem; }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 6px; }
+.gallery img { border-radius: 6px; aspect-ratio: 5 / 4; object-fit: cover; background: #fff; }
+.caption { font-size: .85rem; color: var(--muted); margin: 0; }
+
+.specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 24px; padding: 0; margin: 0; list-style: none; font-size: .95rem; }
+.specs li { border-left: 2px solid var(--brass); padding-left: 10px; }
+.specs b { color: var(--muted); font-weight: 600; }
+
+.notes { margin: 0; padding-left: 18px; }
+.notes li { margin-bottom: 8px; }
+
+.files p { margin: 0 0 14px; }
+.button { display: inline-block; background: var(--brass); color: #15130f; font-weight: 700; text-decoration: none; padding: 9px 18px; border-radius: 6px; }
+.button:hover { background: var(--green); color: #15130f; }
+.button.secondary { background: none; color: var(--brass); box-shadow: inset 0 0 0 1px var(--brass); margin: 6px 0 0 8px; }
+.button.secondary:hover { color: var(--green); box-shadow: inset 0 0 0 1px var(--green); }
+
+/* Links */
+.links { display: flex; flex-wrap: wrap; gap: 12px; }
+.links a { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 12px 18px; text-decoration: none; color: var(--text); }
+.links a:hover { border-color: var(--green); }
+.links small { display: block; color: var(--muted); }
+
+/* Placeholder marker: anything with this class still needs real info before going live */
+.todo { outline: 2px dashed var(--todo) !important; color: var(--todo) !important; }
+
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; padding: 20px 0 40px; }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  header nav { display: none; }
+  .entry { grid-template-columns: 110px 1fr; gap: 14px; padding: 12px; align-items: start; }
+  .entry h3 { font-size: 1.15rem; }
+  .entry p { font-size: .95rem; }
+}

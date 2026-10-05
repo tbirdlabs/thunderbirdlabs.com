@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clotho eSpinner – Thunderbird Labs</title>
+<meta name="description" content="An open-source electric spinning wheel: brushless motor, 3D-printed frame, foot pedal speed control. About $200 in parts.">
+<meta property="og:title" content="Clotho eSpinner – Thunderbird Labs">
+<meta property="og:description" content="An open-source electric spinning wheel: brushless motor, 3D-printed frame, foot pedal speed control. About $200 in parts.">
+<meta property="og:image" content="https://thunderbirdlabs.com/images/clotho-cad-front.jpg">
+<meta property="og:url" content="https://thunderbirdlabs.com/clotho">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="images/logo.png" alt="Thunderbird Labs logo">
+    <a class="name" href="index.html">Thunderbird Labs</a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap project">
+  <a class="back" href="index.html#builds">&larr; All builds</a>
+
+  <div class="project-head">
+    <h1>Clotho eSpinner</h1>
+    <span class="status released">Released Aug 2026</span>
+  </div>
+  <p class="lede">An electric spinning wheel built around a 94&nbsp;W closed-loop brushless motor, with a 3D-printed frame, a foot pedal for speed control and a tool-free flyer and bobbin change. Parts cost about $200.</p>
+
+  <!-- TODO: add photos of the built spinner here, ahead of the CAD renders -->
+  <div class="gallery">
+    <img src="images/clotho-cad-front.jpg" alt="Clotho eSpinner CAD model, front three-quarter view">
+    <img src="images/clotho-cad-rear.jpg" alt="Clotho eSpinner CAD model, rear view showing motor and driver">
+    <img src="images/clotho-pedal-cad.jpg" alt="Clotho foot pedal CAD model" loading="lazy">
+    <img src="images/clotho-pedal-cad-open.jpg" alt="Clotho foot pedal CAD model with lid removed, showing potentiometer and microcontroller mount" loading="lazy">
+  </div>
+  <p class="caption">CAD renders from the published STEP model.</p>
+
+  <h2>Specs</h2>
+  <ul class="specs">
+    <li><b>Motor</b><br>57BSD76 BLDC, NEMA 23 frame, 94&nbsp;W, 24&nbsp;V</li>
+    <li><b>Driver</b><br>BLD-510B closed-loop BLDC controller</li>
+    <li><b>Speed control</b><br>Panel knob, or foot pedal via a TRS jack</li>
+    <li><b>Flyer</b><br>Supported at both ends, tool-free change</li>
+  </ul>
+
+  <h2>Build notes</h2>
+  <ul class="notes">
+    <li>Cheap 8&nbsp;mm rod is usually sheared to length, which squashes the ends. Chamfer and sand them until the bearings slide on and off.</li>
+    <li>Print the structural parts in PETG. PLA doesn't hold up to the heat and load from this motor.</li>
+    <li>PETG softens around 80&nbsp;&deg;C (175&nbsp;&deg;F). This shouldn't need saying, but one Clotho has already melted in the Arizona sun. If you live somewhere that hot, print it in ASA.</li>
+    <li>The driver ships set to full speed and current. Turn both trim pots all the way down before first power-up, then bring them up.</li>
+    <li>Plugging in the foot pedal disconnects the panel knob. A Pro Micro reads the pedal and sends PWM to the driver; calibrate it over serial.</li>
+  </ul>
+
+  <h2>Files</h2>
+  <div class="files">
+    <p>Parts list with sources, full STEP model, 8 printable 3MF assemblies, build and setup instructions, and foot pedal firmware. Licensed CC BY-SA.</p>
+    <a class="button" href="https://www.printables.com/model/1779646-clotho-espinner">Get the files on Printables &rarr;</a>
+    <a class="button secondary" href="https://github.com/tbirdlabs/Clotho-eSpinner">View on GitHub</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Thunderbird Labs</div>
+</footer>
+
+</body>
+</html>
