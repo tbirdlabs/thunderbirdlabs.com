@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Designing Clotho – Thunderbird Labs</title>
+<meta name="description" content="Why Clotho is the way she is: a flyer held at both ends, a bobbin change with no tools, the bearing saga, and the spine that got deleted.">
+<meta property="og:title" content="Designing Clotho – Thunderbird Labs">
+<meta property="og:description" content="Design notes on the Clotho eSpinner: a flyer held at both ends, a tool-free bobbin change, a deleted spine, and the bearing saga.">
+<meta property="og:image" content="https://thunderbirdlabs.com/images/clotho-front.jpg">
+<meta property="og:url" content="https://thunderbirdlabs.com/clotho-design">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="images/logo.png" alt="Thunderbird Labs logo">
+    <a class="name" href="index.html">Thunderbird Labs</a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap project article">
+  <a class="back" href="clotho.html">&larr; Clotho eSpinner</a>
+
+  <div class="project-head">
+    <h1>Designing Clotho</h1>
+  </div>
+  <p class="lede">Some notes on why Clotho is the way she is: the flyer held at both ends, the bobbin change, the bearings, and a few parts that didn&rsquo;t make the cut.</p>
+  <p class="caption">October 2026 &middot; Design notes</p>
+
+  <h2>Where it started</h2>
+  <p>A friend of mine, a fiber artist in the desert Southwest, asked me if I could make her an eSpinner. &ldquo;Sure,&rdquo; I said. &ldquo;What&rsquo;s an eSpinner?&rdquo; I still don&rsquo;t spin, so pretty much everything I know about it comes from her and from the people who have built these things and told me what they thought.</p>
+  <p>The first answer was Arachne, which was built to be cheap and accessible, and she was. Clotho is the next one. She trades Arachne&rsquo;s brushed gearmotor for a 94&nbsp;W brushless motor with a closed-loop driver, holds the flyer at both ends like a traditional wheel, and changes bobbins without any tools. She also uses the same bobbin Arachne has used since v1, so if you built an Arachne you get to keep your bobbins, flyer, and orifice. Since bobbin collecting seems to be a secondary pastime with fiber artists, this seemed like a nice thing to do.</p>
+  <p>The parts run about $185 if you buy the whole list yourself, or about $97 a wheel if you build a couple and split the packs with a friend (the <a href="clotho-build.html">build page</a> has the details).</p>
+
+  <figure>
+    <img src="images/clotho-front.jpg" alt="Clotho eSpinner, front three-quarter view, with a dark brown frame, jade flyer and oxblood bobbin">
+    <p class="caption">Clotho, rendered from the published model.</p>
+  </figure>
+
+  <h2>Two bearings and a bobbin change</h2>
+  <p>A traditional treadle wheel holds the flyer at both ends; that&rsquo;s what the maidens are for. Most eSpinners only hold it at one end, which makes changing bobbins easy (just slide it off the free end), but you pay for it while you spin: the yarn builds up unevenly between the hooks, the filling bobbin turns into an unbalanced rotating mass, and a single bearing gets to carry all of it on the longest lever arm available.</p>
+  <p>Clotho holds both ends. The front bearing (a 6804 on the orifice) sits in an open saddle on the front riser, and the drive belt holds it down. The back of the rod runs in a 608 that sits in a shaped cavity in the rear riser, and the brake line keeps that one in place. To change bobbins you take the belt off, lift the front of the flyer out of its saddle, and pull the rod out of the rear bearing, which can pivot 15&deg; in its cavity so the rod comes out at an angle. No tools, and no loose parts to lose in the couch.</p>
+  <figure>
+    <img src="images/clotho-side.jpg" alt="Side view of Clotho with the front on the left, showing the flyer running from the front bearing on the orifice to the rear bearing in the rear riser, with the bobbin between the arms" loading="lazy">
+    <p class="caption">From the side, front on the left. The flyer runs from the front bearing on the orifice to the rear one in the rear riser, with the bobbin riding on the rod between them.</p>
+  </figure>
+  <p>The angle is a compromise. More pivot makes the change easier but leaves the cavity sloppier around the bearing, and less pivot holds the bearing tighter but makes changing bobbins fiddly. An early version held the rear bearing in with a magnet; the final one does it with nothing but the shape of the cavity.</p>
+  <figure>
+    <img src="images/clotho-rear-cavity-section.jpg" alt="Section view through the rear riser and the back of the bobbin, showing the rod running through a 608 bearing that sits in a tapered pocket in the riser" loading="lazy">
+    <p class="caption">A section through the rear riser (left) and the back end of the bobbin. The angled pocket behind the 608 is what gives the bearing room to pivot when you lift the front of the flyer.</p>
+  </figure>
+
+  <h2>The bearing saga</h2>
+  <p>Clotho runs quietly enough that bearing noise, which you&rsquo;d never notice on Arachne over the gearmotor, became the loudest thing on the machine. The rear bearing also gets a constant side load from the brake band. So I went looking for a better bearing:</p>
+  <ul class="notes">
+    <li><b>Penny-grade 608s</b> come packed with enough grease that the rod spins in the inner race instead of the balls actually rolling. A jar of alcohol and a shot of silicone spray fixes that.</li>
+    <li><b>Skateboard bearings</b> came in undersized (7.76 and 7.86&nbsp;mm bore) and needed a hammer to get on. Once they were on they ran beautifully, which is great right up until you remember the thing has to come apart for every bobbin change.</li>
+    <li><b>Industrial ABEC-5 C3 bearings</b> showed up. They didn&rsquo;t fit either.</li>
+  </ul>
+  <p>It was the rods. Cheap 8&nbsp;mm rod is sheared to length rather than ground, which crushes the last centimeter or so of each end, even though the middle measures a true 8.00&nbsp;mm. A 0.25&nbsp;mm chamfer on each end and a bit of 180 grit fixes it in about four minutes, no new parts required. So if a bearing won&rsquo;t go on, suspect the rod first. When it&rsquo;s right, the rod turns the bearing instead of spinning inside it.</p>
+
+  <h2>The spine that got deleted</h2>
+  <p>The early design ran a threaded rod the length of the machine to carry the structural load. In CAD the printed parts between the risers (the pot and switch housing, the controller bracket, and the brake retainer) were joined with straight dovetails, and when I ran the FEA on just that chain it carried 23 times the design load, and that&rsquo;s with the applied loads already quadrupled to allow for the weak bonds between printed layers. So the rod came out.</p>
+  <p>The riser pattern came out of the same kind of analysis. The front riser went from solid, to diagonal ribs, and then back to the hex pattern from Arachne. The hexes come in three flavors (cut through, backed, and solid), mapped to the stress plot.</p>
+  <div class="fea">
+    <figure><img src="images/clotho-riser-fea-solid.jpg" alt="FEA stress plot of a solid front riser, low stress across most of the plate with small concentrations at the motor bolt holes" loading="lazy"><p class="caption">1. Solid</p></figure>
+    <figure><img src="images/clotho-riser-fea-ribs.jpg" alt="FEA stress plot of the front riser with diagonal rib cutouts, one rib showing higher stress" loading="lazy"><p class="caption">2. Diagonal ribs</p></figure>
+    <figure><img src="images/clotho-riser-fea-hex.jpg" alt="FEA stress plot of the final front riser with a hex pattern, some hexes cut through and some backed, solid around the motor mount" loading="lazy"><p class="caption">3. Hexes, as built</p></figure>
+  </div>
+  <p class="caption">Front riser stress in Fusion&rsquo;s FEA, blue for low and green for higher. The arrows are the applied loads.</p>
+  <figure>
+    <img src="images/clotho-rear.jpg" alt="Clotho from the rear, showing the motor, the driver&rsquo;s heat sink and the hex-patterned rear riser" loading="lazy">
+    <p class="caption">Clotho from the rear.</p>
+  </figure>
+
+  <h2>Making 94 watts behave</h2>
+  <p>The most likely way to get hurt on any spinning wheel is long hair getting wound into the flyer, and Clotho has a lot more motor than most of them. There are a few things standing between the motor and you:</p>
+  <ul class="notes">
+    <li><b>The belt slips.</b> A round poly belt on smooth pulleys will slip before it can transmit dangerous torque, which is the point. On the bench, at half the current limit and half speed, I couldn&rsquo;t stall the bare motor shaft by hand (the meter briefly showed about 2.5&nbsp;A, roughly 60&nbsp;W). The driver&rsquo;s current limit is the backup, but it reacts to sustained load rather than peaks, so the belt goes first.</li>
+    <li><b>The motor mounts break.</b> They&rsquo;re sized to snap if the flyer ever jams hard. I sized them with a harness and test jig screwed to a door frame: work out the equivalent static load at 1&nbsp;g, then print the mounts thinner and thinner until they break at that load.</li>
+    <li><b>You set the top speed.</b> The driver ships set to 3,500&nbsp;RPM, which is 500 more than the motor is rated for. Turn the speed limit pot all the way down before you power it up the first time, bring it up to the fastest speed you&rsquo;ll actually want, and then do your spinning with the knob or the foot pedal below that. A meter that reads Hz will tell you the exact number if you want it, but you don&rsquo;t need it.</li>
+  </ul>
+
+  <h2>Small decisions, with reasons</h2>
+  <ul class="notes">
+    <li><b>The direction switch has no light and no labels.</b> Spinners check direction by looking at the flyer, not the switch. If S and Z come out backwards just pop the switch out and flip it over; the mount is symmetrical for exactly that reason.</li>
+    <li><b>The brake screw is printed, M18&times;2.5.</b> The coarse pitch prints fine on pretty much any printer, and I didn&rsquo;t want to assume you have a good one. It sits below the retainer where you can&rsquo;t see it, unless you print it in a contrasting color, in which case it shows through the hex cutouts in the rear riser. That&rsquo;s nice.</li>
+    <li><b>Finer brake adjustment.</b> The smaller barrel takes up about 28% less line per turn than Arachne&rsquo;s, so a quarter turn on Arachne is about a third of a turn on Clotho. I don&rsquo;t spin, so my friend was the judge of whether that was better.</li>
+    <li><b>The brake spring is held by a thumbscrew.</b> I originally let the spring drop off its hook when you let off the tension, thinking it would make bobbin changes easier. It was just annoying, so now a thumbscrew goes through the eye of the spring, which is what Arachne v1 did in the first place.</li>
+    <li><b>The controller sits heatsink-up and unshrouded under the flyer</b>, so the flyer fans it for free.</li>
+    <li><b>PETG, not PLA.</b> PLA is actually stiffer, but it goes soft at a lower temperature and tends to crack where PETG will bend. The motor itself shouldn&rsquo;t ever get hot in normal use (you can&rsquo;t really load it that hard while spinning; unspun wool can&rsquo;t take 90&nbsp;W of linear load), but the first one lives in the desert, where a plain shelf under the motor would bend like a banana in the heat, so the base holds the motor up from below. If you live somewhere really hot, print it in ABS or ASA.</li>
+    <li><b>A rubber gasket between the motor and the riser</b> keeps motor noise out of the frame. It&rsquo;s optional, but you&rsquo;ll hear the difference.</li>
+  </ul>
+
+  <h2>Honest tradeoffs</h2>
+  <p>It&rsquo;s plastic, not exotic hardwood. There&rsquo;s no battery option (I&rsquo;m not saying you couldn&rsquo;t run a couple of car batteries in series, but I&rsquo;m not saying you should either). It hasn&rsquo;t had decades of redesigns and thousands of users. It&rsquo;s one person in the Northwoods with six printers, usually two of them working.</p>
+
+  <h2>What&rsquo;s next</h2>
+  <ul class="notes">
+    <li><b>A pin-style flyer</b> with a rotated orifice and five orifice sizes. One has been built, and it&rsquo;s too heavy; the arms flex and rub, so it&rsquo;s back on the drawing board.</li>
+    <li><b>A three-bobbin lazy kate.</b> Designed, not built yet.</li>
+    <li><b>Configurable dead zones for the foot pedal</b>, so resting your foot on it doesn&rsquo;t cut the motor.</li>
+    <li><b>A browser-based configuration tool</b> that could live right here on the site, next to the STLs and the BOM.</li>
+  </ul>
+
+  <h2>Build one</h2>
+  <div class="files">
+    <p>Clotho is free and open source (CC BY-SA): the parts list, the full STEP model, printable assemblies, instructions, and foot pedal firmware. If you build one, break one, or improve one, I want to hear about it.</p>
+    <a class="button" href="clotho-build.html">Parts list and build guide &rarr;</a>
+    <a class="button secondary" href="https://www.printables.com/model/1779646-clotho-espinner">Files on Printables</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Thunderbird Labs</div>
+</footer>
+
+</body>
+</html>

@@ -106,3 +106,34 @@ footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .85r
   .entry h3 { font-size: 1.15rem; }
   .entry p { font-size: .95rem; }
 }
+
+/* Articles: long-form design notes */
+.article p, .article .notes { max-width: 72ch; }
+.article figure { margin: 22px 0; }
+.article figure img { border-radius: 6px; background: #fff; }
+.article .caption { margin-top: 6px; }
+.article-link { margin: -10px 0 22px; }
+
+/* Parts tables */
+.project h3 { font-size: 1rem; margin: 26px 0 10px; }
+.table-scroll { overflow-x: auto; margin: 0 0 8px; }
+.bom { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.bom th, .bom td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.bom th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+.bom .num { text-align: right; white-space: nowrap; }
+.bom small { display: block; color: var(--muted); }
+.bom tfoot td { font-weight: 700; border-bottom: 0; }
+
+/* Build steps */
+.steps { margin: 0; padding-left: 22px; max-width: 72ch; }
+.steps > li { margin-bottom: 10px; padding-left: 4px; }
+.steps ul { margin: 8px 0 0; padding-left: 18px; }
+.steps ul li { margin-bottom: 6px; }
+
+/* FEA progression and color ideas */
+.fea, .colors { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 22px 0 6px; }
+.fea figure, .colors figure { margin: 0; }
+.fea img, .colors img { width: 100%; border-radius: 6px; background: #fff; }
+.fea .caption, .colors .caption { margin-top: 6px; }
+.colors { grid-template-columns: 1fr; gap: 22px; }
+.colors .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }

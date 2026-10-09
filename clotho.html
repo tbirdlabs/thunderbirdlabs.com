@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Clotho eSpinner – Thunderbird Labs</title>
-<meta name="description" content="An open-source electric spinning wheel: brushless motor, 3D-printed frame, foot pedal speed control. About $200 in parts.">
+<meta name="description" content="A free, open source electric spinning wheel with a brushless motor, a 3D-printed frame, and an optional foot pedal. About $97 a wheel in parts.">
 <meta property="og:title" content="Clotho eSpinner – Thunderbird Labs">
-<meta property="og:description" content="An open-source electric spinning wheel: brushless motor, 3D-printed frame, foot pedal speed control. About $200 in parts.">
-<meta property="og:image" content="https://thunderbirdlabs.com/images/clotho-cad-front.jpg">
+<meta property="og:description" content="A free, open source electric spinning wheel with a brushless motor, a 3D-printed frame, and an optional foot pedal. About $97 a wheel in parts.">
+<meta property="og:image" content="https://thunderbirdlabs.com/images/clotho-front.jpg">
 <meta property="og:url" content="https://thunderbirdlabs.com/clotho">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -33,16 +33,17 @@
     <h1>Clotho eSpinner</h1>
     <span class="status released">Released Aug 2026</span>
   </div>
-  <p class="lede">An electric spinning wheel built around a 94&nbsp;W closed-loop brushless motor, with a 3D-printed frame, a foot pedal for speed control and a tool-free flyer and bobbin change. Parts cost about $200.</p>
+  <p class="lede">An electric spinning wheel built around a 94&nbsp;W closed-loop brushless motor, with a 3D-printed frame, an optional foot pedal, and a flyer and bobbin change that doesn&rsquo;t need any tools. Parts run about $97 a wheel if you split packs with a friend, or about $185 if you buy the whole list yourself.</p>
+  <p class="article-link"><a href="clotho-design.html">Design notes: why the flyer is held at both ends, the bearing saga, and the spine that got deleted &rarr;</a></p>
 
-  <!-- TODO: add photos of the built spinner here, ahead of the CAD renders -->
+  <!-- TODO: add photos of the built spinner here, ahead of the renders -->
   <div class="gallery">
-    <img src="images/clotho-cad-front.jpg" alt="Clotho eSpinner CAD model, front three-quarter view">
-    <img src="images/clotho-cad-rear.jpg" alt="Clotho eSpinner CAD model, rear view showing motor and driver">
-    <img src="images/clotho-pedal-cad.jpg" alt="Clotho foot pedal CAD model" loading="lazy">
-    <img src="images/clotho-pedal-cad-open.jpg" alt="Clotho foot pedal CAD model with lid removed, showing potentiometer and microcontroller mount" loading="lazy">
+    <img src="images/clotho-front.jpg" alt="Clotho eSpinner, front three-quarter view, with a dark brown frame, jade flyer and oxblood bobbin">
+    <img src="images/clotho-rear.jpg" alt="Clotho eSpinner from the rear, showing the motor, the driver&rsquo;s heat sink and the bobbin">
+    <img src="images/clotho-pedal.jpg" alt="Clotho foot pedal with a dark brown base and oxblood top, showing the jack on the end" loading="lazy">
+    <img src="images/clotho-pedal-open.jpg" alt="Clotho foot pedal with the top removed, showing the hinge rod, the green yoke on the potentiometer, and the board mounts" loading="lazy">
   </div>
-  <p class="caption">CAD renders from the published STEP model.</p>
+  <p class="caption">Renders from the published model, in the radio colors (more colors below).</p>
 
   <h2>Specs</h2>
   <ul class="specs">
@@ -54,18 +55,28 @@
 
   <h2>Build notes</h2>
   <ul class="notes">
-    <li>Cheap 8&nbsp;mm rod is usually sheared to length, which squashes the ends. Chamfer and sand them until the bearings slide on and off.</li>
-    <li>Print the structural parts in PETG. PLA doesn't hold up to the heat and load from this motor.</li>
-    <li>PETG softens around 80&nbsp;&deg;C (175&nbsp;&deg;F). This shouldn't need saying, but one Clotho has already melted in the Arizona sun. If you live somewhere that hot, print it in ASA.</li>
-    <li>The driver ships set to full speed and current. Turn both trim pots all the way down before first power-up, then bring them up.</li>
-    <li>Plugging in the foot pedal disconnects the panel knob. A Pro Micro reads the pedal and sends PWM to the driver; calibrate it over serial.</li>
+    <li>Cheap 8&nbsp;mm rod is usually sheared to length, which squashes the ends. If a bearing won&rsquo;t go on, it&rsquo;s probably the rod. Carefully machine them to size with a lathe or mill (or chuck them into a cordless drill and run them against a file and a handful of sandpaper).</li>
+    <li>Print the structural parts in PETG, especially the flyer arms. PLA may not hold up to the load there, or to the heat wherever it ends up living.</li>
+    <li>PETG starts going soft around 80&nbsp;&deg;C (175&nbsp;&deg;F) and PLA well before that. This shouldn&rsquo;t need saying, but one Clotho has already melted in the Arizona sun, so if you live somewhere that hot and often spin inside cars with the windows rolled up, print it in ABS or ASA.</li>
+    <li>The driver ships set to full speed and full current, which is more than the motor is rated for. Turn both trim pots all the way down before you power it up the first time, then bring them up.</li>
+    <li>Plugging in the foot pedal disconnects the knob on the spinner. A Pro Micro reads the pedal and sends PWM to the driver, and you calibrate it over serial.</li>
   </ul>
+
+  <h2>Color ideas</h2>
+  <p>Clotho is a lot of separate parts, so it doesn&rsquo;t have to be one color. In case you can&rsquo;t decide, here are a few ideas. The frame is the risers, base and electronics housing, the flyer is the body, arms and orifice, and the accents are the knobs, hooks and motor mounts. The hardware colors are just for the renders; your screws will be whatever color the screws on the parts list are.</p>
+  <div class="colors">
+    <figure><div class="pair"><img src="images/clotho-front.jpg" alt="Clotho rendered with a dark brown frame, jade green flyer, oxblood bobbin and motor mounts, and ivory knobs" loading="lazy"><img src="images/clotho-pedal.jpg" alt="Foot pedal with a dark brown base and oxblood top" loading="lazy"></div><p class="caption"><b>Radio.</b> Dark brown frame, jade flyer, oxblood bobbin and motor mounts, ivory knobs and hooks, brass hardware. The pedal gets a brown base, an oxblood top and a jade yoke. The radio I&rsquo;d have dreamed about (in black and white) if I&rsquo;d been born in 1925.</p></figure>
+    <figure><div class="pair"><img src="images/clotho-color-testbench.jpg" alt="Clotho rendered with a gray frame, black flyer, and teal bobbin, knobs, hooks and motor mounts" loading="lazy"><img src="images/clotho-color-testbench-pedal.jpg" alt="Foot pedal with a gray base and teal top" loading="lazy"></div><p class="caption"><b>Test bench.</b> Gray frame, black flyer, and teal for the bobbin, knobs, hooks and motor mounts, with stainless hardware. Gray pedal base, teal top, black yoke.</p></figure>
+    <figure><div class="pair"><img src="images/clotho-color-lavender.jpg" alt="Clotho rendered with a charcoal frame, lavender flyer and knobs, and mint bobbin, hooks and motor mounts" loading="lazy"><img src="images/clotho-color-lavender-pedal.jpg" alt="Foot pedal with a charcoal base and lavender top" loading="lazy"></div><p class="caption"><b>Lavender.</b> Charcoal frame, lavender flyer and knobs, and mint for the bobbin, hooks and motor mounts, with stainless hardware. Charcoal pedal base, lavender top, mint yoke.</p></figure>
+    <figure><div class="pair"><img src="images/clotho-color-cobalt.jpg" alt="Clotho rendered with a cobalt blue frame and bobbin and an off-white flyer and knobs" loading="lazy"><img src="images/clotho-color-cobalt-pedal.jpg" alt="Foot pedal with a cobalt base and off-white top" loading="lazy"></div><p class="caption"><b>Cobalt.</b> Cobalt frame, bobbin and hooks, off-white flyer, knobs and motor mounts, and black hardware. Cobalt pedal base with an off-white top and yoke. Two rolls and you&rsquo;re done.</p></figure>
+  </div>
 
   <h2>Files</h2>
   <div class="files">
-    <p>Parts list with sources, full STEP model, 8 printable 3MF assemblies, build and setup instructions, and foot pedal firmware. Licensed CC BY-SA.</p>
+    <p>Everything you need to build one: the parts list with sources, the full STEP model, 8 printable 3MF assemblies, build and setup instructions, and the foot pedal firmware. It&rsquo;s all CC BY-SA.</p>
     <a class="button" href="https://www.printables.com/model/1779646-clotho-espinner">Get the files on Printables &rarr;</a>
     <a class="button secondary" href="https://github.com/tbirdlabs/Clotho-eSpinner">View on GitHub</a>
+    <a class="button secondary" href="clotho-build.html">Parts list and prices</a>
   </div>
 </main>
 
