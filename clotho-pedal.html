@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clotho Pedal Setup – Thunderbird Labs</title>
+<meta name="description" content="Calibrate the Clotho foot pedal and set its dead zones from your browser, with nothing to install.">
+<meta property="og:title" content="Clotho Pedal Setup – Thunderbird Labs">
+<meta property="og:description" content="Calibrate the Clotho foot pedal and set its dead zones from your browser, with nothing to install.">
+<meta property="og:image" content="https://thunderbirdlabs.com/images/clotho-pedal.jpg">
+<meta property="og:url" content="https://thunderbirdlabs.com/clotho-pedal">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="images/logo.png" alt="Thunderbird Labs logo">
+    <a class="name" href="index.html">Thunderbird Labs</a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap project article pedal">
+  <a class="back" href="clotho.html">&larr; Clotho eSpinner</a>
+
+  <div class="project-head">
+    <h1>Pedal setup</h1>
+    <span class="status progress">In testing</span>
+  </div>
+  <p class="notice">This page is new and still in testing. It hasn&rsquo;t met a real pedal yet, so if something doesn&rsquo;t work, the <a href="https://github.com/tbirdlabs/Clotho-eSpinner">serial commands</a> in the firmware still do everything it does.</p>
+  <p class="lede">Calibrate the Clotho foot pedal and set its dead zones right here in your browser. Plug the pedal into your computer with a USB cable, click Connect, and pick it from the list. There&rsquo;s nothing to install.</p>
+
+  <p class="notice" id="unsupported" hidden>Your browser can&rsquo;t talk to USB devices, so this won&rsquo;t be able to find your pedal. It works in Chrome, Edge or Opera on a desktop or laptop, but not in Firefox or Safari, and not on phones. You can still try the demo.</p>
+
+  <div class="connect-bar">
+    <button class="button" id="connect" type="button">Connect pedal</button>
+    <button class="button secondary" id="demo" type="button">Try the demo</button>
+    <span class="conn" id="conn" role="status">Not connected</span>
+  </div>
+
+  <div class="panel" id="pedal-panel">
+    <div class="readouts">
+      <div><span class="label">Pedal</span><span class="value" id="r-pedal">&ndash;</span></div>
+      <div><span class="label">Motor speed</span><span class="value" id="r-speed">&ndash;</span></div>
+      <div><span class="label">Raw reading</span><span class="value small" id="r-adc">&ndash;</span></div>
+    </div>
+    <p class="notice" id="uncal" hidden>This pedal hasn&rsquo;t been calibrated yet. It&rsquo;s using the pot&rsquo;s whole range, but the pedal only turns it about a fifth of the way, so the motor might not run at all, or might only ever get a little bit of speed. <a href="#calibrate">Calibrate it below.</a></p>
+    <p class="notice" id="locked" hidden>The motor is locked off until you let the pedal all the way up. It does that after every change so the wheel never starts on its own.</p>
+
+    <div class="chart-wrap">
+      <svg id="chart" role="img" aria-labelledby="chart-desc">
+        <desc id="chart-desc">Motor speed for each position of the pedal.</desc>
+      </svg>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <p class="legend" id="legend" hidden><span><span class="key new"></span>New settings</span> <span><span class="key saved"></span>On the pedal now</span> <span><span class="key dot"></span>Your foot</span></p>
+
+    <div class="demo-pedal" id="demo-pedal" hidden>
+      <label for="demo-press">Demo pedal: drag to press it</label>
+      <input type="range" id="demo-press" min="0" max="1000" value="0">
+    </div>
+  </div>
+
+  <h2>Dead zones</h2>
+  <div class="panel">
+    <div class="dz">
+      <label for="dz-heel">Heel</label>
+      <input type="range" id="dz-heel" min="0" max="50" value="5" disabled>
+      <output id="dz-heel-out" for="dz-heel">5%</output>
+      <p class="caption">The motor stays off for this much of the pedal&rsquo;s travel, so resting your foot on it doesn&rsquo;t start the wheel.</p>
+    </div>
+    <div class="dz">
+      <label for="dz-toe">Toe</label>
+      <input type="range" id="dz-toe" min="0" max="50" value="3" disabled>
+      <output id="dz-toe-out" for="dz-toe">3%</output>
+      <p class="caption">The last bit of travel is full speed, so you don&rsquo;t have to stand on it to get there.</p>
+    </div>
+    <div class="actions">
+      <button class="button" id="dz-save" type="button" disabled>Save to pedal</button>
+      <button class="button secondary" id="dz-undo" type="button" disabled>Undo changes</button>
+      <span class="msg" id="dz-msg" role="status"></span>
+    </div>
+  </div>
+
+  <h2 id="calibrate">Calibrate</h2>
+  <div class="panel">
+    <p>The pedal only turns its pot through part of its range, so it has to learn where all the way up and all the way down are. Do this once after you build it, and again if you take the pedal apart. The motor stays off while you calibrate.</p>
+    <div id="cal-idle">
+      <div class="actions">
+        <button class="button" id="cal-start" type="button" disabled>Start calibration</button>
+        <span class="msg" id="cal-done" role="status"></span>
+      </div>
+    </div>
+    <div id="cal-run" hidden>
+      <ol class="steps">
+        <li>Press the pedal all the way down, then let it all the way up. Do that two or three times.</li>
+        <li>When the bar below stops growing, click Save.</li>
+      </ol>
+      <div class="cal-bar" aria-hidden="true"><div class="seen" id="cal-seen"></div><div class="now" id="cal-now"></div></div>
+      <p class="caption" id="cal-text">Waiting for the pedal&hellip;</p>
+      <div class="actions">
+        <button class="button" id="cal-save" type="button" disabled>Save</button>
+        <button class="button secondary" id="cal-cancel" type="button">Cancel</button>
+        <span class="msg" id="cal-msg" role="status"></span>
+      </div>
+    </div>
+  </div>
+
+  <h2>If it doesn&rsquo;t work</h2>
+  <ul class="notes">
+    <li><b>The pedal isn&rsquo;t in the list.</b> Some USB cables only carry power. Try another one. The pedal usually shows up as a Pro Micro, an Arduino Leonardo, or a USB serial device.</li>
+    <li><b>It says the port is busy.</b> Something else has it open, usually the Arduino IDE&rsquo;s serial monitor or another tab with this page in it. Close that and try again.</li>
+    <li><b>It connects but never answers.</b> Unplug the pedal, plug it back in, and connect again. If it still doesn&rsquo;t answer, the pedal firmware probably isn&rsquo;t on it yet; it&rsquo;s in the <a href="https://github.com/tbirdlabs/Clotho-eSpinner">files</a>.</li>
+    <li><b>The speed goes up as you let the pedal up.</b> The two outer wires on the pedal&rsquo;s pot are swapped. Swap them back and calibrate again.</li>
+    <li><b>The motor won&rsquo;t start after saving.</b> Let the pedal all the way up. It stays locked off after every change until it sees the pedal at rest.</li>
+    <li><b>On Linux,</b> your user needs to be in the <code>dialout</code> group (or <code>uucp</code> on Arch) to open serial ports.</li>
+  </ul>
+
+  <details class="console">
+    <summary>Serial console</summary>
+    <p class="caption">Everything the pedal says, and everything this page says to it. You can type the pedal&rsquo;s commands (CAL, DZ, STATUS) here yourself.</p>
+    <label class="caption"><input type="checkbox" id="log-status"> Show the constant STATUS checks</label>
+    <pre id="log"></pre>
+    <form id="send-form" class="send">
+      <input type="text" id="send-text" autocomplete="off" spellcheck="false" placeholder="STATUS" aria-label="Command to send" disabled>
+      <button class="button secondary" type="submit" id="send-btn" disabled>Send</button>
+    </form>
+  </details>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Thunderbird Labs</div>
+</footer>
+
+<script src="clotho-pedal.js"></script>
+</body>
+</html>

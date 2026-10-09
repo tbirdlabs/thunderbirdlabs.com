@@ -204,7 +204,7 @@
   <p>This is optional, but fun. The assembly is simple enough that it barely needs instructions.</p>
   <ol class="steps">
     <li>Print the pedal parts and assemble the pivot. Either one M4&times;80 (or a 5/32&Prime; &times; 3&Prime; machine screw) with a nylock nut or a couple of shorter screws will work, but the shorter ones will probably make the tension easier to adjust.</li>
-    <li>Wire the pot, the Pro Micro and the jacks following the <a href="https://github.com/tbirdlabs/Clotho-eSpinner/blob/HEAD/docs/clotho_wiring_diagram.svg">wiring diagram</a>, and flash the firmware from the files. The serial commands to program and calibrate it are in the comments at the top of the source code.</li>
+    <li>Wire the pot, the Pro Micro and the jacks following the <a href="https://github.com/tbirdlabs/Clotho-eSpinner/blob/HEAD/docs/clotho_wiring_diagram.svg">wiring diagram</a>, and flash the firmware from the files. Then calibrate it and set the dead zones on the <a href="clotho-pedal.html">pedal setup page</a>, or by hand with the serial commands in the comments at the top of the source code.</li>
     <li>The pedal only swings the pot through about a fifth of its rotation, which is why there&rsquo;s a microcontroller in there at all: it calibrates itself to your pedal. Plugging the pedal in disconnects the knob on the spinner.</li>
   </ol>
 
