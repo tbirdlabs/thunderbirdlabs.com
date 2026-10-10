@@ -152,6 +152,7 @@ footer .copy { flex-basis: 100%; margin: 0; }
 .fea .caption, .colors .caption { margin-top: 6px; }
 .colors { grid-template-columns: 1fr; gap: 22px; }
 .colors .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.colors.singles { grid-template-columns: 1fr 1fr; }
 
 /* Pedal setup */
 .pedal .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin-bottom: 8px; }

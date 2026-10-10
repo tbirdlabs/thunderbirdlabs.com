@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building the Yarn Butler – Thunderbird Labs</title>
+<meta name="description" content="Parts list with current prices and build guide for the Yarn Butler.">
+<meta property="og:title" content="Building the Yarn Butler – Thunderbird Labs">
+<meta property="og:description" content="Parts list with current prices and build guide for the Yarn Butler.">
+<meta property="og:image" content="https://thunderbirdlabs.com/images/yarn-butler-color-prusa.jpg">
+<meta property="og:url" content="https://thunderbirdlabs.com/yarn-butler-build">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap project article">
+  <a class="back" href="yarn-butler.html">&larr; Yarn Butler</a>
+
+  <div class="project-head">
+    <h1>Building the Yarn Butler</h1>
+  </div>
+  <p class="lede">Everything you need to buy for the Yarn Butler, and how to put it together. There isn&rsquo;t much of either.</p>
+  <p class="caption">Prices checked October 10, 2026, and they will probably have changed by the time you read this. These are not affiliate links or endorsements, just the parts I used or the closest things I could find on the jungle website.</p>
+  <nav class="toc" aria-label="On this page">
+    <p><b>Buying</b><span><a href="#costs">What it costs</a> <a href="#parts">Parts</a> <a href="#optional">Optional hardware</a> <a href="#shop">From your shop</a></span></p>
+    <p><b>Building</b><span><a href="#tools">Tools</a> <a href="#printing">Printing</a> <a href="#friction">Tuning the friction</a> <a href="#assembly">Assembly</a> <a href="#customizing">Customizing</a> <a href="#files">Files</a></span></p>
+  </nav>
+
+  <h2 id="costs">What it costs</h2>
+  <p>The only part you really need is the rod; everything else is optional, and you can use whatever you&rsquo;ve got. I did. If you buy every pack on the list, it comes to about <b>$26</b>, but the parts that actually end up in each butler come to about <b>$4</b>, and the rod comes two to a pack, so you might as well make two. They make a wonderful gift.</p>
+
+  <h2 id="parts">Parts</h2>
+<!--BOM:Butler-->
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th><th class="num">Pack</th><th class="num">Pack price</th><th class="num">Per unit</th></tr></thead>
+    <tbody>
+      <tr><td>8mm x 150mm rod</td><td><a href="https://www.amazon.com/dp/B0BNL57QGL">Litoexpe linear rod</a></td><td class="num">1</td><td class="num">2</td><td class="num">$5.49</td><td class="num">$2.75</td></tr>
+      <tr><td>Rubber feet, 1/2in round</td><td><a href="https://www.amazon.com/dp/B01N74P0QB">Scotch SP951 clear bumpers</a></td><td class="num">3</td><td class="num">40</td><td class="num">$6.59</td><td class="num">$0.49</td></tr>
+      <tr><td>#8 x 3/8in pan head screws<small>One per pocket, to keep the spare bushings and weights from falling out</small></td><td><a href="https://www.amazon.com/dp/B0CTLWJ997">Phillips pan head wood screws, 304 stainless</a></td><td class="num">6</td><td class="num">100</td><td class="num">$7.98</td><td class="num">$0.48</td></tr>
+      <tr><td>#8 x 3/4in fender washers<small>One under each screw</small></td><td><a href="https://www.amazon.com/dp/B0FHPP97NZ">304 stainless, 3/4in OD</a></td><td class="num">6</td><td class="num">50</td><td class="num">$5.99</td><td class="num">$0.72</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">Total</td><td class="num">$26.05</td><td class="num">$4.44</td></tr></tfoot>
+  </table>
+  </div>
+<!--/BOM:Butler-->
+  <p>The screws go into the towers in the base&rsquo;s pockets, and they&rsquo;re just there to keep stuff from falling out. Use coarse-thread #8s (wood or sheet metal screws, from the list or your local hardware store), which cut their own threads; no nuts, no printed threads. The towers are printed standing up, so they&rsquo;re weakest across the layers and will snap off if you go any bigger or crank them down; snug is plenty. Put a washer under each one, or the bushings can slip past the head.</p>
+
+  <h3 id="optional">Optional hardware</h3>
+  <p>A 608 bearing can take the place of a bushing (see <a href="#friction">Tuning the friction</a>). M5&times;12 screws work in place of the #8s, with M5 washers, since the #8 washers are too small inside for M5. And if you want the base heavier, the 24&nbsp;mm M8 washers fit the pockets; seven of them fill one, the same height as two bushings.</p>
+<!--BOM:Optional-->
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th><th class="num">Pack</th><th class="num">Pack price</th><th class="num">Per unit</th></tr></thead>
+    <tbody>
+      <tr><td>608 bearing<small>In place of a bushing</small></td><td><a href="https://www.amazon.com/dp/B09PKD8QZZ">SHKI 608-2RS</a></td><td class="num">1</td><td class="num">20</td><td class="num">$6.99</td><td class="num">$0.35</td></tr>
+      <tr><td>M5 x 12 button head screws<small>In place of the #8 screws</small></td><td><a href="https://www.amazon.com/dp/B0B5LVZMSS">iexcell, 304 stainless</a></td><td class="num">6</td><td class="num">50</td><td class="num">$7.86</td><td class="num">$0.94</td></tr>
+      <tr><td>M5 washers, 15mm OD<small>With the M5 screws; the #8 washers are too small inside for M5</small></td><td><a href="https://www.amazon.com/dp/B097MR367X">M5 x 15 x 1.2mm, 304 stainless</a></td><td class="num">6</td><td class="num">100</td><td class="num">$6.99</td><td class="num">$0.42</td></tr>
+      <tr><td>M8 washers, 24mm OD, for weight<small>Seven fill a pocket</small></td><td><a href="https://www.amazon.com/dp/B0B77F7ST7">binifiMux M8 x 24 x 2mm</a></td><td class="num">7</td><td class="num">50</td><td class="num">$8.69</td><td class="num">$1.22</td></tr>
+    </tbody>
+  </table>
+  </div>
+<!--/BOM:Optional-->
+
+  <h3 id="shop">From your shop</h3>
+  <ul class="notes">
+    <li>Filament, about a quarter roll (234&nbsp;g). PLA is fine for the top and the barrel, but print the base in PETG if you&rsquo;re putting screws in it (see <a href="#printing">Printing</a>).</li>
+  </ul>
+
+  <h2>Build guide</h2>
+  <p class="print-only">The drawings are made from the CAD model. Each one shows the parts that step adds, pulled apart along the way they go together, with a parts list. The latest version of this guide, with color renders, is at thunderbirdlabs.com/yarn-butler-build.html, and the files are on Printables (printables.com/model/1492586).</p>
+  <p class="screen-only">The pictures are made from the CAD model: a render on the left and an exploded drawing with a parts list on the right (click either one to see it bigger). The parts you&rsquo;re adding in that step are gray, and the ones you&rsquo;ve already put together are in color. There&rsquo;s also a <a href="yarn-butler-build.pdf">printable PDF</a> of this page, with just the drawings.</p>
+
+  <h3 id="tools">Tools</h3>
+  <ul class="notes">
+    <li>A hammer, for the rod</li>
+    <li>A Phillips screwdriver for the #8s (or a 3&nbsp;mm Allen key, if you used M5 button heads)</li>
+  </ul>
+
+  <h3 id="printing">Printing</h3>
+  <ul class="notes">
+    <li>Print the parts in the provided orientations.</li>
+    <li>The threads work fine at 0.20&nbsp;mm layer height, but better at 0.10&nbsp;mm. Variable layer height works well to make the threads finer and remove layer lines in the smooth curves at the bottom of the barrel and at the top of the&hellip;top.</li>
+    <li>PLA is fine for the top and the barrel, but if you plan to use screws in the base it may crack; PETG has been tested and works well. Consider printing the base with a high wall count and/or infill ratio to add mass, or just add mass later with the M8 washers.</li>
+    <li>I used PETG for the bushings and it works well. PLA hasn&rsquo;t been tested, but should be fine.</li>
+    <li>The bushings marked MMU (numbers down) are for multiple filament printers. For single filament printers use the bushings marked No MMU, and print them numbers up (as provided).</li>
+    <li>If you don&rsquo;t plan on using a bearing, print the 25&ndash;45 bushing set first, and print the 0&ndash;20 set if the 25 is too loose.</li>
+    <li>The lettering on the base is its own part, so a multi-material printer can print it in another color. If you&rsquo;re printing in a single color, just set it to the same color as the base.</li>
+  </ul>
+
+  <h3 id="friction">Tuning the friction</h3>
+  <p>The friction is set by a 608 bearing or one of the bushings in the top of the barrel. The bushings are numbered 0 to 45, and the number is the internal diameter over 8&nbsp;mm: the 0 bushing is 8.00&nbsp;mm, the 20 bushing is 8.20&nbsp;mm, and so on, so the smaller the number, the more friction it makes (friction go up as number go down).</p>
+  <ul class="notes">
+    <li>If you want to use a 608 bearing, start by using it without removing the internal assembly lube, for more friction, then try rinsing it out if it&rsquo;s too much.</li>
+    <li>Use no bushing or bearing at all for a very low friction experience.</li>
+    <li>The 35 or an unrinsed 608 seemed about right to me, but personal preference and printer calibration are things that exist.</li>
+  </ul>
+
+  <h3 id="assembly">Assembly</h3>
+  <ol class="steps">
+    <li>Press the rod into the hole in the base&hellip;and by press I mean pound. You will almost certainly need a hammer; the fit is intentionally&hellip;snug.</li>
+    <li>Stick three rubber feet into the recesses on the bottom of the base.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/yarn-butler-step01-rod-feet.jpg" alt="Render of the base with the rod pulled up out of its hole and the three rubber feet pulled down from the bottom" loading="lazy">
+          <img class="drawing" src="images/guide/yarn-butler-step01-rod-feet-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The rod goes in from the top, and the feet go in the recesses underneath.</p>
+      </figure>
+    </li>
+    <li>Put the spare bushings in the pockets in the base, up to two to a pocket, and fill any empty pockets with M8 washers if you want more weight. Put a washer and a #8&times;3/8&Prime; screw on each pocket&rsquo;s tower to keep everything from falling out. Snug is plenty; the towers snap if you overdo it.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/yarn-butler-step02-pockets.jpg" alt="Render of the base with a stack pulled up out of each pocket: two spare bushings in five of them and seven M8 washers in the sixth, each topped with a fender washer and a pan head screw" loading="lazy">
+          <img class="drawing" src="images/guide/yarn-butler-step02-pockets-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">Two spare bushings in each of five pockets and seven M8 washers in the sixth, with a fender washer and a #8 screw on every tower. With a 608 in the barrel, all ten bushings are spares.</p>
+      </figure>
+    </li>
+    <li>Drop a bearing or bushing into the recess in the top of the barrel, and screw the top on most of the way, but not touching the bearing or bushing.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/yarn-butler-step03-top.jpg" alt="Render of the barrel with a 608 bearing and the top pulled up above it" loading="lazy">
+          <img class="drawing" src="images/guide/yarn-butler-step03-top-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The bearing (or a bushing) drops into the top of the barrel, and the top screws on over it.</p>
+      </figure>
+    </li>
+    <li>Put the barrel assembly onto the rod, wiggle it to line up the bushing, and tighten the top.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/yarn-butler-step04-barrel-on.jpg" alt="Render of the finished barrel lifted straight up above the rod and the base" loading="lazy">
+          <img class="drawing" src="images/guide/yarn-butler-step04-barrel-on-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The barrel goes straight down over the rod.</p>
+      </figure>
+    </li>
+    <li>Test the friction. For more friction, use a smaller numbered bushing; for less, a larger number.</li>
+  </ol>
+
+  <h3 id="customizing">Customizing</h3>
+  <p>Download the STEP file and have at it: a name for a gift, something to prevent theft, or something to throw off the yarn police. If you&rsquo;re using Fusion 360 and the Emboss tool doesn&rsquo;t like the font you picked, just try a different one.</p>
+
+  <h3>Usage</h3>
+  <p>Beats me, I don&rsquo;t actually knit. Presumably if you&rsquo;ve made it this far you either know how to use it or know someone who does.</p>
+
+  <h2 id="files" class="screen-only">Files</h2>
+  <div class="files screen-only">
+    <p>The STEP model and printable 3MF files are on Printables. Everything is CC BY-SA, so remix away, and <a href="mailto:thunderbirdlabs@gmail.com?subject=Yarn%20Butler">tell me</a> what you build, break, or improve.</p>
+    <a class="button" href="https://www.printables.com/model/1492586-yarn-butler">Get the files on Printables &rarr;</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+      <a href="#top">Back to top &uarr;</a>
+    </nav>
+    <p class="copy">&copy; 2026 Thunderbird Labs</p>
+  </div>
+</footer>
+
+<script src="lightbox.js"></script>
+</body>
+</html>
