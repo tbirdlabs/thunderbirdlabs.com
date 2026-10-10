@@ -113,7 +113,8 @@
 
   <h2>Build guide</h2>
   <p>Most of this should be fairly intuitive once you have the parts in your hands. All the holes and recesses are the right size, and the wrong parts won&rsquo;t fit or will just look silly. Screw lengths are in the fasteners table above, and the steps call them out where it matters.</p>
-  <!-- TODO: step pictures (render + exploded drawing) once the model has its hardware, plus the screen-only/print-only intro paragraphs from clotho-build.html and a PDF. -->
+  <p class="print-only">The drawings are made from the CAD model. Each one shows the parts that step adds, pulled apart along the way they go together, with a parts list. The latest version of this guide, with color renders, is at thunderbirdlabs.com/arachne-build.html, and the files are on Printables (printables.com/model/1526904).</p>
+  <p class="screen-only">The pictures are made from the CAD model: a render on the left and an exploded drawing with a parts list on the right (click either one to see it bigger). The parts you&rsquo;re adding in that step are gray, and the ones you&rsquo;ve already put together are in color. There&rsquo;s also a <a href="arachne-build.pdf">printable PDF</a> of this page, with just the drawings.</p>
 
   <h3 id="tools">Tools</h3>
   <ul class="notes">
@@ -157,25 +158,113 @@
   <h3 id="base">Risers, base and electronics</h3>
   <ol class="steps">
     <li>Press the halves of each riser together by hand to check the alignment, then gently tap them into place until there are no gaps. They should fit tightly everywhere except near the bearing saddles, where a little flex is fine; they get bolted together next.</li>
-    <li>Press three M4 hex nuts into the recesses on the inside of each riser (tap them in if you need to), and bolt each riser together with three M4&times;10.</li>
-    <li>Attach the motor to the front riser with six M3&times;12, socket or button heads, and no washers; washers stick out far enough to hit the pulley. Don&rsquo;t use longer screws or overtighten them, or they&rsquo;ll damage the gearbox. Afterwards, turn the motor shaft by hand to make sure the screws aren&rsquo;t hitting anything inside.</li>
+    <li>Press three M4 hex nuts into the recesses on the inside of each riser (tap them in if you need to), and bolt each riser together with three M4&times;10.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step01-rear-riser.jpg" alt="Render of the rear riser pulled apart: three M4 by 10 screws, the outer half, the inner half and three hex nuts" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step01-rear-riser-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The rear riser: two halves, three M4&times;10 and three hex nuts. The nuts go in from the inside face.</p>
+      </figure>
+    
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step02-front-riser.jpg" alt="Render of the front riser pulled apart the same way" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step02-front-riser-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The front riser goes together the same way.</p>
+      </figure>
+    </li>
+    <li>Attach the motor to the front riser with six M3&times;12, socket or button heads, and no washers; washers stick out far enough to hit the pulley. Don&rsquo;t use longer screws or overtighten them, or they&rsquo;ll damage the gearbox. Afterwards, turn the motor shaft by hand to make sure the screws aren&rsquo;t hitting anything inside.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step03-motor-switch.jpg" alt="Render of the front riser with the motor pulled back from it, the six M3 screws in front, and the switch pulled out the front" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step03-motor-switch-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The motor and its six M3&times;12 go on from opposite sides of the front riser, and the switch (step 8) presses in from the front. The pulley isn&rsquo;t shown here; it&rsquo;s in the picture at step 16.</p>
+      </figure>
+    </li>
     <li>Put the pulley on the motor shaft with the grub screws that come with it. One of the grub screws should be on the flat of the shaft.</li>
     <li>Line the rear fascia up over the rear riser, press it on by hand to check the alignment, then gently tap it into place.</li>
-    <li>Screw a cup hook into the small hole in the brake spring retainer. Press two M4 hex nuts into it and bolt it to the rear riser with two M4&times;20.</li>
-    <li>Press eight M4 square nuts into the recesses in the brake screw retainer. Use the needle-nosed pliers, the hammer and the small screwdriver as needed. Make sure it&rsquo;s the current brake screw retainer, the one with a slot in the threads (it&rsquo;s its own file). Bolt it to the rear riser with four M4&times;20.</li>
+    <li>Screw a cup hook into the small hole in the brake spring retainer. Press two M4 hex nuts into it and bolt it to the rear riser with two M4&times;20.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step04-fascia-spring-retainer.jpg" alt="Render of the rear riser with the rear fascia and brake spring retainer pulled off its inside face, two M4 by 20 screws behind it and two hex nuts in front" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step04-fascia-spring-retainer-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The rear fascia and the brake spring retainer. The two M4&times;20 go in from the back, through the riser and the fascia, into the hex nuts in the retainer. The cup hook isn&rsquo;t shown.</p>
+      </figure>
+    </li>
+    <li>Press eight M4 square nuts into the recesses in the brake screw retainer. Use the needle-nosed pliers, the hammer and the small screwdriver as needed. Make sure it&rsquo;s the current brake screw retainer, the one with a slot in the threads (it&rsquo;s its own file). Bolt it to the rear riser with four M4&times;20.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step05-brake-screw-retainer.jpg" alt="Render of the brake screw retainer pulled off the rear riser, with four square nuts above it, four below it, and four M4 by 20 screws behind the riser" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step05-brake-screw-retainer-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The brake screw retainer. Four square nuts drop into the slots on top and four go into the slots on the bottom, and the four M4&times;20 go through the rear riser from the back.</p>
+      </figure>
+    </li>
     <li>Take the heat shrink off the controller&rsquo;s switch and press the switch into its recess in the front riser. It should click firmly into place.</li>
     <li>Wire the motor (see <a href="#wiring">Wiring</a>).</li>
     <li>The power jack can go in one of two places. If you can solder, take the heat shrink off the jack, desolder the wires it came with, and solder on about 250&nbsp;mm (10&Prime;) of 18&nbsp;AWG; then it goes in the spreader arm. If you&rsquo;d rather not solder, it goes in the hole at the base of the spreader instead, with the wires it came with.</li>
     <li>Grab the spreader and the jack hole plug from the base assembly. Thread the jack&rsquo;s wires through whichever hole you&rsquo;re using and screw the jack into place, then screw the plug into the other hole.</li>
     <li>Connect the motor and the power jack to the speed controller, minding the polarity.</li>
     <li>Optional, but a good idea: gently plug in the switch and the power and test it. The switch should reverse the motor, the center position should stop it, and the knob should control the speed. Unplugging the switch afterwards may make the next few steps easier, but either way be careful; that wire is delicate.</li>
-    <li>Press four M3 hex nuts and twelve M4 square nuts into the recesses in the electronics housing.</li>
-    <li>Pass the controller&rsquo;s pot shaft through the hole in the electronics housing and fasten the controller with four M3&times;10. You may need the tweezers to place the inside screws, since it&rsquo;s a bit tight in there. There are holes in the bottom of the housing to get an Allen key through to tighten them.</li>
-    <li>Make sure the motor wires pass through the slot in the electronics housing and the switch wires aren&rsquo;t being pinched, then bolt the front riser to the electronics housing with six M4&times;16.</li>
+    <li>Press four M3 hex nuts and twelve M4 square nuts into the recesses in the electronics housing.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step06a-housing-nuts-front.jpg" alt="Render of the electronics housing from the front left, with the six square nuts for its front wall and two M3 hex nuts pulled out of their slots" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step06a-housing-nuts-front-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The nuts for the front wall of the housing, from the front. Each one is pulled out the way its slot opens.</p>
+      </figure>
+    
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step06b-housing-nuts-back.jpg" alt="Render of the electronics housing from the back left, with the six square nuts for its back wall and the other two M3 hex nuts pulled out of their slots" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step06b-housing-nuts-back-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The nuts for the back wall, from the back, and the other two M3 nuts.</p>
+      </figure>
+    </li>
+    <li>Pass the controller&rsquo;s pot shaft through the hole in the electronics housing and fasten the controller with four M3&times;10. You may need the tweezers to place the inside screws, since it&rsquo;s a bit tight in there. There are holes in the bottom of the housing to get an Allen key through to tighten them.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step06c-controller.jpg" alt="Render of the speed controller pulled out the front of the electronics housing, with four M3 by 10 screws below it" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step06c-controller-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The controller goes in through the front of the housing with its pot shaft out the side, and the four M3&times;10 come up from underneath into the M3 nuts.</p>
+      </figure>
+    </li>
+    <li>Make sure the motor wires pass through the slot in the electronics housing and the switch wires aren&rsquo;t being pinched, then bolt the front riser to the electronics housing with six M4&times;16.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step07-housing-front-riser.jpg" alt="Render of the electronics housing pulled back from the front riser, six M4 by 16 screws in front of the riser, and the wiring cover below the housing" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step07-housing-front-riser-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">Six M4&times;16 from the front, through the riser into the housing, and the wiring cover (step 18). The pulley is on the motor shaft here.</p>
+      </figure>
+    </li>
     <li>Plug the switch into its socket on the controller.</li>
     <li>Slide the electronics cover into place over the electronics, making sure it goes all the way in and doesn&rsquo;t pinch any wires. The recess in the bottom of the cover goes toward the front riser.</li>
-    <li>Bolt the spreader to the electronics housing with six M4&times;8. Really, any length from 8 to 20 works here; 8s can be tough to get started, but this is a place to use whatever you have a lot of.</li>
-    <li>Press two M4 square nuts into the spreader for the rear riser screws, then bolt the spreader to the rear riser with two M4&times;20, and to the brake screw retainer with four M4&times;16.</li>
+    <li>Bolt the spreader to the electronics housing with six M4&times;8. Really, any length from 8 to 20 works here; 8s can be tough to get started, but this is a place to use whatever you have a lot of.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step08-spreader.jpg" alt="Render of the spreader pulled back from the electronics housing, with six M4 by 8 screws behind its front wall, the jack hole plug, and two square nuts below it" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step08-spreader-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The spreader and the jack hole plug. The six M4&times;8 go in from inside the spreader, and the two square nuts for the rear riser screws go in from underneath. The power jack isn&rsquo;t shown.</p>
+      </figure>
+    </li>
+    <li>Press two M4 square nuts into the spreader for the rear riser screws, then bolt the spreader to the rear riser with two M4&times;20, and to the brake screw retainer with four M4&times;16.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step09-rear-riser-on.jpg" alt="Render of the rear riser, with its fascia and brake retainers, pulled back from the spreader, two M4 by 20 screws behind it and four M4 by 16 screws inside the spreader" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step09-rear-riser-on-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The rear riser goes on last: two M4&times;20 from the back into the spreader&rsquo;s square nuts, and four M4&times;16 from inside the spreader into the brake screw retainer.</p>
+      </figure>
+    </li>
     <li>Press the printed knob onto the pot shaft.</li>
     <li>Plug in the power and test everything again.</li>
   </ol>
@@ -184,20 +273,60 @@
   <ol class="steps">
     <li>With the flyer body on a smooth, hard surface, gently tap the rod into its recess. It may take a bit of force, but you should hear the sound change when the rod bottoms out. If you&rsquo;re not sure it&rsquo;s all the way in, put the orifice on (the next two steps) and set the flyer in the base: there should be less than 1&nbsp;mm between the end of the rod and the rear riser. If there isn&rsquo;t, take the orifice back off and tap it some more.</li>
     <li>Put two M4 square nuts into each flyer arm and attach the arms to the flyer body with M4&times;12 in the inside holes (toward the orifice) and M4&times;20 in the outside holes.</li>
-    <li>Onto the threaded end of the orifice put a bearing spacer, the 6804 bearing, and the second bearing spacer, in that order. Screw the orifice into the flyer body.</li>
+    <li>Onto the threaded end of the orifice put a bearing spacer, the 6804 bearing, and the second bearing spacer, in that order. Screw the orifice into the flyer body.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step10-flyer.jpg" alt="Render of the flyer pulled apart: the body, the rod, the two arms with their square nuts, two M4 by 12 and two M4 by 20 screws, and the orifice with its 6804 bearing and two spacers" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step10-flyer-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The flyer: the rod, the arms with their square nuts, M4&times;12 in the inside holes and M4&times;20 in the outside ones, and the orifice with the 6804 between its two spacers.</p>
+      </figure>
+    </li>
     <li>Test-fit the flyer hooks on the arms. They should slide smoothly with very little friction; if they catch, lightly sand the arms with 180 grit until they don&rsquo;t. Sand them under running water to keep the dust down, or rinse them afterwards to get rid of the powder and bring back their factory sheen.</li>
-    <li>The flyer takes four hooks, two on each arm. With only one per arm the flyer goes out of balance as soon as the hooks aren&rsquo;t in matching spots, and it gets worse the faster you spin. Thread a cup hook into the small hole in each flyer hook, press an M4 square nut into each one, and start an M4&times;12 thumbscrew, keeping the tip out of the arm slot. Slide the hooks onto the arms and secure them with the thumbscrews. It takes very little force; don&rsquo;t overtighten them.</li>
-    <li>For the bobbin, press a 608 into the front flange and screw the rear flange into it. Press the bearing spacer into the rear flange, press the second 608 in after it, and screw on the rear bearing retainer.</li>
+    <li>The flyer takes four hooks, two on each arm. With only one per arm the flyer goes out of balance as soon as the hooks aren&rsquo;t in matching spots, and it gets worse the faster you spin. Thread a cup hook into the small hole in each flyer hook, press an M4 square nut into each one, and start an M4&times;12 thumbscrew, keeping the tip out of the arm slot. Slide the hooks onto the arms and secure them with the thumbscrews. It takes very little force; don&rsquo;t overtighten them.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step11-hooks.jpg" alt="Render of the flyer with its four hooks pulled off the arms, each with a thumbscrew and a square nut" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step11-hooks-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">Four hooks, each with a thumbscrew and a square nut. The cup hooks aren&rsquo;t shown.</p>
+      </figure>
+    </li>
+    <li>For the bobbin, press a 608 into the front flange and screw the rear flange into it. Press the bearing spacer into the rear flange, press the second 608 in after it, and screw on the rear bearing retainer.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step12-bobbin.jpg" alt="Render of the bobbin pulled apart: front flange, 608, rear flange, bearing spacer, second 608 and rear bearing retainer" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step12-bobbin-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The bobbin, the same one Clotho uses.</p>
+      </figure>
+    </li>
   </ol>
 
   <h3 id="final">Final assembly</h3>
   <ol class="steps">
-    <li>Screw the brake tension screw into the brake screw retainer. It may be very hard to turn at first, but it should thread in without damage, and it wears in quickly. Run it all the way in and out several times. It should be snug but turnable with your fingertips: too loose and it won&rsquo;t hold tension on the brake line, too tight and it&rsquo;s a pain to use. If it&rsquo;s too tight, try the undersize brake screw. If it&rsquo;s too loose, push a 25&nbsp;mm piece of the belt into the slot in the retainer&rsquo;s threads, with a bit of paper or two under it if it needs more. The printed threads wear smooth pretty quickly, so the belt is worth putting in either way; when it wears, take it out and turn it, replace it, or shim it with more paper. The oversize screw was my first fix for that, and it wears smooth too.</li>
+    <li>Screw the brake tension screw into the brake screw retainer. It may be very hard to turn at first, but it should thread in without damage, and it wears in quickly. Run it all the way in and out several times. It should be snug but turnable with your fingertips: too loose and it won&rsquo;t hold tension on the brake line, too tight and it&rsquo;s a pain to use. If it&rsquo;s too tight, try the undersize brake screw. If it&rsquo;s too loose, push a 25&nbsp;mm piece of the belt into the slot in the retainer&rsquo;s threads, with a bit of paper or two under it if it needs more. The printed threads wear smooth pretty quickly, so the belt is worth putting in either way; when it wears, take it out and turn it, replace it, or shim it with more paper. The oversize screw was my first fix for that, and it wears smooth too.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step13-brake.jpg" alt="Render of the base with the brake tension screw pulled out to the side of the brake screw retainer" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step13-brake-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The brake tension screw threads into the brake screw retainer from the side. The spring, the twine and the piece of belt aren&rsquo;t shown.</p>
+      </figure>
+    </li>
     <li>Turn the brake tension screw until the slot in its end is about 25&nbsp;mm (1&Prime;) out from the retainer, and tie about 300&nbsp;mm (12&Prime;) of cotton twine (or your preferred brake material) to it by passing it through the slot and tying it around the threads.</li>
     <li>Tie the brake spring to the other end of the twine and hook it on the cup hook in the brake spring retainer.</li>
     <li>Screw in the brake tension screw to take up some of the slack, but leave enough to get the brake pulley on the bobbin under it.</li>
     <li>Slide the bobbin onto the flyer. If it doesn&rsquo;t slide on smoothly, loosen the bobbin&rsquo;s threaded joints, slide it all the way onto the rod to line up the bearings, and tighten them again.</li>
-    <li>Slide a 608 over the end of the rod and set the flyer and bobbin in the base, with the brake line over the brake pulley on the back of the bobbin.</li>
+    <li>Slide a 608 over the end of the rod and set the flyer and bobbin in the base, with the brake line over the brake pulley on the back of the bobbin.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/arachne-step14-flyer-in.jpg" alt="Render of the flyer and bobbin lifted straight up above the base, with the rear 608 pulled off the end of the rod" loading="lazy">
+          <img class="drawing" src="images/guide/arachne-step14-flyer-in-drawing.png" alt="Exploded drawing of that step with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The flyer and bobbin drop straight down into the saddles, with a 608 on the end of the rod. The belt isn&rsquo;t shown.</p>
+      </figure>
+    </li>
     <li>Tighten the brake tension screw to take up the rest of the slack.</li>
     <li>Cut about 240&nbsp;mm of belt and join the ends with your preferred method. I use a heat gun and a small jig, which is included in the print files.</li>
     <li>Put the belt on and do the final test.</li>
@@ -207,8 +336,8 @@
   <h3 id="bobbins">Changing bobbins</h3>
   <p>Take the belt off and lift the whole flyer straight up out of the base. Slide the rear bearing off the end of the rod, then slide the bobbin off. Putting it back is the reverse.</p>
 
-  <h2 id="files">Files</h2>
-  <div class="files">
+  <h2 id="files" class="screen-only">Files</h2>
+  <div class="files screen-only">
     <p>The STEP model and printable assemblies are on Printables. Everything is CC BY-SA, so remix away, and <a href="mailto:thunderbirdlabs@gmail.com?subject=Arachne">tell me</a> what you build, break, or improve.</p>
     <a class="button" href="https://www.printables.com/model/1526904-arachne-espinner-v20">Get the files on Printables &rarr;</a>
   </div>
