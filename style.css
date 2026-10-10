@@ -260,3 +260,25 @@ body:has(.lightbox[open]) { overflow: hidden; }
   .gallery img, .fea img, .colors img, .article figure img { max-height: 9cm; width: auto; }
   .zoomable { outline: none !important; }
 }
+
+/* Build guide pictures: render and exploded drawing side by side, inside the step they go with */
+.project { container-type: inline-size; }
+.steps > li > .step-fig { width: min(914px, calc(100vw - 66px)); margin: 12px 0 18px; }
+/* cqw is the page column without the scrollbar, which 100vw includes; 26px is the list indent */
+@supports (width: 1cqw) { .steps > li > .step-fig { width: calc(100cqw - 26px); } }
+.step-fig .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.step-fig img { width: 100%; border-radius: 6px; }
+.step-fig .drawing { background: #fff; }
+.step-fig .caption { margin-top: 6px; max-width: 72ch; }
+@media (max-width: 560px) { .step-fig .pair { grid-template-columns: 1fr; } }
+@page { size: letter; margin: 16mm 15mm; }
+.print-only { display: none; }
+@media print {
+  .steps > li > .step-fig { width: auto; margin: 6pt 0 4pt; }
+  .step-fig .pair { display: block; }
+  .step-fig img:not(.drawing) { display: none; }
+  .step-fig .drawing { width: 11.5cm; max-height: none; margin: 0; border-radius: 0; }
+  p, li { orphans: 3; widows: 3; }
+  .screen-only { display: none; }
+  .print-only { display: block; }
+}
