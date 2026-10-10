@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building Arachne – Thunderbird Labs</title>
+<meta name="description" content="Parts list with current prices and build guide for the Arachne eSpinner v2.">
+<meta property="og:title" content="Building Arachne – Thunderbird Labs">
+<meta property="og:description" content="Parts list with current prices and build guide for the Arachne eSpinner v2.">
+<meta property="og:image" content="https://thunderbirdlabs.com/images/arachne-color-lavender.jpg">
+<meta property="og:url" content="https://thunderbirdlabs.com/arachne-build">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap project article">
+  <a class="back" href="arachne.html">&larr; Arachne eSpinner</a>
+
+  <div class="project-head">
+    <h1>Building Arachne</h1>
+  </div>
+  <p class="lede">Everything you need to buy for Arachne v2, and how to put it all together. I realize it looks like a lot, but it really isn&rsquo;t; I just tried to be as descriptive as possible.</p>
+  <p class="caption">Prices checked October 10, 2026, and they will probably have changed by the time you read this. These are not affiliate links or endorsements, just the parts I used or the closest things I could find on the jungle website.</p>
+  <nav class="toc" aria-label="On this page">
+    <p><b>Buying</b><span><a href="#costs">What it costs</a> <a href="#parts">Parts</a> <a href="#fasteners">Fasteners</a> <a href="#optional">Optional hardware and tools</a> <a href="#shop">From your shop</a></span></p>
+    <p><b>Building</b><span><a href="#tools">Tools</a> <a href="#printing">Printing</a> <a href="#rod">Rod and bearings</a> <a href="#wiring">Wiring</a> <a href="#base">Risers, base and electronics</a> <a href="#flyer">Flyer and bobbin</a> <a href="#final">Final assembly</a> <a href="#bobbins">Changing bobbins</a> <a href="#files">Files</a></span></p>
+  </nav>
+
+  <h2 id="costs">What it costs</h2>
+  <p>Pretty much everything comes in packs much bigger than one build needs (you need five cup hooks, and the link is for a hundred). If you build one by yourself you buy whole packs, which comes to about <b>$143</b>. The parts that actually end up in each Arachne come to about <b>$60</b>, and the rest goes in your parts bin. The motor, pulley and power supply are sold one at a time, but almost every other listing has enough for at least two, so if you have a friend, build two and split the packs. Each one takes a bit more than half a roll of filament, so two of them take two rolls, which means more colors. Fun!</p>
+
+  <h2 id="parts">Parts</h2>
+<!--BOM:Arachne-->
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th><th class="num">Pack</th><th class="num">Pack price</th><th class="num">Per unit</th></tr></thead>
+    <tbody>
+      <tr><td>DC gearmotor, 12V 600 RPM, 37mm<small>Pick the 12V 600RPM style</small></td><td><a href="https://www.amazon.com/dp/B0C7GN1VPD">Bringsmart JGB37-520</a></td><td class="num">1</td><td class="num">1</td><td class="num">$21.57</td><td class="num">$21.57</td></tr>
+      <tr><td>Motor speed controller, PWM, with reversing switch</td><td><a href="https://www.amazon.com/dp/B08HQQR3FQ">1203BB, 6-28V 3A</a></td><td class="num">1</td><td class="num">2</td><td class="num">$9.59</td><td class="num">$4.79</td></tr>
+      <tr><td>Power supply, 12V 2A, 5.5x2.1mm plug, center positive<small>Replaces the SmoTecQ 2-pack, which is unavailable</small></td><td><a href="https://www.amazon.com/dp/B013HJI0Q6">Security-01 cs-1202000</a></td><td class="num">1</td><td class="num">1</td><td class="num">$9.99</td><td class="num">$9.99</td></tr>
+      <tr><td>Power jack, 5.5x2.1mm, 11mm panel hole<small>Matches the supply&#x27;s plug</small></td><td><a href="https://www.amazon.com/dp/B0DLKN8J7M">Panel jack with 18 AWG pigtails</a></td><td class="num">1</td><td class="num">5</td><td class="num">$8.19</td><td class="num">$1.64</td></tr>
+      <tr><td>6804 bearing</td><td><a href="https://www.amazon.com/dp/B0C74VVNJC">HiPicco 6804-2RS</a></td><td class="num">1</td><td class="num">10</td><td class="num">$9.99</td><td class="num">$1.00</td></tr>
+      <tr><td>608 bearings<small>Plus 2 per extra bobbin</small></td><td><a href="https://www.amazon.com/dp/B09PKD8QZZ">SHKI 608-2RS</a></td><td class="num">3</td><td class="num">20</td><td class="num">$6.99</td><td class="num">$1.05</td></tr>
+      <tr><td>8mm x 150mm rod</td><td><a href="https://www.amazon.com/dp/B0BNL57QGL">Litoexpe linear rod</a></td><td class="num">1</td><td class="num">2</td><td class="num">$5.49</td><td class="num">$2.75</td></tr>
+      <tr><td>Motor pulley, 22mm V, 6mm bore<small>Low stock</small></td><td><a href="https://www.amazon.com/dp/B0CD7F4ND2">HARFINGTON</a></td><td class="num">1</td><td class="num">1</td><td class="num">$9.99</td><td class="num">$9.99</td></tr>
+      <tr><td>Drive belt, 5mm PU round<small>About 240mm per build, plus a 25mm piece for the brake screw retainer</small></td><td><a href="https://www.amazon.com/dp/B07SD5XNJQ">uxcell, 3 m</a></td><td class="num">~265&nbsp;mm</td><td class="num">3&nbsp;m</td><td class="num">$8.29</td><td class="num">$0.73</td></tr>
+      <tr><td>Brake spring</td><td><a href="https://www.amazon.com/dp/B07Z1Q1VZN">MroMax tension springs</a></td><td class="num">1</td><td class="num">15</td><td class="num">$12.79</td><td class="num">$0.85</td></tr>
+      <tr><td>M4 square nuts</td><td><a href="https://www.amazon.com/dp/B0DXP8H268">Waziaqoc 304 SS, 7x7x3mm</a></td><td class="num">30</td><td class="num">100</td><td class="num">$5.99</td><td class="num">$1.80</td></tr>
+      <tr><td>M4 x 12 thumbscrews<small>One per flyer hook</small></td><td><a href="https://www.amazon.com/dp/B0DCRVW7RJ">uxcell knurled knobs</a></td><td class="num">4</td><td class="num">12</td><td class="num">$6.99</td><td class="num">$2.33</td></tr>
+      <tr><td>1/2in cup hooks<small>Four flyer hooks and the brake spring; or buy a few loose at a hardware store</small></td><td><a href="https://www.amazon.com/dp/B07RKS9Q88">Biaungdo cup hooks, gold</a></td><td class="num">5</td><td class="num">100</td><td class="num">$4.99</td><td class="num">$0.25</td></tr>
+      <tr><td>M4 screw kit, 6-30mm, nuts, washers<small>All the M4 screws and hex nuts</small></td><td><a href="https://www.amazon.com/dp/B0GX19CC2X">DFDU M4 assortment, 304 stainless</a></td><td class="num">42</td><td class="num">706</td><td class="num">$13.99</td><td class="num">$0.83</td></tr>
+      <tr><td>M3 screw kit, 6-30mm, nuts, washers<small>Motor and speed controller screws, and the controller&#x27;s nuts</small></td><td><a href="https://www.amazon.com/dp/B0GZMR6BML">Hincell M3 assortment, 304 stainless</a></td><td class="num">14</td><td class="num">1020</td><td class="num">$7.99</td><td class="num">$0.11</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">Total</td><td class="num">$142.83</td><td class="num">$59.68</td></tr></tfoot>
+  </table>
+  </div>
+<!--/BOM:Arachne-->
+
+  <h3 id="fasteners">Fasteners</h3>
+  <p>The two screw kits above cover all of these, with some to spare. One M4 kit is enough for one Arachne: if you&rsquo;re building two, you&rsquo;ll need a second one, or some extra M4&times;20 from somewhere. The lengths are checked against the CAD model, so they should be right; if one isn&rsquo;t, <a href="mailto:thunderbirdlabs@gmail.com?subject=Arachne%20fasteners">let me know</a>.</p>
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Fastener</th><th class="num">Qty</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td>M4 &times; 10 socket head, hex nut</td><td class="num">6</td><td>Riser halves, 3 each</td></tr>
+      <tr><td>M4 &times; 8 socket head</td><td class="num">6</td><td>Spreader to electronics housing. Anything from 8 to 20 works here.</td></tr>
+      <tr><td>M4 &times; 12 socket head</td><td class="num">2</td><td>Flyer arms, inner holes</td></tr>
+      <tr><td>M4 &times; 16 socket head</td><td class="num">10</td><td>Front riser to electronics housing (6), spreader to brake screw retainer (4)</td></tr>
+      <tr><td>M4 &times; 20 socket head</td><td class="num">10</td><td>Brake screw retainer to rear riser (4), brake spring retainer to rear riser (2, with hex nuts), spreader to rear riser (2), flyer arms, outer holes (2)</td></tr>
+      <tr><td>M4 square nut</td><td class="num">30</td><td>Brake screw retainer (8), electronics housing (12), spreader (2), flyer arms (4), flyer hooks (4)</td></tr>
+      <tr><td>M3 &times; 12 socket or button head</td><td class="num">6</td><td>Motor to front riser. No washers, or the heads hit the pulley.</td></tr>
+      <tr><td>M3 &times; 10 socket head, hex nut</td><td class="num">4</td><td>Speed controller</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 id="optional">Optional hardware and tools</h3>
+  <p>The parts list uses 304 stainless for all the screws and nuts, the same as Clotho&rsquo;s. If you&rsquo;d rather have black, the black oxide versions of the same sizes are below, for about the same money.</p>
+  <p>Soldering is optional on Arachne. The motor comes with spade terminals you can crimp onto its wires instead, and the power jack comes with wires already on it; soldering longer ones on lets you mount it in a tidier spot, but there&rsquo;s a place for it either way.</p>
+<!--BOM:Optional-->
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th><th class="num">Pack</th><th class="num">Pack price</th><th class="num">Per unit</th></tr></thead>
+    <tbody>
+      <tr><td>Black M4 screw kit, 6-30mm, nuts, washers<small>In place of the stainless M4 kit</small></td><td><a href="https://www.amazon.com/dp/B0GV3ZCQ3V">Kernmax M4 assortment, black oxide</a></td><td class="num">42</td><td class="num">520</td><td class="num">$7.99</td><td class="num">$0.65</td></tr>
+      <tr><td>Black M3 screw kit, 6-30mm, nuts, washers<small>In place of the stainless M3 kit</small></td><td><a href="https://www.amazon.com/dp/B0GV4GLHHH">Kernmax M3 assortment, black oxide</a></td><td class="num">14</td><td class="num">950</td><td class="num">$6.99</td><td class="num">$0.10</td></tr>
+      <tr><td>Soldering iron kit, if you don&#x27;t have one<small>For the jack, and the motor if you don&#x27;t crimp</small></td><td><a href="https://www.amazon.com/dp/B087767KNW">60 W adjustable soldering iron kit with stand and solder</a></td><td class="num">1</td><td class="num">1</td><td class="num">$13.99</td><td class="num">$13.99</td></tr>
+      <tr><td>Crimper for insulated terminals<small>For the motor&#x27;s spade terminals, which come with it</small></td><td><a href="https://www.amazon.com/dp/B0DNJCQGNM">Plustool ratcheting crimper, AWG 22-10</a></td><td class="num">1</td><td class="num">1</td><td class="num">$16.99</td><td class="num">$16.99</td></tr>
+    </tbody>
+  </table>
+  </div>
+<!--/BOM:Optional-->
+
+  <h3 id="shop">From your shop</h3>
+  <ul class="notes">
+    <li>Filament. A bit more than half a roll for each Arachne. Most of it works fine in PLA (see <a href="#printing">Printing</a>), and since most of the parts are small, it&rsquo;s a good way to finish off those nearly empty rolls.</li>
+    <li>A couple feet of 18&nbsp;AWG stranded wire.</li>
+    <li>About 300&nbsp;mm (12&Prime;) of cotton twine for the brake.</li>
+    <li>A bit of sandpaper, a couple of square inches of 180 grit or so.</li>
+  </ul>
+
+  <h2>Build guide</h2>
+  <p>Most of this should be fairly intuitive once you have the parts in your hands. All the holes and recesses are the right size, and the wrong parts won&rsquo;t fit or will just look silly. Screw lengths are in the fasteners table above, and the steps call them out where it matters.</p>
+  <!-- TODO: step pictures (render + exploded drawing) once the model has its hardware, plus the screen-only/print-only intro paragraphs from clotho-build.html and a PDF. -->
+
+  <h3 id="tools">Tools</h3>
+  <ul class="notes">
+    <li>A handful of appropriate Allen keys (the screw kits come with them, but nicer ones are&hellip;nicer)</li>
+    <li>A pair of needle-nosed pliers</li>
+    <li>A pair of long tweezers (or just use the pliers)</li>
+    <li>A small soft-blow hammer</li>
+    <li>A small screwdriver, for setting the square nuts (or use a small Allen key)</li>
+    <li>A crimper or a soldering iron (soldering is optional but preferred)</li>
+    <li>A heat gun, for joining the belt</li>
+  </ul>
+
+  <h3 id="printing">Printing</h3>
+  <ul class="notes">
+    <li>Many of these parts need fairly tight printing tolerances. To test your printer, load the bobbin assembly and cut off the threaded ends of the flanges in your slicer. They should screw together with little resistance. If they don&rsquo;t, tune your print settings before moving on.</li>
+    <li>0.20&nbsp;mm layers, 5 perimeters, 5 top and bottom layers, and an isotropic infill (gyroid or cubic). Use the Arachne perimeter generator in your slicer for cosmic symmetry.</li>
+    <li>All the parts are provided in assemblies and need no supports as oriented. Print one of each, except the alternate brake screws (the brake step tells you whether you need one) and the rear saddles, which are optional.</li>
+    <li>The risers come in two assemblies, the facing sides in one and the away sides in the other, so you can print the faces in a different color or material from the backs.</li>
+    <li>Most of these parts work well in PLA, though PLA+ or PETG are still preferred. PLA (especially silk PLA) can be brittle and crack when you press the square nuts in, so print at least the flyer arms in PLA+ or PETG; they take a fair amount of stress and flex. That said, PLA comes in more fun colors and has worked fine in my (somewhat limited) testing. If your PLA parts crack, print them again in PLA+ or PETG, and tell me about it in the comments so others can learn and I can redesign the troublesome parts.</li>
+    <li>For extra bobbins, just print the bobbin assembly again, and get two more 608s for each.</li>
+    <!-- TODO: does the Flyer Assembly 3MF on Printables have four hooks now? --><li>The flyer takes four hooks. If the flyer assembly file has fewer, increase the hook&rsquo;s instance count in your slicer.</li>
+    <li>The STEP file is the entire CAD model. Your slicer will happily load it and try to print it&hellip;but maybe don&rsquo;t.</li>
+  </ul>
+
+  <h3 id="rod">Prepare the rod and bearings</h3>
+  <p>With the cheap 608s on the parts list, the rod usually needs little or no prep, but check yours before anything goes together.</p>
+  <ol class="steps">
+    <li>Cheap 8&nbsp;mm rod is usually sheared to length rather than ground, which crushes the last centimeter or so of each end even though it measures a true 8.00&nbsp;mm in the middle. If a 608 won&rsquo;t slide on and off the end by hand, wrap the rod in something to protect it, chuck it in a drill, file a light chamfer (about 0.25&nbsp;mm) on the end, and work it down with 180 grit until the bearing slides. If a bearing won&rsquo;t go on, suspect the rod first.</li>
+    <li>Cheap 608s tend to come packed with grease thick enough that the rod spins in the inner race instead of the balls rolling. A jar of alcohol and a shot of silicone spray takes care of that.</li>
+  </ol>
+
+  <h3 id="wiring">Wiring</h3>
+  <p>There isn&rsquo;t much of it. The speed controller does all the work: power goes in, the motor comes out, and the knob and the forward/off/reverse switch are already part of it. There&rsquo;s no firmware, nothing to set, and no wiring diagram needed.</p>
+  <ul class="notes">
+    <li><b>Solder or crimp.</b> The motor comes with two spade terminals for its tabs; crimp them onto about 150&nbsp;mm (6&Prime;) of 18&nbsp;AWG wire, or solder the wire straight to the motor&rsquo;s tabs. Leave it a bit long if you like; it&rsquo;s easy to trim later, and there&rsquo;s room to tuck the extra.</li>
+    <li><b>Holes first.</b> If a wire has to go through a hole, put it through the hole before you solder or crimp the other end.</li>
+    <li><b>The controller&rsquo;s terminals.</b> The controller has one green four-screw terminal block. With the terminals facing you, they go Motor&minus;, Motor+, Power+, Power&minus; from left to right; the board is marked OUT at the motor end and IN at the power end.</li>
+    <li><b>Polarity.</b> The power supply is center-positive, and on the jack the red wire is positive and the black one negative, so red goes to Power+ and black to Power&minus;. Get those right. The motor&rsquo;s two wires go to Motor+ and Motor&minus;; the switch reverses the motor anyway, so if you swap those, the only difference is which side of the switch is which. Since the switch is symmetrical, you can just pop it out and turn it over, no need to rewire.</li>
+  </ul>
+
+  <h3 id="base">Risers, base and electronics</h3>
+  <ol class="steps">
+    <li>Press the halves of each riser together by hand to check the alignment, then gently tap them into place until there are no gaps. They should fit tightly everywhere except near the bearing saddles, where a little flex is fine; they get bolted together next.</li>
+    <li>Press three M4 hex nuts into the recesses on the inside of each riser (tap them in if you need to), and bolt each riser together with three M4&times;10.</li>
+    <li>Attach the motor to the front riser with six M3&times;12, socket or button heads, and no washers; washers stick out far enough to hit the pulley. Don&rsquo;t use longer screws or overtighten them, or they&rsquo;ll damage the gearbox. Afterwards, turn the motor shaft by hand to make sure the screws aren&rsquo;t hitting anything inside.</li>
+    <li>Put the pulley on the motor shaft with the grub screws that come with it. One of the grub screws should be on the flat of the shaft.</li>
+    <li>Line the rear fascia up over the rear riser, press it on by hand to check the alignment, then gently tap it into place.</li>
+    <li>Screw a cup hook into the small hole in the brake spring retainer. Press two M4 hex nuts into it and bolt it to the rear riser with two M4&times;20.</li>
+    <li>Press eight M4 square nuts into the recesses in the brake screw retainer. Use the needle-nosed pliers, the hammer and the small screwdriver as needed. Make sure it&rsquo;s the current brake screw retainer, the one with a slot in the threads (it&rsquo;s its own file). Bolt it to the rear riser with four M4&times;20.</li>
+    <li>Take the heat shrink off the controller&rsquo;s switch and press the switch into its recess in the front riser. It should click firmly into place.</li>
+    <li>Wire the motor (see <a href="#wiring">Wiring</a>).</li>
+    <li>The power jack can go in one of two places. If you can solder, take the heat shrink off the jack, desolder the wires it came with, and solder on about 250&nbsp;mm (10&Prime;) of 18&nbsp;AWG; then it goes in the spreader arm. If you&rsquo;d rather not solder, it goes in the hole at the base of the spreader instead, with the wires it came with.</li>
+    <li>Grab the spreader and the jack hole plug from the base assembly. Thread the jack&rsquo;s wires through whichever hole you&rsquo;re using and screw the jack into place, then screw the plug into the other hole.</li>
+    <li>Connect the motor and the power jack to the speed controller, minding the polarity.</li>
+    <li>Optional, but a good idea: gently plug in the switch and the power and test it. The switch should reverse the motor, the center position should stop it, and the knob should control the speed. Unplugging the switch afterwards may make the next few steps easier, but either way be careful; that wire is delicate.</li>
+    <li>Press four M3 hex nuts and twelve M4 square nuts into the recesses in the electronics housing.</li>
+    <li>Pass the controller&rsquo;s pot shaft through the hole in the electronics housing and fasten the controller with four M3&times;10. You may need the tweezers to place the inside screws, since it&rsquo;s a bit tight in there. There are holes in the bottom of the housing to get an Allen key through to tighten them.</li>
+    <li>Make sure the motor wires pass through the slot in the electronics housing and the switch wires aren&rsquo;t being pinched, then bolt the front riser to the electronics housing with six M4&times;16.</li>
+    <li>Plug the switch into its socket on the controller.</li>
+    <li>Slide the electronics cover into place over the electronics, making sure it goes all the way in and doesn&rsquo;t pinch any wires. The recess in the bottom of the cover goes toward the front riser.</li>
+    <li>Bolt the spreader to the electronics housing with six M4&times;8. Really, any length from 8 to 20 works here; 8s can be tough to get started, but this is a place to use whatever you have a lot of.</li>
+    <li>Press two M4 square nuts into the spreader for the rear riser screws, then bolt the spreader to the rear riser with two M4&times;20, and to the brake screw retainer with four M4&times;16.</li>
+    <li>Press the printed knob onto the pot shaft.</li>
+    <li>Plug in the power and test everything again.</li>
+  </ol>
+
+  <h3 id="flyer">Flyer and bobbin</h3>
+  <ol class="steps">
+    <li>With the flyer body on a smooth, hard surface, gently tap the rod into its recess. It may take a bit of force, but you should hear the sound change when the rod bottoms out. If you&rsquo;re not sure it&rsquo;s all the way in, put the orifice on (the next two steps) and set the flyer in the base: there should be less than 1&nbsp;mm between the end of the rod and the rear riser. If there isn&rsquo;t, take the orifice back off and tap it some more.</li>
+    <li>Put two M4 square nuts into each flyer arm and attach the arms to the flyer body with M4&times;12 in the inside holes (toward the orifice) and M4&times;20 in the outside holes.</li>
+    <li>Onto the threaded end of the orifice put a bearing spacer, the 6804 bearing, and the second bearing spacer, in that order. Screw the orifice into the flyer body.</li>
+    <li>Test-fit the flyer hooks on the arms. They should slide smoothly with very little friction; if they catch, lightly sand the arms with 180 grit until they don&rsquo;t. Sand them under running water to keep the dust down, or rinse them afterwards to get rid of the powder and bring back their factory sheen.</li>
+    <li>The flyer takes four hooks, two on each arm. With only one per arm the flyer goes out of balance as soon as the hooks aren&rsquo;t in matching spots, and it gets worse the faster you spin. Thread a cup hook into the small hole in each flyer hook, press an M4 square nut into each one, and start an M4&times;12 thumbscrew, keeping the tip out of the arm slot. Slide the hooks onto the arms and secure them with the thumbscrews. It takes very little force; don&rsquo;t overtighten them.</li>
+    <li>For the bobbin, press a 608 into the front flange and screw the rear flange into it. Press the bearing spacer into the rear flange, press the second 608 in after it, and screw on the rear bearing retainer.</li>
+  </ol>
+
+  <h3 id="final">Final assembly</h3>
+  <ol class="steps">
+    <li>Screw the brake tension screw into the brake screw retainer. It may be very hard to turn at first, but it should thread in without damage, and it wears in quickly. Run it all the way in and out several times. It should be snug but turnable with your fingertips: too loose and it won&rsquo;t hold tension on the brake line, too tight and it&rsquo;s a pain to use. If it&rsquo;s too tight, try the undersize brake screw. If it&rsquo;s too loose, push a 25&nbsp;mm piece of the belt into the slot in the retainer&rsquo;s threads, with a bit of paper or two under it if it needs more. The printed threads wear smooth pretty quickly, so the belt is worth putting in either way; when it wears, take it out and turn it, replace it, or shim it with more paper. The oversize screw was my first fix for that, and it wears smooth too.</li>
+    <li>Turn the brake tension screw until the slot in its end is about 25&nbsp;mm (1&Prime;) out from the retainer, and tie about 300&nbsp;mm (12&Prime;) of cotton twine (or your preferred brake material) to it by passing it through the slot and tying it around the threads.</li>
+    <li>Tie the brake spring to the other end of the twine and hook it on the cup hook in the brake spring retainer.</li>
+    <li>Screw in the brake tension screw to take up some of the slack, but leave enough to get the brake pulley on the bobbin under it.</li>
+    <li>Slide the bobbin onto the flyer. If it doesn&rsquo;t slide on smoothly, loosen the bobbin&rsquo;s threaded joints, slide it all the way onto the rod to line up the bearings, and tighten them again.</li>
+    <li>Slide a 608 over the end of the rod and set the flyer and bobbin in the base, with the brake line over the brake pulley on the back of the bobbin.</li>
+    <li>Tighten the brake tension screw to take up the rest of the slack.</li>
+    <li>Cut about 240&nbsp;mm of belt and join the ends with your preferred method. I use a heat gun and a small jig, which is included in the print files.</li>
+    <li>Put the belt on and do the final test.</li>
+    <li>Spin stuff!</li>
+  </ol>
+
+  <h3 id="bobbins">Changing bobbins</h3>
+  <p>Take the belt off and lift the whole flyer straight up out of the base. Slide the rear bearing off the end of the rod, then slide the bobbin off. Putting it back is the reverse.</p>
+
+  <h2 id="files">Files</h2>
+  <div class="files">
+    <p>The STEP model and printable assemblies are on Printables. Everything is CC BY-SA, so remix away, and <a href="mailto:thunderbirdlabs@gmail.com?subject=Arachne">tell me</a> what you build, break, or improve.</p>
+    <a class="button" href="https://www.printables.com/model/1526904-arachne-espinner-v20">Get the files on Printables &rarr;</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+      <a href="#top">Back to top &uarr;</a>
+    </nav>
+    <p class="copy">&copy; 2026 Thunderbird Labs</p>
+  </div>
+</footer>
+
+<script src="lightbox.js"></script>
+</body>
+</html>
