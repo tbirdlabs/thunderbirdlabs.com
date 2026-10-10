@@ -33,11 +33,15 @@
   </div>
   <p class="lede">Everything you need to buy for Clotho and the optional foot pedal, and how to put it all together.</p>
   <p class="caption">Prices checked October 9, 2026, and they will probably have changed by the time you read this. These are not affiliate links or endorsements, just the parts I used or the closest things I could find on the jungle website.</p>
+  <nav class="toc" aria-label="On this page">
+    <p><b>Buying</b><span><a href="#costs">What it costs</a> <a href="#parts">Parts</a> <a href="#fasteners">Fasteners</a> <a href="#shop">From your shop</a></span></p>
+    <p><b>Building</b><span><a href="#tools">Tools</a> <a href="#printing">Printing</a> <a href="#rod">Rod and bearings</a> <a href="#risers">Risers and electronics</a> <a href="#flyer">Flyer and bobbin</a> <a href="#final">Final assembly</a> <a href="#setup">Setup</a> <a href="#bobbins">Changing bobbins</a> <a href="#pedal">Foot pedal</a> <a href="#files">Files</a></span></p>
+  </nav>
 
-  <h2>What it costs</h2>
+  <h2 id="costs">What it costs</h2>
   <p>Pretty much everything comes in packs much bigger than one build needs (you need four cup hooks, and the link is for fifty). If you build one by yourself you buy whole packs, which comes to about <b>$185</b> for Clotho, plus shipping on the motor and driver, and about <b>$17</b> more for the foot pedal. The parts that actually end up in each Clotho come to about <b>$97</b>, plus about <b>$10</b> for the pedal, and the rest goes in your parts bin. If you have friends, split the packs. If you don&rsquo;t, this is a good way to make some.</p>
 
-  <h2>Parts</h2>
+  <h2 id="parts">Parts</h2>
   <h3>Clotho</h3>
   <div class="table-scroll">
   <table class="bom">
@@ -78,8 +82,8 @@
   </table>
   </div>
 
-  <h3>Fasteners</h3>
-  <p>The three screw kits above cover all of these. Most of the general M3&ndash;M5 assortments skip M4&times;10 and M3&times;20, which is why there&rsquo;s one kit per size instead of one big one. The lengths are checked against the hole depths in the CAD model, so they should be right; if one isn&rsquo;t, let me know.</p>
+  <h3 id="fasteners">Fasteners</h3>
+  <p>The three screw kits above cover all of these. Most of the general M3&ndash;M5 assortments skip M4&times;10 and M3&times;20, which is why there&rsquo;s one kit per size instead of one big one. The lengths are checked against the hole depths in the CAD model, so they should be right; if one isn&rsquo;t, <a href="mailto:thunderbirdlabs@gmail.com?subject=Clotho%20fasteners">let me know</a>.</p>
   <div class="table-scroll">
   <table class="bom">
     <thead><tr><th>Fastener</th><th class="num">Qty</th><th>Where</th></tr></thead>
@@ -96,7 +100,7 @@
   </table>
   </div>
 
-  <h3>From your shop</h3>
+  <h3 id="shop">From your shop</h3>
   <ul class="notes">
     <li>PETG for the structural parts, or ABS or ASA if it&rsquo;s going to live somewhere hot. Clotho takes a bit more than half a roll.</li>
     <li>A couple feet of 18&nbsp;AWG stranded wire. A few colors makes things easier, if you have them.</li>
@@ -109,7 +113,7 @@
   <h2>Build guide</h2>
   <p>Most of this should be fairly intuitive once you have the parts in your hands. All the holes and recesses are the right size, and the wrong parts won&rsquo;t fit or will just look silly. Screw lengths are in the fasteners table above, and the steps call them out where it matters.</p>
 
-  <h3>Tools</h3>
+  <h3 id="tools">Tools</h3>
   <ul class="notes">
     <li>A handful of appropriate Allen keys (the screw kits come with them, but nicer ones are&hellip;nicer)</li>
     <li>A pair of needle-nosed pliers</li>
@@ -122,7 +126,7 @@
     <li>Probably a dozen other things I&rsquo;ve forgotten</li>
   </ul>
 
-  <h3>Printing</h3>
+  <h3 id="printing">Printing</h3>
   <ul class="notes">
     <li>PETG for the structural parts, and especially the flyer, which flexes every time it goes around and should bend rather than crack. PLA is actually stiffer, but it&rsquo;s more brittle and goes soft at a lower temperature. The motor itself shouldn&rsquo;t get hot unless you&rsquo;re really hogging it, which you can&rsquo;t do while actually spinning (unspun wool can&rsquo;t really take 90&nbsp;W of linear load), so the heat you need to worry about is wherever it lives. If that&rsquo;s somewhere hot, or the inside of a car with the windows rolled up, print it in ABS or ASA.</li>
     <li>0.20&nbsp;mm layers, 5 perimeters, 5 top and bottom layers, and an isotropic infill (gyroid or cubic), same as Arachne.</li>
@@ -130,7 +134,7 @@
     <li>The STEP file is the entire CAD model. Your slicer will happily load it and try to print it&hellip;but maybe don&rsquo;t.</li>
   </ul>
 
-  <h3>Prepare the rod and bearings</h3>
+  <h3 id="rod">Prepare the rod and bearings</h3>
   <ol class="steps">
     <li>Cheap 8&nbsp;mm rod is usually sheared to length rather than ground, which crushes the last centimeter or so of each end even though it measures a true 8.00&nbsp;mm in the middle. Wrap the rod in something to protect it, chuck it in a drill, and file a light chamfer (about 0.25&nbsp;mm) on both ends.</li>
     <li>Work the ends down with 180 grit until a 608 slides on and off by hand. The clearance here matters and it&rsquo;s partly personal preference: go too far and the rod spins in the bearings and makes noise, not far enough and bobbins are a fight to get on and off. The rod should turn the bearing, not spin inside it. Take your time and it can fit and work quite well.</li>
@@ -138,7 +142,7 @@
     <li>Cheap 608s tend to come packed with grease thick enough that the rod spins in the inner race instead of the balls rolling. A jar of alcohol and a shot of silicone spray takes care of that.</li>
   </ol>
 
-  <h3>Risers, base and electronics</h3>
+  <h3 id="risers">Risers, base and electronics</h3>
   <ol class="steps">
     <li>Press the two halves of the front riser together by hand to check the alignment, then gently tap them into place. Do the same for the rear riser, but put a tested 608 in its cavity first.</li>
     <li>Bolt each riser&rsquo;s halves together with three M4&times;10 and hex nuts. Longer bolts will hit the flyer, and shorter ones may not bite enough thread.</li>
@@ -165,7 +169,7 @@
     <li>Test everything again: switch centered (off), knob at minimum, power on. The green run light should be steady and the red alarm light off. Flip the switch one way and make sure the motor spins smoothly in that direction at low speed, then stop it and check the other way. Always stop the motor before reversing.</li>
   </ol>
 
-  <h3>Flyer and bobbin</h3>
+  <h3 id="flyer">Flyer and bobbin</h3>
   <ol class="steps">
     <li>With the flyer body on a smooth, hard surface, gently tap the rod into its recess. It may take a bit of force, but you should hear the sound change when the rod bottoms out. Or, if you left it chucked up in the drill from the rod prep, just spin it in.</li>
     <li>You can lightly lubricate the rod at this point if you like. Use something dry, like silicone or white lithium, and wipe off all the excess.</li>
@@ -176,7 +180,7 @@
     <li>For the bobbin, press a 608 into the front flange and screw the rear flange into it. Press the bearing spacer into the rear flange, press the second 608 in after it, and screw on the rear bearing retainer. Arachne bobbins work on Clotho too.</li>
   </ol>
 
-  <h3>Final assembly</h3>
+  <h3 id="final">Final assembly</h3>
   <ol class="steps">
     <li>Tie about 300&nbsp;mm (12&Prime;) of cotton twine to the brake tension screw&rsquo;s barrel and screw it into its spreader. It should be snug but turnable with your fingertips: too loose and it won&rsquo;t hold tension, too tight and it&rsquo;s a pain to use. If it&rsquo;s too loose, push a 10&nbsp;mm piece of the belt into the slot in the threads.</li>
     <li>Hook the brake spring into the brake spring retainer with a thumbscrew through its eye and into the square nut you put there earlier, so it doesn&rsquo;t fall off every time you let off the tension. Tie the twine to the spring.</li>
@@ -186,7 +190,7 @@
     <li>Put the belt on. In use, the belt is what holds the front bearing in its saddle and the brake line holds the rear bearing in place.</li>
   </ol>
 
-  <h3>Setup</h3>
+  <h3 id="setup">Setup</h3>
   <ol class="steps">
     <li>Switch centered (off), apply power. Green run light steady, red alarm light off. If the red light is on, stop and check your wiring before going any further.</li>
     <li>The two trim pots on the driver (speed limit and current limit) are small unmarked crosses. Both should still be all the way counterclockwise.</li>
@@ -196,10 +200,10 @@
     <li>Turn the knob down, reverse, and bring it back up to check the other direction. If S and Z come out backwards, pop the switch out and flip it over; the mount is symmetrical for exactly that reason.</li>
   </ol>
 
-  <h3>Changing bobbins</h3>
+  <h3 id="bobbins">Changing bobbins</h3>
   <p>Take the belt off, lift the front of the flyer out of its saddle, and pull the rod out of the rear bearing (the bearing pivots in its cavity to let it come out at an angle). Putting it back is the reverse. No tools, and no loose parts to lose in the couch.</p>
 
-  <h3>Foot pedal (optional)</h3>
+  <h3 id="pedal">Foot pedal (optional)</h3>
   <p>This is optional, but fun. The assembly is simple enough that it barely needs instructions.</p>
   <ol class="steps">
     <li>Print the pedal parts and assemble the pivot. Either one M4&times;80 (or a 5/32&Prime; &times; 3&Prime; machine screw) with a nylock nut or a couple of shorter screws will work, but the shorter ones will probably make the tension easier to adjust.</li>
@@ -207,9 +211,9 @@
     <li>The pedal only swings the pot through about a fifth of its rotation, which is why there&rsquo;s a microcontroller in there at all: it calibrates itself to your pedal. Plugging the pedal in disconnects the knob on the spinner.</li>
   </ol>
 
-  <h2>Files</h2>
+  <h2 id="files">Files</h2>
   <div class="files">
-    <p>The STEP model, printable assemblies, and foot pedal firmware are on Printables and GitHub. Everything is CC BY-SA, so remix away, and tell me what you build, break, or improve.</p>
+    <p>The STEP model, printable assemblies, and foot pedal firmware are on Printables and GitHub. Everything is CC BY-SA, so remix away, and <a href="mailto:thunderbirdlabs@gmail.com?subject=Clotho">tell me</a> what you build, break, or improve.</p>
     <a class="button" href="https://www.printables.com/model/1779646-clotho-espinner">Get the files on Printables &rarr;</a>
     <a class="button secondary" href="https://github.com/tbirdlabs/Clotho-eSpinner">View on GitHub</a>
   </div>
