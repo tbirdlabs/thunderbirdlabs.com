@@ -13,6 +13,9 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: var(--bg);
   color: var(--text);
   font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -26,9 +29,9 @@ img { max-width: 100%; display: block; }
 header { border-bottom: 1px solid var(--line); }
 header .wrap { display: flex; align-items: center; gap: 14px; padding-top: 10px; padding-bottom: 10px; }
 header img { width: 56px; }
-header .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); }
-header .brand:hover { color: var(--green); }
-header .name { font-weight: 700; font-size: 1.15rem; letter-spacing: .02em; }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); }
+.brand:hover { color: var(--green); }
+.brand .name { font-weight: 700; font-size: 1.15rem; letter-spacing: .02em; }
 header nav { margin-left: auto; display: flex; gap: 18px; font-size: .95rem; }
 header nav a { text-decoration: none; color: var(--muted); }
 header nav a:hover { color: var(--green); }
@@ -100,11 +103,20 @@ h2 { font-size: 1.4rem; color: var(--brass); text-transform: uppercase; letter-s
 /* Placeholder marker: anything with this class still needs real info before going live */
 .todo { outline: 2px dashed var(--todo) !important; color: var(--todo) !important; }
 
-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; padding: 20px 0 40px; }
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; padding: 18px 0 40px; margin-top: auto; }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+footer .brand { gap: 10px; }
+footer .brand img { width: 36px; }
+footer .brand .name { font-size: 1rem; }
+footer nav { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .95rem; }
+footer nav a { text-decoration: none; color: var(--muted); }
+footer nav a:hover { color: var(--green); }
+footer .copy { flex-basis: 100%; margin: 0; }
 
 @media (max-width: 560px) {
   body { font-size: 16px; }
   header nav { display: none; }
+  footer nav { margin-left: 0; flex-basis: 100%; }
   .entry { grid-template-columns: 110px 1fr; gap: 14px; padding: 12px; align-items: start; }
   .entry h3 { font-size: 1.15rem; }
   .entry p { font-size: .95rem; }
