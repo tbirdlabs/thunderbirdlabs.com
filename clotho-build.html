@@ -39,7 +39,7 @@
   </nav>
 
   <h2 id="costs">What it costs</h2>
-  <p>Pretty much everything comes in packs much bigger than one build needs (you need four cup hooks, and the link is for fifty). If you build one by yourself you buy whole packs, which comes to about <b>$187</b> for Clotho, plus shipping on the motor and driver, and about <b>$17</b> more for the foot pedal. The parts that actually end up in each Clotho come to about <b>$97</b>, plus about <b>$10</b> for the pedal, and the rest goes in your parts bin. If you have friends, split the packs. If you don&rsquo;t, this is a good way to make some.</p>
+  <p>Pretty much everything comes in packs much bigger than one build needs (you need four cup hooks, and the link is for fifty). If you build one by yourself you buy whole packs, which comes to about <b>$194</b> for Clotho, plus shipping on the motor and driver, and about <b>$17</b> more for the foot pedal. The parts that actually end up in each Clotho come to about <b>$98</b>, plus about <b>$10</b> for the pedal, and the rest goes in your parts bin. If you have friends, split the packs. If you don&rsquo;t, this is a good way to make some.</p>
 
   <h2 id="parts">Parts</h2>
   <h3>Clotho</h3>
@@ -65,8 +65,9 @@
       <tr><td>M4 screw kit, 6-30mm, nuts, washers<small>All the M4 screws and hex nuts</small></td><td><a href="https://www.amazon.com/dp/B0GZMJ8X68">Hincell M4 assortment, 304 stainless</a></td><td class="num">35</td><td class="num">520</td><td class="num">$8.99</td><td class="num">$0.61</td></tr>
       <tr><td>M3 screw kit, 6-30mm, nuts, washers<small>Driver and motor bracket screws, nuts and washers</small></td><td><a href="https://www.amazon.com/dp/B0CP7Y7M6D">Sutemribor M3 assortment, 304 stainless</a></td><td class="num">14</td><td class="num">546</td><td class="num">$4.99</td><td class="num">$0.13</td></tr>
       <tr><td>M5 x 20 sets, nuts, flat and lock washers<small>Motor mount</small></td><td><a href="https://www.amazon.com/dp/B0F9993HX8">BNUOK M5 x 20, 60 sets, 304 stainless</a></td><td class="num">4</td><td class="num">60</td><td class="num">$9.66</td><td class="num">$0.64</td></tr>
+      <tr><td>Rubber feet, 1/2in round<small>Same pack covers the foot pedal&#x27;s 7</small></td><td><a href="https://www.amazon.com/dp/B01N74P0QB">Scotch SP951 clear bumpers</a></td><td class="num">5</td><td class="num">40</td><td class="num">$6.59</td><td class="num">$0.82</td></tr>
     </tbody>
-    <tfoot><tr><td colspan="4">Total</td><td class="num">$187.43</td><td class="num">$96.82</td></tr></tfoot>
+    <tfoot><tr><td colspan="4">Total</td><td class="num">$194.02</td><td class="num">$97.65</td></tr></tfoot>
   </table>
   </div>
 
@@ -78,6 +79,7 @@
       <tr><td>Microcontroller, Pro Micro 5V 16MHz</td><td><a href="https://www.amazon.com/dp/B0GSZ4QDZW">Atmega32U4 Type-C</a></td><td class="num">1</td><td class="num">1</td><td class="num">$8.99</td><td class="num">$8.99</td></tr>
       <tr><td>1/4in stereo jacks</td><td><a href="https://www.amazon.com/dp/B07M62VBZR">Luomorgo 6-pin</a></td><td class="num">2</td><td class="num">20</td><td class="num">$7.99</td><td class="num">$0.80</td></tr>
       <tr><td>Pedal pot, B10K linear<small>Already bought</small></td><td>From the Clotho pot pack</td><td class="num">1</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
+      <tr><td>Rubber feet, 1/2in round<small>Already bought; 4 under the base, 3 between the base and the top</small></td><td>From the Clotho bumper pack</td><td class="num">7</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
     </tbody>
     <tfoot><tr><td colspan="4">Total</td><td class="num">$16.98</td><td class="num">$9.79</td></tr></tfoot>
   </table>
@@ -273,6 +275,7 @@
         <p class="caption">Four M4&times;16 through the rear riser into the spreaders, and two up through the base into the rear riser. The spreaders&rsquo; nuts go in toward the centerline, the rear riser&rsquo;s from the front, and the tilted one in the brake spring retainer from the back.</p>
       </figure>
     </li>
+    <li>Stick five rubber feet into the recesses on the bottom of the base.</li>
     <li>Test everything again: switch centered (off), knob at minimum, power on. The green run light should be steady and the red alarm light off. Flip the switch one way and make sure the motor spins smoothly in that direction at low speed, then stop it and check the other way. Always stop the motor before reversing.</li>
   </ol>
 
@@ -363,6 +366,7 @@
       </figure>
     </li>
     <li>Wire the pedal (<a href="#wiring">Wiring</a> explains tip, ring and sleeve, and the solder-or-crimp and holes-first notes apply here too). Pot: hold it with the shaft pointing at you and the pins at the bottom, the same as the panel pot. The right-hand pin goes to the Pro Micro&rsquo;s VCC, the middle pin to A0, and the left-hand pin to GND, so pressing the pedal turns the voltage up. Get this one right the first time too; if it&rsquo;s backwards, the pedal won&rsquo;t start, and the setup page or serial monitor says &ldquo;Pedal not at rest&rdquo; with your foot off it. Pro Micro to the pedal&rsquo;s jack, using only the tip, ring and sleeve lugs: VCC to the tip, pin 9 to the sleeve, and GND to the ring. That matches the spinner&rsquo;s jack, so a plain &frac14;&Prime; stereo cable connects them. Then flash the firmware from the files. Then calibrate it and set the dead zones on the <a href="clotho-pedal.html">pedal setup page</a>, or by hand with the serial commands in the comments at the top of the source code.</li>
+    <li>Stick four rubber feet into the recesses on the bottom of the base, and three more between the base and the pedal: two in the recesses on top of the base at the toe end, and one at the heel end to cushion the heel.</li>
     <li>The pedal only swings the pot through about a fifth of its rotation, which is why there&rsquo;s a microcontroller in there at all: it calibrates itself to your pedal. Plugging the pedal in disconnects the knob on the spinner.</li>
   </ol>
 
