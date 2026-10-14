@@ -40,7 +40,7 @@ header nav a:hover { color: var(--green); }
 /* Plaque and apparatus span about 25-77% of the image height, so the banner stays at 3:1 to fit both.
    It stops at the image's native 1600px; wider screens get the sides faded into the page. */
 .banner { max-width: 1600px; margin: 0 auto; }
-.banner img { width: 100%; aspect-ratio: 3 / 1; min-height: 180px; object-fit: cover; object-position: 50% 50%; }
+.banner img { width: 100%; aspect-ratio: 3 / 1; min-height: 180px; object-fit: cover; object-position: 50% 30%; }
 @media (min-width: 1600px) {
   .banner img { mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); }
 }
