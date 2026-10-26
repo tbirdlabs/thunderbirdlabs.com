@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lemnos – Thunderbird Labs</title>
+<meta name="description" content="Lemnos, the open, accessible game board: a hex island of LEDs with six seats, playable with one switch or any mix of controllers. In progress.">
+<meta property="og:title" content="Lemnos – Thunderbird Labs">
+<meta property="og:description" content="Lemnos, the open, accessible game board: a hex island of LEDs with six seats, playable with one switch or any mix of controllers. In progress.">
+<meta property="og:image" content="https://thunderbirdlabs.com/images/hero.jpg">
+<meta property="og:url" content="https://thunderbirdlabs.com/lemnos">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap project">
+  <a class="back" href="index.html#builds">&larr; All builds</a>
+
+  <div class="project-head">
+    <h1>Lemnos</h1>
+    <span class="status progress">In progress</span>
+  </div>
+  <p class="lede">The open, accessible game board: an island of 37 lit hexes with six seats around it, each with a 10-light bar of its own. Every game plays with a single switch, and anything a game knows shows up in the board&rsquo;s lights, so nobody has to read a screen, hold cards or move little pieces. You play it with whatever controller works for you, and the board does the bookkeeping. There are no pieces to set up, move or put away, so nobody needs a helper between turns.</p>
+  <p class="article-link"><a href="lemnos-notes.html">Build notes: northern lights too slow for the chip, previews that ran out of memory, and a controller that did nothing &rarr;</a></p>
+
+  <!-- TODO: add photos of the board here -->
+
+  <p>Most games built for players with limited movement are simple ones, like tic-tac-toe with big pegs. Lemnos is meant to run real games with real choices in them, where the only thing that changes is how you tell the board what you want to do.</p>
+
+  <h2>Games</h2>
+  <ul class="notes">
+    <li><b>Island Rush</b>, the first game. Up to six players race through the jungle to the taco truck in the middle of the tiger-infested island. Play against friends or the computer.</li>
+    <li>Attract screens (or wall decorations or soothing patterns or night lights): an analog clock, a forest fire, fireflies, the northern lights, and rain on a pond.</li>
+    <li>Games are plug-ins: plain or compiled Python files on the board&rsquo;s USB drive. The board handles the game picker, setup, menus and controllers, so a game only has to know its own rules, and you can edit one (the source is on the drive too) or write your own with nothing but a text editor.</li>
+  </ul>
+
+  <h2>Controllers</h2>
+  <p>Every game uses the same three actions: <b>move</b>, <b>pick</b> and <b>back</b>. Anything that can send those can play, and players at the same table can each use something different:</p>
+  <ul class="notes">
+    <li>One switch: the board steps through the choices on its own, and you press when it gets to the one you want.</li>
+    <li>A foot pedal, big buttons, a D-pad or a knob, wired straight to the board.</li>
+    <li>Bluetooth controllers (with the optional radio): a Wiimote, Switch Joy-Cons, PS3, PS4 and PS5 controllers, Xbox controllers, the Xbox Adaptive Controller and whatever switches are plugged into it, and many more.</li>
+    <li>A phone or tablet: a D-pad on a web page, over Wi&#8209;Fi (also with the radio).</li>
+    <li>A computer, from a web page on the board&rsquo;s USB drive, using an on-screen D-pad or the keyboard.</li>
+  </ul>
+
+  <h2>Built to the PlayforAll brief</h2>
+  <p>Lemnos started as an entry for PrintLab&rsquo;s PlayforAll brief in MakerWorld&rsquo;s Make for Good contest: an accessible tabletop game for people with cerebral palsy who have trouble with fine motor control and hand-eye coordination. These are the brief&rsquo;s must-haves, and how the board meets each one.</p>
+
+  <h3>Physical and 3D printable</h3>
+  <p>Lemnos is a board you sit around with your friends, not a screen. The game happens on the island in the middle of the table, and the bars in front of each player.</p>
+  <p>All of it is 3D printed: the board itself and everything inside it that holds the electronics, the controllers, and the radio&rsquo;s housing. Print it, wire it, play.</p>
+  <p>The wired controllers are tethered to the board. They pull out to wherever each player sits, then retract and dock to the board with magnets, so the whole thing folds up into a single unit and opens out into the board and however many controllers you built.</p>
+
+  <h3>Accessible interaction</h3>
+  <p>There are no pieces to pinch, grasp or place. Every game plays with a single switch, and anything that can send move, pick and back can play: a pedal, big buttons, a knob, an Xbox Adaptive Controller and whatever switches are plugged into it, a phone. Each player uses whatever works for them, at the same table, in the same game.</p>
+
+  <h3>Independence</h3>
+  <p>The board sets up the game, keeps score, rolls the dice and resets for the next one. Joining, picking your seat and color, playing again and leaving are all done from your own controller, and the computer plays any empty seat, so nobody has to wait for someone else to show up, or to help.</p>
+
+  <h3>Originality</h3>
+  <p>The board, the way it&rsquo;s played, and Island Rush are all new. Island Rush is a race through the jungle to a taco truck, with tigers, and nothing like it exists to copy. And because games are plug-ins, the board is a platform for games nobody has thought of yet.</p>
+
+  <h3>Fun and replayability</h3>
+  <p>Island Rush has a clear goal (get to the truck, and hold it), real choices (charge or build up, go around the tiger or fight it), and enough luck in the dice that no two games go the same way. Games run about 3 to 8 minutes, so there&rsquo;s always time for one more, and thousands of simulated games keep it fair for every seat. It isn&rsquo;t a therapy exercise. It&rsquo;s a game you&rsquo;d play anyway.</p>
+
+  <h3>Practicality</h3>
+  <p>Nothing has to be positioned, so nothing can be knocked out of place, lost under the couch, or set up wrong. The controllers never come off the board, and it all packs away as one piece. The lights show everything, and the board remembers everything.</p>
+
+  <h3>Safety</h3>
+  <p>No small parts to lose or swallow: there are no pieces at all, and the controllers stay tethered to the board. Nothing flashes fast enough to set off photosensitive seizures, the brightness starts low, and the LED current is capped. The full list is <a href="#safeties">below</a>.</p>
+
+  <h2>Specs</h2>
+  <ul class="specs">
+    <li><b>The Board</b><br>37 hexes in 7 rows, 111 LEDs (155 on the small board with 144/m strip)</li>
+    <li><b>Seats</b><br>6, each with a 10-light bar built into its controller</li>
+    <li><b>Brain</b><br>Adafruit Feather RP2040 SCORPIO running CircuitPython</li>
+    <li><b>LEDs</b><br>5&nbsp;V WS2812B-type strip on 8 parallel outputs; the whole board updates in about 3.5&nbsp;ms</li>
+    <li><b>Radio (optional)</b><br>An ESP32 for Bluetooth controllers, phones, a settings page and the time of day (a Pico W or Pico 2 W works for Bluetooth controllers only, for now)</li>
+    <li><b>Players</b><br>1 to 6, with the computer filling empty seats</li>
+    <li><b>Storage</b><br>Wired controllers are tethered, retract and dock magnetically; it all folds into one unit</li>
+  </ul>
+
+  <h2>How a game works</h2>
+  <p>The whole point of the board is that other people can make games for it, so the board does the hard parts and a game doesn&rsquo;t have to. A game is one Python file (or a folder, for a big one) in the <code>games</code> folder on the board&rsquo;s USB drive. It never touches a pin, an LED strip or a controller. It gets actions, and it draws lights by name. This is a whole game:</p>
+<pre># games/hello.py
+from gamehost import geometry as G
+from gamehost.game import Game as BaseGame
+
+
+class Game(BaseGame):
+    def __init__(self, board):
+        BaseGame.__init__(self, board)
+        self.lit = G.spot("D4")                     # the center hex
+
+    def event(self, controller, action, now):
+        if action == "move":
+            self.lit = (self.lit + 1) % G.SPOTS     # the next hex in reading order
+
+    def draw(self, lights, now):
+        lights.spot(self.lit, [(255, 255, 255)] * 3)</pre>
+  <p>Put <code>GAME = "hello"</code> in <code>config.py</code> and it runs at power-up. No compiler, no toolchain, no IDE. Notepad works. Here&rsquo;s what the board does so your game doesn&rsquo;t have to:</p>
+  <ul class="notes">
+    <li><b>The frame loop.</b> 40 times a second the board tells the game which controllers showed up or left, hands it every action since the last frame in order, lets it run its clock, blanks the lights, and asks it to draw. Draw everything, every frame; there&rsquo;s nothing to remember about what you lit last time.</li>
+    <li><b>Names, not wires.</b> Hexes have names like chess squares (rows A to G, so <code>"D4"</code> is the middle), and every seat gets its own view of the board, so &ldquo;left&rdquo; is that player&rsquo;s left. The same game runs on the large board and the small one, and on any wiring.</li>
+    <li><b>Controllers are just actions.</b> A game never knows if you&rsquo;re holding a Wiimote, pressing a pedal or tapping a phone. It gets <b>move</b>, <b>pick</b> and <b>back</b> (and arrows, if the controller has them), and it can ask what a controller can send. Design for one switch, and everything else works too.</li>
+    <li><b>Setup is a list, not a screen.</b> A game lists what it needs to know (seats, colors, how many players, how hard) and the board&rsquo;s lobby walks everybody through joining and choosing, the same way for every game. The USB page shows the same list as a form with a Start button. Play again, change seats, and leave are all handled.</li>
+    <li><b>The menu and the game picker.</b> Any game can be left from any controller at any time, and the game doesn&rsquo;t need a line of code for it. A small <code>card.py</code> draws the game&rsquo;s picture in the picker.</li>
+    <li><b>Effects and dice.</b> Blink, breathe, flash and a light chasing along a bar, all on one clock so everything stays in step, plus a die that rolls along a player&rsquo;s bar and slows to a stop. The safety limits below get applied to all of it automatically.</li>
+    <li><b>Console commands.</b> List a few commands in your game and they show up in the board&rsquo;s <code>help</code> on the USB console, which is handy for testing.</li>
+    <li><b>Rules apart from lights.</b> Island Rush&rsquo;s rules and computer player only know the board&rsquo;s shape, never its lights or controllers, so the exact same code runs in desktop tests and in the simulator. Only <code>game.py</code> touches the board. Do the same and you get a simulator for free.</li>
+  </ul>
+  <p><a href="https://github.com/tbirdlabs/lemnos/blob/main/circuitpython/games/paint.py">Paint</a> is the smallest whole game, about 80 lines, and it&rsquo;s meant to be copied. The longer version is the <a href="https://github.com/tbirdlabs/lemnos/blob/main/docs/making-games.md">making games guide</a>.</p>
+
+  <h2 id="safeties">Safeties and house rules</h2>
+  <p>A lot of these got added along the way, usually right after something went wrong. The first group the board enforces on every game, whatever the game asks for. The last group are rules I hold my own games to, and I&rsquo;d ask you to hold yours to them too.</p>
+  <p><b>Protecting people</b></p>
+  <ul class="notes">
+    <li><b>Nothing flashes faster than 3 times a second.</b> Flashing between about 3 and 30 times a second can set off photosensitive seizures, so any effect that switches lights on and off gets slowed to the limit, no matter what a game asks for.</li>
+    <li><b>Fades have to be smooth.</b> The attract screens get tested on the desktop: no LED may go from dark to full in less than about 0.2 seconds.</li>
+    <li><b>Everything can be slowed down.</b> One setting stretches every effect and every dice roll, for players who need more time.</li>
+    <li><b>Easy on the eyes.</b> The LEDs are genuinely painful at full brightness, so the default is 10%, set 1 to 10 on a log scale from the USB page or a phone and remembered through power-off. At low brightness the cursor&rsquo;s glow is doubled so it doesn&rsquo;t just disappear.</li>
+    <li><b>A power cap.</b> All the LEDs at full white would pull about 10&nbsp;A (13 on the small board). The board works out the current every frame and dims the whole frame to stay under 4&nbsp;A by default.</li>
+    <li><b>Hard to leave by accident.</b> The menu takes a 3-second hold on a wired switch, and then the board asks again: your bar turns green with one red light, and only picking the red one leaves. Anything else, or 30 seconds of nothing, goes right back to the game, which waited for you.</li>
+    <li><b>No loose parts.</b> There are no game pieces at all, and the wired controllers stay tethered to the board. Nothing to lose, nothing to swallow.</li>
+  </ul>
+  <p><b>Protecting the board (and the game you&rsquo;re in the middle of)</b></p>
+  <ul class="notes">
+    <li><b>A broken game can&rsquo;t take the board down.</b> If a game crashes while starting, the board goes back to the one that was running.</li>
+    <li><b>A game that won&rsquo;t fit gets a clean start.</b> If memory is too broken up to load it, the board restarts with that game in a few seconds, and the USB connection stays up.</li>
+    <li><b>No boot loops.</b> If the game saved for power-up won&rsquo;t load or won&rsquo;t fit, the board forgets it and starts the default game instead of failing every time you plug it in.</li>
+    <li><b>Failures get logged, not hidden.</b> A picture in the game picker that fails to load falls back to a blinking hex, and the console says why.</li>
+    <li><b>One boss.</b> The board&rsquo;s own settings win, and the radio follows them, so the two can&rsquo;t fight over which game is running.</li>
+    <li><b>The radio is optional.</b> Unplug it and the board runs exactly as before, just without Bluetooth and phones.</li>
+    <li><b>Your settings survive updates.</b> The deploy script never overwrites the <code>config.py</code> on the board&rsquo;s drive.</li>
+  </ul>
+  <p><b>House rules for games</b></p>
+  <ul class="notes">
+    <li><b>Everything is readable from the board.</b> No hidden numbers, no clocks you have to keep in your head. If a player needs to know it to play, it&rsquo;s in the lights. (This is the rule that sent Salient back to the bench.)</li>
+    <li><b>It plays with one switch.</b> Move and pick are all a game can count on. When a controller has no back button, the board adds a stop the player can pick instead.</li>
+    <li><b>Numbers are built around 10.</b> A 10-light bar per player, your chance shown as green lights out of 10, a ten-sided die.</li>
+    <li><b>Lights read the same from every seat.</b> A spot&rsquo;s three lights are symmetric (one light is the middle one, two is the outer pair, three is all of them), so the player across the table sees the same thing you do.</li>
+    <li><b>Colors mean one thing.</b> In Island Rush, players can be red, blue, yellow, purple, cyan or pink, but never green, orange or white, because those are the jungle, the tiger and the taco truck.</li>
+    <li><b>Nobody sits out.</b> No one gets knocked out of Island Rush, and the computer plays any seat nobody takes.</li>
+    <li><b>The five-minute test.</b> Anyone should be able to learn it in five minutes. Real choices, simple rules.</li>
+  </ul>
+
+  <h2>The name</h2>
+  <p>Hephaestus, the Greek maker god, was lame, and his own mother threw him off of Olympus for it. Later Zeus threw him off too, and he landed on the island of Lemnos, where the people took him in. This Lemnos is also an island, made by makers, so more people get a seat at the table.</p>
+
+  <h2>Files</h2>
+  <div class="files">
+    <p>The board software, the radio firmware, the wiring, the rules and a guide to making your own games are on GitHub now. The hardware is done and tested; the CAD files, parts list and build guide are next. Software is MIT; the rules, docs and hardware are CC BY-SA.</p>
+    <a class="button" href="https://github.com/tbirdlabs/lemnos">View on GitHub &rarr;</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+      <a href="#top">Back to top &uarr;</a>
+    </nav>
+    <p class="copy">&copy; 2026 Thunderbird Labs</p>
+  </div>
+</footer>
+
+<script src="lightbox.js"></script>
+</body>
+</html>

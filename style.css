@@ -127,6 +127,7 @@ footer .copy { flex-basis: 100%; margin: 0; }
 .article figure { margin: 22px 0; }
 .article figure img { border-radius: 6px; background: #fff; }
 .article .caption { margin-top: 6px; }
+.project pre { max-width: 72ch; background: #0d0c0a; color: #e8e2d6; border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; overflow-x: auto; font-size: .8rem; line-height: 1.45; margin: 0 0 16px; }
 .article-link { margin: -10px 0 22px; }
 
 /* Parts tables */

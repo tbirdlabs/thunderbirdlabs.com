@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building Lemnos – Thunderbird Labs</title>
+<meta name="description" content="Build notes from Lemnos, the open, accessible game board: a northern lights display too slow for the chip, previews that ran out of memory, a controller that did nothing, and how each one got run down.">
+<meta property="og:title" content="Building Lemnos – Thunderbird Labs">
+<meta property="og:description" content="Build notes from Lemnos: the bugs, dead ends and surprises, and how each one got run down.">
+<meta property="og:image" content="https://thunderbirdlabs.com/images/hero.jpg">
+<meta property="og:url" content="https://thunderbirdlabs.com/lemnos-notes">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap project article">
+  <a class="back" href="lemnos.html">&larr; Lemnos</a>
+
+  <div class="project-head">
+    <h1>Building Lemnos</h1>
+  </div>
+  <p class="lede">The bugs, the dead ends, and the surprises from building the board and its games, and how each one got run down. Some of them were the hardware&rsquo;s fault, some the software&rsquo;s. All of them were mine.</p>
+  <p class="caption">October 2026 &middot; Build notes</p>
+
+  <h2>Where it started</h2>
+  <p>MakerWorld&rsquo;s Make for Good contest included a brief from PrintLab, PlayforAll, asking for a tabletop game people with cerebral palsy could play. Most of the entries were peg games: tic-tac-toe, but bigger. Which is fine, I guess, if you think that&rsquo;s all people with CP can handle. The brief itself says not to assume that, and I don&rsquo;t. Thirty days to design a game that anyone can play. What could possibly go wrong?</p>
+  <p>The first game was Salient, an island invasion game with supply lines, ships, a volcano and everything. Then I built the board, put the game on it, and found out I couldn&rsquo;t beat it on the easiest level. The game, after days of work, was a disaster.</p>
+  
+  <h2>I invented this game and can&rsquo;t beat level 1</h2>
+  <p>Salient started as a simple game with simple controls and simple rules that anyone could understand. Three modes (only two of which I was working on, the two player modes, Island Attacker and Island Defender), and ten difficulty levels. They were balanced perfectly through tens of thousands of simulations with the computer playing both sides...with perfect knowledge of the board layout, troop strengths, and hidden game state. After I couldn&rsquo;t beat it even at the easiest difficulty, I reran the simulations with a more realistic player. One thousand simulated games played...zero player victories. Thirteen iterations of rules over days and I had turned my simple game that anyone could understand into John Nash&rsquo;s D&amp;D campaign.</p>
+  <p>The answer was right there the whole time...the undeveloped third mode, Island Rush. Rush was supposed to be the up-to-6-player version of Salient that I left behind on the road to &lsquo;perfecting&rsquo; the Attacker and Defender modes. Still on the original, simple rules, it just worked. Possibly suffering from sleep deprivation, after passing on an ancient temple and a dozen other tired tropes, I decided that the goal of the game at the center tile of the jungle island was a taco truck, then I set up the simulations and turned them loose. Not bad, but it still needs...something. Tigers! Much better. Ship it.</p>
+
+  <h2>The northern lights were too slow for the board</h2>
+  <p>Aurora is one of the attract screens (or wall decorations, or night lights, you decide): curtains of northern lights that build, peak and fade, drawn from each LED&rsquo;s real position on the board. It looked great on the desktop. The RP2040 could not keep up with it.</p>
+  <p>The desktop is about a hundred times faster than the RP2040, so desktop timing tells you exactly nothing. Timing it on the board showed the moving parts of the sky took under 1&nbsp;ms, and working out the colors of 155 LEDs took 60&nbsp;ms. At the planned 25 updates a second, that&rsquo;s half again more time than there is. For a baseline, the other attract screens came in at 46&nbsp;ms (clock), 45&nbsp;ms (forest fire) and 26&nbsp;ms (fireflies), so the board&rsquo;s real ceiling is about 20 frames a second, not the 40 in the config. That set the target.</p>
+  <p>What didn&rsquo;t work, in order:</p>
+  <ul class="notes">
+    <li><b>Leaner Python.</b> A color lookup table, flat lists, local variables, fewer lookups per LED. 60&nbsp;ms down to about 41. Still way too slow.</li>
+    <li><b>ulab, CircuitPython&rsquo;s built-in numpy.</b> Doing the math on whole arrays in compiled code sounded like the answer. It was slower (71&nbsp;ms, and 53 after trimming). The RP2040 is a Cortex-M0+, which has no floating-point hardware, so every float operation runs in software, array or not, and every array operation made a new array. In real time the quiet sky ran at about 7 frames a second, with the memory clean-ups freezing the board for up to 420&nbsp;ms at a time.</li>
+  </ul>
+  <p>What worked was whole numbers and tables. On this chip integer math is cheap and small integers cost no memory, so the sky got rewritten so each LED is one subtraction, a range check, three table lookups and three additions: positions in 64ths of a hex width, a 1,024-step sine table looked up once per column (29 of them) instead of once per LED, and each curtain&rsquo;s fade precomputed by distance from its edge, already colored green to teal to violet. The result is about 37&nbsp;ms on a quiet sky and 59&nbsp;ms at full display, so 13 to 16 frames a second, which is plenty for something that moves that slowly.</p>
+  <p><b>A measurement mistake worth admitting.</b> The integer version first timed at 23&nbsp;ms, which looked like victory. But the timing scripts set the sky to full activity and then ran the game&rsquo;s update, which promptly reset it to a quiet sky. So every number above until the final ones was a quiet sky. The comparisons between versions still hold, since they were all measured the same (wrong) way, but none of them showed a full display. Check that the thing you&rsquo;re timing is the thing you think you&rsquo;re timing.</p>
+  <p>Aurora also must never flash, so there&rsquo;s a desktop test that runs whole displays and records the biggest change any LED makes between updates: nothing may go from dark to full in under about 0.2&nbsp;s. That test caught three real jumps, including one that showed up after a rewrite, where an LED crossing a curtain&rsquo;s edge went straight from green to pink because a short blend had gotten dropped.</p>
+
+  <h2>Previews that showed a blinking dot</h2>
+  <p>In the game picker, each game shows a little preview on the island. Aurora&rsquo;s and the clock&rsquo;s showed only a blinking white center hex, which is what the picker shows when a preview fails. Every preview drew fine on the desktop, and the picker was politely catching the error and hiding it, so the next step was to load each one on the board, with a big game running, and print the real error:</p>
+<pre>CARDS free with rush loaded: 36608
+CARDS aurora FAILED: MemoryError('memory allocation failed, allocating 416 bytes')
+CARDS clock ok
+CARDS fire FAILED: MemoryError()
+CARDS fireflies FAILED: MemoryError('memory allocation failed, allocating 376 bytes')</pre>
+  <p>The picker loads a preview while the current game is still in memory (so you can go back to it). The big games were precompiled. The small ones were left as plain source so people could edit them without a toolchain, which meant loading one of their previews meant compiling the whole game on the board, and compiling takes a lot more memory than running. As the attract screens grew, &ldquo;small&rdquo; stopped being true. Which ones failed depended on how much memory happened to be free, so it changed from run to run, which is always fun.</p>
+  <p>The fix: everything gets compiled now, and the editable sources go in their own folder on the drive where the board doesn&rsquo;t load them. While I was in there, it turned out Fireflies was keeping a list of every LED&rsquo;s neighbors for all 155 LEDs: about 28&nbsp;KB, on a board with about 70&nbsp;KB free, to answer three questions an evening. It works that out only when it needs to now.</p>
+  <p><b>Then it came back.</b> With Aurora or Rain running, every preview went back to the blinking dot. This time the picker logged why, right away. The worst case I&rsquo;d tested hadn&rsquo;t been the worst case: I&rsquo;d checked the fix with Island Rush running, not with the two hungriest attract screens. A one-file game has no preview of its own, so the picker loaded the whole game just to draw its picture: 5.6&nbsp;KB for Fire, 13&nbsp;KB for the clock. Island Rush&rsquo;s preview lives in its own small file and costs 1&nbsp;KB. So now all the attract screens are folders like Island Rush, each with a small preview file, and every preview loads no matter what&rsquo;s running.</p>
+  <p>Lessons: a fallback that hides errors also hides the cause, so log it. And on a microcontroller, how much memory you have depends on what&rsquo;s already loaded, so test with the worst case loaded&hellip;the actual worst case.</p>
+
+  <h2>The controller that did nothing</h2>
+  <p>So the board works, the game works, and the web remote works. Awesome. Time to make the first wired controller.</p>
+  <p>Design it, print it, wire it, and...it (a rotary encoder and two buttons) does nothing, in any game. So, test in layers:</p>
+  <ul class="notes">
+    <li>A stand-alone test that read the controller&rsquo;s pins directly, skipping the game host, the lobby and everything else, and printed every pin change. All the pins opened fine. Nothing ever changed.</li>
+    <li>A raw scan of all 30 of the board&rsquo;s pins at once, while the button was pressed. Nothing.</li>
+    <li>A jumper wire from D9 straight to ground. Still nothing.</li>
+    <li>The same scan against a switch known to work, the SCORPIO&rsquo;s own BOOT button. It caught every press.</li>
+  </ul>
+  <p>So the code was fine, and D9 wasn&rsquo;t reaching the chip, even with a jumper on the header pin. Then I remembered: when I put the headers on, I soldered just the pins I was using at the time so I could swap the headers easily if (when) the design changed. I didn&rsquo;t have a controller at the time, so the controller&rsquo;s pins never got soldered. Centered perfectly in their holes, they weren&rsquo;t touching anything, and a meter on the header pin still said everything was fine. Once soldered, everything worked first try...except the encoder and buttons that ended up wired backwards because I was cranky that I had just cut up all my wiring looking for the fault and forgot which colors I had wired to what, so I put them back together wrong.</p>
+  <p>Lesson: If something doesn&rsquo;t work, blame Claude, then go find and fix the fault.</p>
+
+  <h2>Shorter stories</h2>
+  <ul class="notes">
+    <li><b>Red never wins.</b> Watching the computer play itself at Salient on the board, the attacker seemed to never win. The simulator said 49%. Both engines (the browser prototype and the board&rsquo;s port) replay the same game from the same seed, so I logged the board&rsquo;s games and replayed them on the desktop: every one matched move for move. Nothing was broken. But about 6.5% of games ended with the attacker wiped out by round 3, and those take a few minutes, while attacker wins take 20 or more. An hour of watching could easily show several quick losses and no wins. The fix was a rule: an attacker run off the island with ships still coming gets a free naval bombardment to land again. Quick losses went to zero, and the balance barely moved.</li>
+    <li><b>The island ran backwards and upside down.</b> After wiring up the first prototype, the game was upside down and backwards. I created testpattern.py and it ran...wait for it...upside down and backwards. I had wired it mirrored in both directions because the original design wired the board from underneath, face down and flipped (the current version solves that problem, too). While I was fixing, I added a setting that now names the corner hex where the data goes in, so however you wire your version is fine, any of the four corners works.</li>
+    <li><b>LEDs jumping around mid-strip.</b> The original default config was for &ldquo;large&rdquo; (60/m strip) and the first prototype board was the small one (144/m, with an extra LED at each hex edge), so every address after the first was off.</li>
+    <li><b>Too bright to look at.</b> The first time I fired up the original prototype it was like staring into a fusion reactor. I had to turn it face down on the bench to send it the commands to dim it. Still painful at 50%...no better at 25%, and finally comfortable at 5%. Convert the brightness control to log scaling and set default to 10%. A new problem: with only 13 brightness steps available at 5%, dimmed lights, like the cursor, can just vanish. The fix: double the brightness of the cursor under a threshold.</li>
+    <li><b>Out of memory while the USB page watched.</b> The USB page is a web page on the board&rsquo;s own drive that shows its lights live, no install. Starting a game from it ran the board out of memory. Measuring part by part: the LED driver alone took 26&nbsp;KB, and 10.5&nbsp;KB of that was an assembler it needs exactly once, at startup. Unloading it, moving the dimming into my own code so the driver doesn&rsquo;t keep a second copy of every pixel, and sending the page its frames in one piece instead of five took free memory during play from about 15&nbsp;KB to 26.</li>
+    <li><b>The crash when switching games</b> was three bugs in a trench coat: memory too broken up after a few switches to load a big game again (the board now restarts cleanly with the new game when it won&rsquo;t fit), a crash caused by the extra logging I&rsquo;d added to find the crash, and the radio pushing its saved game back onto the board after a reboot, so it looked like the switch had failed. Now the board&rsquo;s settings win and the radio follows.</li>
+    <li><b>Tigers that picked on red and blue.</b> In Island Rush, the tigers chased the first two seats most, because ties between equally close players went by turn order. Now a tie goes to whoever a tiger chased longest ago. Also closed: a loophole where you could ring the truck with your own spots and lock everyone out, and a bug where computer players would get bored and start a deforestation campaign.</li>
+    <li><b>Toolchain gotchas on the radio firmware.</b> ESP-IDF&rsquo;s installer silently refuses to run under Git Bash, GCC chokes on network paths, and Git won&rsquo;t fetch a submodule onto a network share. So the builds run from PowerShell, out of a local copy.</li>
+  </ul>
+
+  <h2>The simulator did the heavy lifting</h2>
+  <p>Salient&rsquo;s rules went from v0.1 to v0.14 with thousands of computer-vs-computer games behind each change. Spread across all 16 cores of my PC, a 4,000-game run takes 10 to 18 seconds, and one sweep of 24 rule combinations still took half an hour (single-threaded, it would have run all night). Some ideas that sounded right fell flat on their face in the numbers: &ldquo;build up the beachhead first&rdquo; dropped the attacker from 21% wins to 3% or less, and none of nine other attacker strategies did reliably better than plain greed. The board&rsquo;s engine replays 500 games identically to the browser&rsquo;s: 255,876 moves, the same every time.</p>
+
+  <h2>The toolkit that kept coming up</h2>
+  <ul class="notes">
+    <li><b>Replay by seed.</b> Two engines that play identical games from the same seed turn &ldquo;the board is acting weird&rdquo; into a yes-or-no question.</li>
+    <li><b>A REPL over USB.</b> Paste a small script into the board to time code, scan pins, or load something with the real error showing. Most of these bugs were found that way.</li>
+    <li><b>Desktop renders.</b> Draw the board&rsquo;s LEDs to an image on the PC to see how something looks before it goes on the board.</li>
+    <li><b>Test in layers.</b> A stand-alone test, a raw pin scan, then a switch you know works. Each one rules out a layer.</li>
+    <li><b>Measure, then change.</b> Every speed-up was decided by timing the pieces on the board, and twice the timing proved the obvious fix wrong.</li>
+    <li><b>Simulate before you rule.</b> Rule changes get tried over thousands of computer games before they ever reach the board.</li>
+  </ul>
+
+  <h2>What&rsquo;s next</h2>
+  <ul class="notes">
+    <li><b>Photos,</b> then the CAD files, a real parts list and a build guide. The hardware is done and tested; now it needs to be written up.</li>
+    <li><b>Salient</b>, back on the bench until it passes the same test Island Rush did: everything you need to know is on the board.</li>
+  </ul>
+
+  <h2>Build one</h2>
+  <div class="files">
+    <p>Lemnos is free and open source: the board software and radio firmware are MIT, and the rules and docs are CC BY-SA. The build guide is still coming, but the wiring, the code and the guide to making your own games are all up now. If you build one, break one, or write a game for it, <a href="mailto:thunderbirdlabs@gmail.com?subject=Lemnos">I want to hear about it</a>.</p>
+    <a class="button" href="https://github.com/tbirdlabs/lemnos">View on GitHub &rarr;</a>
+    <a class="button secondary" href="lemnos.html">Back to Lemnos</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+      <a href="#top">Back to top &uarr;</a>
+    </nav>
+    <p class="copy">&copy; 2026 Thunderbird Labs</p>
+  </div>
+</footer>
+
+<script src="lightbox.js"></script>
+</body>
+</html>
