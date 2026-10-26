@@ -127,7 +127,6 @@
         <p class="caption">The six M3 inserts go in the risers around the edge; the two M2 inserts go in the SCORPIO mount at the back.</p>
       </figure>
     </li>
-    <li>Heat-set 1 M3 insert into the Radio Case. The controllers&rsquo; and displays&rsquo; inserts are in <a href="#units">their own steps</a>.</li>
   </ol>
 
   <h3 id="island">Island LEDs</h3>
@@ -258,7 +257,23 @@
   <ol class="steps">
     <li>Cut the 22&nbsp;AWG conductors to the tether length you want and run them through the paracord (see <a href="#paracord">How to make a paracord tether</a>). A Standard Controller needs 7: 5&nbsp;V, ground, LED data, encoder A and B, encoder push, and the button. That takes 550 cord. A Basic Display needs 3 (5&nbsp;V, ground, and LED data) and the radio 4 (5&nbsp;V, ground, TX, and RX), so 325 is fine for those.</li>
     <li>The Base has three built-in tie-off points. Tie each tether to one (see <a href="#lacing">How to tie off the tethers</a>), so a pull on the cord never reaches the solder joints, and use them to tidy the internal wiring too. The tethers stay fixed to the board: controllers and displays extend for play but don&rsquo;t come off.</li>
-    <li>Press the magnets in: 2 in each controller or display and 2 in its slot on the board (1 and 1 for the Radio Case). They&rsquo;re a press fit, but put a drop of super glue under each one so it can&rsquo;t come loose. Every unit is tethered to its own slot, so polarity only has to match between a unit and its slot.</li>
+    <li>Press the slot magnets in: 2 in each slot you&rsquo;ll use, 1 for the Radio Case&rsquo;s slot. The back slot&rsquo;s pair goes into the Base, and the rest go into the Skirt&rsquo;s outer faces. They&rsquo;re a press fit, but put a drop of super glue under each one so it can&rsquo;t come loose. Every unit is tethered to its own slot, so polarity only has to match between a unit and its slot. (The controllers&rsquo; and displays&rsquo; own magnets are in <a href="#units">their steps</a>.)
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step01b-rear-magnets.jpg" alt="Render of the Base with two magnets lifted out of the back slot" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step01b-rear-magnets-drawing.png" alt="Exploded drawing of the back slot magnets and the Base with their parts list" loading="lazy">
+        </div>
+        <p class="caption">The back slot&rsquo;s pair goes into the Base.</p>
+      </figure>
+    
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step05b-slot-magnets.jpg" alt="Render of the Skirt with ten magnets lifted straight out of its outer faces, two per face" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step05b-slot-magnets-drawing.png" alt="Exploded drawing of the Skirt and its ten magnets with their parts list" loading="lazy">
+        </div>
+        <p class="caption">The other five slots&rsquo; magnets go into the Skirt.</p>
+      </figure>
+    </li>
   </ol>
 
   <h3 id="paracord">How to make a paracord tether</h3>
@@ -317,7 +332,25 @@
 
   <h3 id="radio">Radio (optional)</h3>
   <ol class="steps">
-    <li>The T-Display goes in the Radio Case, or mount any other ESP32 inside the board. If yours needs a pairing button, run it to the power jack hole in the back or to the Skirt.</li>
+    <li>Heat-set the M3 insert into the right side of the Radio Case Body.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step15-radio-insert.jpg" alt="Render of the Radio Case Body with an M3 heat-set insert lifted straight out of its right side" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step15-radio-insert-drawing.png" alt="Exploded drawing of the Radio Case Body and its insert with their parts list" loading="lazy">
+        </div>
+        <p class="caption">The insert goes into the right side of the Body.</p>
+      </figure>
+    </li>
+    <li>The T-Display goes in the Radio Case, then the Endcap goes on the right side with an M3&nbsp;&times;&nbsp;8.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step16-radio-endcap.jpg" alt="Render of the Radio Case Endcap and an M3 screw lined up with the right side of the Body" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step16-radio-endcap-drawing.png" alt="Exploded drawing of the Radio Case Endcap and screw with their parts list" loading="lazy">
+        </div>
+        <p class="caption">The Endcap and its screw both come straight in from the right. The T-Display isn&rsquo;t in the model.</p>
+      </figure>
+    </li>
+    <li>Or mount any other ESP32 inside the board. If yours needs a pairing button, run it to the power jack hole in the back or to the Skirt.</li>
     <li>Three wires, crossed over: the radio&rsquo;s TX to the SCORPIO&rsquo;s RX, its RX to the SCORPIO&rsquo;s TX, and ground to ground. On the T-Display that&rsquo;s G25 (TX) and G26 (RX); on a DevKit or NodeMCU-32S it&rsquo;s GPIO17 and GPIO16.</li>
     <li>5&nbsp;V from the board&rsquo;s supply to its 5V pin (VIN on most other ESP32 boards). The radio firmware and its setup are in the <a href="https://github.com/tbirdlabs/lemnos/blob/main/radio/README.md">radio README</a>.</li>
   </ol>
