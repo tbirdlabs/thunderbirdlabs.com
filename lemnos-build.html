@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building Lemnos – Thunderbird Labs</title>
+<meta name="description" content="Parts list and build guide for Lemnos, the open, accessible game board: printed parts, electronics, wiring, and setup.">
+<meta property="og:title" content="Building Lemnos – Thunderbird Labs">
+<meta property="og:description" content="Parts list and build guide for Lemnos, the open, accessible game board: printed parts, electronics, wiring, and setup.">
+<meta property="og:image" content="https://thunderbirdlabs.com/images/hero.jpg">
+<meta property="og:url" content="https://thunderbirdlabs.com/lemnos-build">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap project article">
+  <a class="back" href="lemnos.html">&larr; Lemnos</a>
+
+  <div class="project-head">
+    <h1>Building Lemnos</h1>
+  </div>
+  <p class="lede">Everything you need for the small Lemnos board (144 LEDs/m strip), its controllers and displays, and the optional radio, and how to put it all together.</p>
+  <p class="caption">The listings are not affiliate links or endorsements, just the parts I used or ones like them. Generic parts from any seller will do.</p>
+  <nav class="toc" aria-label="On this page">
+    <p><b>Buying</b><span><a href="#slots">Six slots</a> <a href="#parts">Parts</a> <a href="#hardware">Hardware</a> <a href="#shop">From your shop</a></span></p>
+    <p><b>Building</b><span><a href="#tools">Tools</a> <a href="#printing">Printing</a> <a href="#inserts">Inserts</a> <a href="#island">Island LEDs</a> <a href="#units">Controllers and displays</a> <a href="#tethers">Tethers and magnets</a> <a href="#wiring">Wiring</a> <a href="#radio">Radio</a> <a href="#close">Closing it up</a> <a href="#software">Software</a> <a href="#playing">Playing</a> <a href="#files">Files</a></span></p>
+  </nav>
+
+  <!-- TODO: photos of the board, a Standard Controller, and a Basic Display -->
+
+  <h2 id="slots">Six slots</h2>
+  <p>The board has six slots around its edge, and each one holds a <b>Standard Controller</b>, a <b>Basic Display</b>, or the <b>Radio Case</b>. Decide what goes in them before you buy anything, because most of the parts list is per slot.</p>
+  <ul class="notes">
+    <li><b>Standard Controller:</b> a knob (with a push switch) and a button, with the player&rsquo;s own 10-light bar built in.</li>
+    <li><b>Basic Display:</b> the same housing with the bar and no controls, for a player using a switch, a pedal, a Bluetooth controller, or a phone. Everyone needs their bar in front of them, whatever they play with.</li>
+    <li><b>Radio Case</b> (optional): holds a LilyGO T-Display, the ESP32 that adds Bluetooth controllers, phones, the settings page, and the time of day. It takes one slot, so with it there&rsquo;s room for five controllers and displays. Any other ESP32 can go inside the board instead, which leaves all six slots free.</li>
+  </ul>
+  <p>Every controller and display is tethered to its own slot. It pulls out to wherever its player sits and pushes back in until the magnets catch, so the whole thing packs away as one piece with no loose parts. You only fill the slots you&rsquo;ll use, and you can add more later.</p>
+
+  <h2 id="parts">Parts</h2>
+  <h3>Electronics</h3>
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th></tr></thead>
+    <tbody>
+      <tr><td>Microcontroller<small>Runs the board; CircuitPython</small></td><td><a href="https://www.adafruit.com/product/5650">Adafruit Feather RP2040 SCORPIO</a></td><td class="num">1</td></tr>
+      <tr><td>WS2812B-type 5&nbsp;V addressable LED strip, 144 LEDs/m<small>155 LEDs (about 1.1&nbsp;m) for the island, plus 10 per controller or display; 1.5&nbsp;m covers the island and five bars</small></td><td>Any 5&nbsp;V WS2812B, 144/m, with adhesive backing</td><td class="num">~1.5&nbsp;m</td></tr>
+      <tr><td>EC11 rotary encoder with push switch<small>One per Standard Controller</small></td><td><a href="https://www.amazon.com/dp/B0C6Q67V97">Generic EC11, like these</a></td><td class="num">0&ndash;6</td></tr>
+      <tr><td>12&nbsp;mm momentary push button<small>One per Standard Controller</small></td><td><a href="https://www.amazon.com/dp/B08L49F7DV">Generic 12&nbsp;mm, like these</a></td><td class="num">0&ndash;6</td></tr>
+      <tr><td>Radio (optional)<small>For the Radio Case; any ESP32 works mounted inside the board</small></td><td>LilyGO TTGO T-Display (ESP32)</td><td class="num">0&ndash;1</td></tr>
+      <tr><td>Power<small>The board draws well under 2&nbsp;A at the default brightness</small></td><td>A USB-C phone charger and cable, into the SCORPIO</td><td class="num">1</td></tr>
+      <tr><td>Barrel jack, M11&nbsp;&times;&nbsp;1 threaded panel mount (optional)<small>There&rsquo;s a hole for one in the back, if you&rsquo;d rather feed 5&nbsp;V that way</small></td><td><a href="https://www.amazon.com/dp/B0DP6MNQQB">Like this</a></td><td class="num">0&ndash;1</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 id="hardware">Hardware</h3>
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th class="num">Qty</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td>8&nbsp;&times;&nbsp;3&nbsp;mm disc magnets<small><a href="https://www.amazon.com/dp/B07B3SDRCP">Generic, like these</a></small></td><td class="num">4 per unit</td><td>2 in each controller or display and 2 in its slot on the board; 1 and 1 for the Radio Case</td></tr>
+      <tr><td>M3 brass heat-set inserts</td><td class="num">6 + 2 per unit</td><td>6 in the Base&rsquo;s risers, 2 in each controller or display Body, 1 in the Radio Case</td></tr>
+      <tr><td>M3&nbsp;&times;&nbsp;8 (or longer) socket head screws</td><td class="num">6 + 2 per unit</td><td>Cover to Base (6), each controller or display (2), Radio Case (1)</td></tr>
+      <tr><td>M2&nbsp;&times;&nbsp;2 brass heat-set inserts</td><td class="num">2</td><td>SCORPIO mount</td></tr>
+      <tr><td>M2&nbsp;&times;&nbsp;4 socket head screws</td><td class="num">2</td><td>SCORPIO to its mount</td></tr>
+      <tr><td>550 paracord</td><td class="num">per Standard Controller</td><td>Tether jacket; it&rsquo;s the size that fits 7 conductors</td></tr>
+      <tr><td>325 paracord</td><td class="num">per display or radio</td><td>Tether jacket; holds up to 4 conductors</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 id="shop">From your shop</h3>
+  <ul class="notes">
+    <li>22&nbsp;AWG stranded wire, for the internal wiring and the tethers. A few colors makes things easier.</li>
+    <li>DuPont connectors and header pins. Everything inside connects on DuPonts, so any part can come back out.</li>
+    <li>Something to join several 5&nbsp;V and ground wires. Mine is a DuPont socket with all its pins soldered together; Wago 221 lever nuts work too.</li>
+    <li>Solder, and some small heat-shrink tubing.</li>
+    <li>Zip ties or lacing cord, for the tie-off points.</li>
+    <li>Super glue, a drop under each magnet.</li>
+    <li>PETG: about 390&nbsp;g for the full set, with clear PETG for the Tiles and Windows.</li>
+  </ul>
+
+  <h2>Build guide</h2>
+  <p>Like Clotho, most of this should make sense once the parts are in your hands. The wrong parts won&rsquo;t fit, and the board&rsquo;s test pattern tells you right away if the wiring is off. The <a href="https://github.com/tbirdlabs/lemnos/blob/main/docs/wiring.md">wiring reference</a> on GitHub has the full pin tables.</p>
+
+  <h3 id="tools">Tools</h3>
+  <ul class="notes">
+    <li>A soldering iron, with a tip for heat-set inserts if you have one</li>
+    <li>Wire strippers and flush cutters</li>
+    <li>Allen keys for M2 and M3</li>
+    <li>A computer with a USB-C cable, to load the software</li>
+    <li>Optional but nice: a multimeter, to check 5&nbsp;V and ground before anything gets plugged in</li>
+  </ul>
+
+  <h3 id="printing">Printing</h3>
+  <ul class="notes">
+    <li><b>What to print.</b> The board once: Base, Cover, Skirt, Strip Carrier, and <b>37 Tiles</b>. For each Standard Controller: Body, Left Endcap, Right Endcap, Slider, and Window. For each Basic Display: its own Left Endcap and Slider, plus a Body, Right Endcap, and Window from the Standard Controller. The Radio Case (Body and Endcap) if you&rsquo;re using a T-Display.</li>
+    <li><b>Bed size.</b> Every part fits a 250&nbsp;&times;&nbsp;220&nbsp;mm bed, which is any current Bambu Lab printer except the A1 mini. The board parts are 233&nbsp;&times;&nbsp;202&nbsp;mm.</li>
+    <li><b>Tiles and Windows.</b> The Tiles are 1.5&nbsp;mm thick, and clear PETG (SUNLU Clear PETG) works great. White should be fine too, but print one tile in your filament and check it over a lit LED before printing all 37. The Windows go in the same clear filament.</li>
+    <li><b>Settings.</b> It&rsquo;s a game board, so print it however you like. The print profile uses PETG, 0.20&nbsp;mm layers, 5 walls, 5 top and bottom layers, 25% adaptive cubic infill, and tree supports where needed, but I overbuild everything. The full set takes about 18 hours.</li>
+  </ul>
+
+  <h3 id="inserts">Inserts</h3>
+  <ol class="steps">
+    <li>Heat-set the 6 M3 inserts into the risers in the Base, and the 2 M2 inserts for the SCORPIO.</li>
+    <li>Heat-set 2 M3 inserts into each Standard Controller and Basic Display Body, and 1 into the Radio Case.</li>
+  </ol>
+
+  <h3 id="island">Island LEDs</h3>
+  <ol class="steps">
+    <li>Cut the strip into 7 rows of 17, 21, 25, 29, 25, 21, and 17 LEDs. Each row has 3 LEDs per hex and one between hexes. You can lay the strip in the Strip Carrier to measure each row instead of counting.</li>
+    <li>Stick the rows into the Strip Carrier with the strip&rsquo;s own adhesive. The carrier doubles as the assembly jig.</li>
+    <li>Join the rows end to end in a serpentine: the end of each row loops back to the same end of the next, so the data runs along one row, back along the next, and so on. Watch the arrows on the strip; data only flows one way.</li>
+    <li>Data can go in at any corner. Note which one; you&rsquo;ll set it as <code>ISLAND_START</code> in <code>config.py</code>.</li>
+  </ol>
+
+  <h3 id="units">Controllers and displays</h3>
+  <ol class="steps">
+    <li>Stick a 10-LED strip into each Standard Controller and Basic Display Body, under where the Window goes, with LED 1 at the player&rsquo;s left as they face the board.</li>
+    <li>Standard Controller: the Slider holds the Window and the EC11 encoder, and the 12&nbsp;mm button goes in the Left Endcap.</li>
+    <li>Basic Display: the same, with its own Slider and Left Endcap, and no encoder or button.</li>
+    <li>Close each controller and display with its 2 M3 screws.</li>
+  </ol>
+
+  <h3 id="tethers">Tethers and magnets</h3>
+  <ol class="steps">
+    <li>Cut the 22&nbsp;AWG conductors to the tether length you want and run them through the paracord. A Standard Controller needs 7: 5&nbsp;V, ground, LED data, encoder A and B, encoder push, and the button. That takes 550 cord. A Basic Display needs 3 (5&nbsp;V, ground, and LED data) and the radio 4 (5&nbsp;V, ground, TX, and RX), so 325 is fine for those.</li>
+    <li>The Base has three built-in tie-off points. Zip-tie or lace each tether to one, so a pull on the cord never reaches the solder joints, and use them to tidy the internal wiring too. The tethers stay fixed to the board: controllers and displays extend for play but don&rsquo;t come off.</li>
+    <li>Press the magnets in: 2 in each controller or display and 2 in its slot on the board (1 and 1 for the Radio Case). They&rsquo;re a press fit, but put a drop of super glue under each one so it can&rsquo;t come loose. Every unit is tethered to its own slot, so polarity only has to match between a unit and its slot.</li>
+  </ol>
+
+  <h3 id="wiring">Wiring</h3>
+  <p>The SCORPIO has 8 LED outputs on the inner pins of the 2&nbsp;&times;&nbsp;8 header on its short end; the outer pins are all ground. All 8 update together, so the whole board refreshes in about 5&nbsp;ms. Seats are numbered clockwise from the bottom.</p>
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Channel</th><th>SCORPIO pin</th><th>Runs to</th><th class="num">LEDs</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>NEOPIXEL0 (GPIO16)</td><td>Island</td><td class="num">155</td></tr>
+      <tr><td>1</td><td>NEOPIXEL1 (GPIO17)</td><td>Seat 1 bar (bottom)</td><td class="num">10</td></tr>
+      <tr><td>2</td><td>NEOPIXEL2 (GPIO18)</td><td>Seat 2 bar (lower left)</td><td class="num">10</td></tr>
+      <tr><td>3</td><td>NEOPIXEL3 (GPIO19)</td><td>Seat 3 bar (upper left)</td><td class="num">10</td></tr>
+      <tr><td>4</td><td>NEOPIXEL4 (GPIO20)</td><td>Seat 4 bar (top)</td><td class="num">10</td></tr>
+      <tr><td>5</td><td>NEOPIXEL5 (GPIO21)</td><td>Seat 5 bar (upper right)</td><td class="num">10</td></tr>
+      <tr><td>6</td><td>NEOPIXEL6 (GPIO22)</td><td>Seat 6 bar (lower right)</td><td class="num">10</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ol class="steps">
+    <li><b>LEDs.</b> Island data to channel 0, and each controller or display&rsquo;s bar to the channel for its seat.</li>
+    <li><b>Controls.</b> The first Standard Controller&rsquo;s encoder goes to D24 and D25, its push switch to D9, and its button to D10. Further controllers go on free pins; the <a href="https://github.com/tbirdlabs/lemnos/blob/main/docs/wiring.md#free-inputs">free inputs table</a> lists them, and <code>config.py</code> says which pin does what. Every switch just shorts its pin to ground. An encoder&rsquo;s two pins have to be consecutive GPIOs.</li>
+    <li><b>Power.</b> 5&nbsp;V and ground to every strip, controller, and display through your power distribution, with all the grounds tied together.</li>
+    <li><b>The SCORPIO</b> mounts on its two M2 inserts.</li>
+  </ol>
+
+  <h3 id="radio">Radio (optional)</h3>
+  <ol class="steps">
+    <li>The T-Display goes in the Radio Case, or mount any other ESP32 inside the board. If yours needs a pairing button, run it to the power jack hole in the back or to the Skirt.</li>
+    <li>Three wires, crossed over: the radio&rsquo;s TX to the SCORPIO&rsquo;s RX, its RX to the SCORPIO&rsquo;s TX, and ground to ground. On the T-Display that&rsquo;s G25 (TX) and G26 (RX); on a DevKit or NodeMCU-32S it&rsquo;s GPIO17 and GPIO16.</li>
+    <li>5&nbsp;V from the board&rsquo;s supply to its 5V pin (VIN on most other ESP32 boards). The radio firmware and its setup are in the <a href="https://github.com/tbirdlabs/lemnos/blob/main/radio/README.md">radio README</a>.</li>
+  </ol>
+
+  <h3 id="close">Closing it up</h3>
+  <ol class="steps">
+    <li>Set the Strip Carrier with its LEDs in the Base, and the 37 Tiles in the carrier. They just sit in place.</li>
+    <li>The Skirt can go on at any point; it doesn&rsquo;t touch the Base, the carrier, or the wiring.</li>
+    <li>The Cover holds the Tiles and the Skirt in place. Screw it down with the 6 M3 screws into the Base&rsquo;s risers.</li>
+  </ol>
+
+  <h3 id="software">Software</h3>
+  <ol class="steps">
+    <li>Install CircuitPython 10 on the SCORPIO and the three libraries, then copy the board files over, as described in the <a href="https://github.com/tbirdlabs/lemnos/blob/main/circuitpython/README.md">CircuitPython README</a>.</li>
+    <li>In <code>config.py</code>, set <code>ISLAND_START</code> to the corner where your island&rsquo;s data goes in, and list your controllers.</li>
+    <li>Set <code>GAME = "testpattern"</code> and power up. It lights every LED in order, so a row that&rsquo;s backwards or a bar on the wrong channel shows up right away. Then set it back.</li>
+  </ol>
+
+  <h3 id="playing">Playing</h3>
+  <ul class="notes">
+    <li><b>Power:</b> plug USB-C into the SCORPIO. The board starts the last game it was set to.</li>
+    <li><b>Joining:</b> press pick to join. Move steps through the choices and pick takes one: in Island Rush, your corner and then your color. The first player to join also sets how many play, and the computer plays every seat nobody takes. Then their bar breathes green, and pick starts the game.</li>
+    <li><b>When it&rsquo;s over:</b> pick plays again with the same choices.</li>
+    <li><b>Changing games:</b> with nobody joined, back opens the game picker. During a game, hold a wired switch for 3 seconds: your bar turns green with one red light, and picking the red light leaves the game. Picking green, pressing back, or waiting 30 seconds goes back to the game.</li>
+    <li><b>Brightness:</b> it starts at 10%. Change it from the USB page (<code>Lemnos.html</code> on the board&rsquo;s drive) or, with the radio, from its web page. The board remembers it through power-off.</li>
+    <li><b>Rules:</b> Island Rush&rsquo;s full rules are on <a href="https://github.com/tbirdlabs/lemnos/blob/main/docs/rules/island-rush-rules-v0.8.md">GitHub</a>.</li>
+  </ul>
+
+  <h2 id="files">Files</h2>
+  <div class="files">
+    <p>The STEP model, the Fusion archive, the print files, and the print profile are on MakerWorld; the board software, radio firmware, and docs are on GitHub. Hardware and docs are CC BY-SA and software is MIT, so remix away, and <a href="mailto:thunderbirdlabs@gmail.com?subject=Lemnos">tell me</a> what you build, break, or improve.</p>
+    <a class="button" href="https://makerworld.com/en/models/3498867-lemnos-an-open-accessible-game-board-playforall">Get the files on MakerWorld &rarr;</a>
+    <a class="button secondary" href="https://github.com/tbirdlabs/lemnos">View on GitHub</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span class="name">Thunderbird Labs</span></a>
+    <nav>
+      <a href="index.html#builds">Builds</a>
+      <a href="index.html#links">Links</a>
+      <a href="#top">Back to top &uarr;</a>
+    </nav>
+    <p class="copy">&copy; 2026 Thunderbird Labs</p>
+  </div>
+</footer>
+
+<script src="lightbox.js"></script>
+</body>
+</html>
