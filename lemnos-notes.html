@@ -36,21 +36,21 @@
 
   <h2>Where it started</h2>
   <p>MakerWorld&rsquo;s Make for Good contest included a brief from PrintLab, PlayforAll, asking for a tabletop game people with cerebral palsy could play. Most of the entries were peg games: tic-tac-toe, but bigger. Which is fine, I guess, if you think that&rsquo;s all people with CP can handle. The brief itself says not to assume that, and I don&rsquo;t. Thirty days to design a game that anyone can play. What could possibly go wrong?</p>
-  <p>The first game was Salient, an island invasion game with supply lines, ships, a volcano and everything. Then I built the board, put the game on it, and found out I couldn&rsquo;t beat it on the easiest level. The game, after days of work, was a disaster.</p>
+  <p>The first game was Salient, an island invasion game with supply lines, ships, a volcano, and everything. Then I built the board, put the game on it, and found out I couldn&rsquo;t beat it on the easiest level. The game, after days of work, was a disaster.</p>
   
   <h2>I invented this game and can&rsquo;t beat level 1</h2>
   <p>Salient started as a simple game with simple controls and simple rules that anyone could understand. Three modes (only two of which I was working on, the two player modes, Island Attacker and Island Defender), and ten difficulty levels. They were balanced perfectly through tens of thousands of simulations with the computer playing both sides...with perfect knowledge of the board layout, troop strengths, and hidden game state. After I couldn&rsquo;t beat it even at the easiest difficulty, I reran the simulations with a more realistic player. One thousand simulated games played...zero player victories. Thirteen iterations of rules over days and I had turned my simple game that anyone could understand into John Nash&rsquo;s D&amp;D campaign.</p>
   <p>The answer was right there the whole time...the undeveloped third mode, Island Rush. Rush was supposed to be the up-to-6-player version of Salient that I left behind on the road to &lsquo;perfecting&rsquo; the Attacker and Defender modes. Still on the original, simple rules, it just worked. Possibly suffering from sleep deprivation, after passing on an ancient temple and a dozen other tired tropes, I decided that the goal of the game at the center tile of the jungle island was a taco truck, then I set up the simulations and turned them loose. Not bad, but it still needs...something. Tigers! Much better. Ship it.</p>
 
   <h2>The northern lights were too slow for the board</h2>
-  <p>Aurora is one of the attract screens (or wall decorations, or night lights, you decide): curtains of northern lights that build, peak and fade, drawn from each LED&rsquo;s real position on the board. It looked great on the desktop. The RP2040 could not keep up with it.</p>
+  <p>Aurora is one of the attract screens (or wall decorations, or night lights, you decide): curtains of northern lights that build, peak, and fade, drawn from each LED&rsquo;s real position on the board. It looked great on the desktop. The RP2040 could not keep up with it.</p>
   <p>The desktop is about a hundred times faster than the RP2040, so desktop timing tells you exactly nothing. Timing it on the board showed the moving parts of the sky took under 1&nbsp;ms, and working out the colors of 155 LEDs took 60&nbsp;ms. At the planned 25 updates a second, that&rsquo;s half again more time than there is. For a baseline, the other attract screens came in at 46&nbsp;ms (clock), 45&nbsp;ms (forest fire) and 26&nbsp;ms (fireflies), so the board&rsquo;s real ceiling is about 20 frames a second, not the 40 in the config. That set the target.</p>
   <p>What didn&rsquo;t work, in order:</p>
   <ul class="notes">
     <li><b>Leaner Python.</b> A color lookup table, flat lists, local variables, fewer lookups per LED. 60&nbsp;ms down to about 41. Still way too slow.</li>
     <li><b>ulab, CircuitPython&rsquo;s built-in numpy.</b> Doing the math on whole arrays in compiled code sounded like the answer. It was slower (71&nbsp;ms, and 53 after trimming). The RP2040 is a Cortex-M0+, which has no floating-point hardware, so every float operation runs in software, array or not, and every array operation made a new array. In real time the quiet sky ran at about 7 frames a second, with the memory clean-ups freezing the board for up to 420&nbsp;ms at a time.</li>
   </ul>
-  <p>What worked was whole numbers and tables. On this chip integer math is cheap and small integers cost no memory, so the sky got rewritten so each LED is one subtraction, a range check, three table lookups and three additions: positions in 64ths of a hex width, a 1,024-step sine table looked up once per column (29 of them) instead of once per LED, and each curtain&rsquo;s fade precomputed by distance from its edge, already colored green to teal to violet. The result is about 37&nbsp;ms on a quiet sky and 59&nbsp;ms at full display, so 13 to 16 frames a second, which is plenty for something that moves that slowly.</p>
+  <p>What worked was whole numbers and tables. On this chip integer math is cheap and small integers cost no memory, so the sky got rewritten so each LED is one subtraction, a range check, three table lookups, and three additions: positions in 64ths of a hex width, a 1,024-step sine table looked up once per column (29 of them) instead of once per LED, and each curtain&rsquo;s fade precomputed by distance from its edge, already colored green to teal to violet. The result is about 37&nbsp;ms on a quiet sky and 59&nbsp;ms at full display, so 13 to 16 frames a second, which is plenty for something that moves that slowly.</p>
   <p><b>A measurement mistake worth admitting.</b> The integer version first timed at 23&nbsp;ms, which looked like victory. But the timing scripts set the sky to full activity and then ran the game&rsquo;s update, which promptly reset it to a quiet sky. So every number above until the final ones was a quiet sky. The comparisons between versions still hold, since they were all measured the same (wrong) way, but none of them showed a full display. Check that the thing you&rsquo;re timing is the thing you think you&rsquo;re timing.</p>
   <p>Aurora also must never flash, so there&rsquo;s a desktop test that runs whole displays and records the biggest change any LED makes between updates: nothing may go from dark to full in under about 0.2&nbsp;s. That test caught three real jumps, including one that showed up after a rewrite, where an LED crossing a curtain&rsquo;s edge went straight from green to pink because a short blend had gotten dropped.</p>
 
@@ -70,7 +70,7 @@ CARDS fireflies FAILED: MemoryError('memory allocation failed, allocating 376 by
   <p>So the board works, the game works, and the web remote works. Awesome. Time to make the first wired controller.</p>
   <p>Design it, print it, wire it, and...it (a rotary encoder and two buttons) does nothing, in any game. So, test in layers:</p>
   <ul class="notes">
-    <li>A stand-alone test that read the controller&rsquo;s pins directly, skipping the game host, the lobby and everything else, and printed every pin change. All the pins opened fine. Nothing ever changed.</li>
+    <li>A stand-alone test that read the controller&rsquo;s pins directly, skipping the game host, the lobby, and everything else, and printed every pin change. All the pins opened fine. Nothing ever changed.</li>
     <li>A raw scan of all 30 of the board&rsquo;s pins at once, while the button was pressed. Nothing.</li>
     <li>A jumper wire from D9 straight to ground. Still nothing.</li>
     <li>The same scan against a switch known to work, the SCORPIO&rsquo;s own BOOT button. It caught every press.</li>
@@ -105,13 +105,13 @@ CARDS fireflies FAILED: MemoryError('memory allocation failed, allocating 376 by
 
   <h2>What&rsquo;s next</h2>
   <ul class="notes">
-    <li><b>Photos,</b> then the CAD files, a real parts list and a build guide. The hardware is done and tested; now it needs to be written up.</li>
+    <li><b>Photos,</b> then the CAD files, a real parts list, and a build guide. The hardware is done and tested; now it needs to be written up.</li>
     <li><b>Salient</b>, back on the bench until it passes the same test Island Rush did: everything you need to know is on the board.</li>
   </ul>
 
   <h2>Build one</h2>
   <div class="files">
-    <p>Lemnos is free and open source: the board software and radio firmware are MIT, and the rules and docs are CC BY-SA. The build guide is still coming, but the wiring, the code and the guide to making your own games are all up now. If you build one, break one, or write a game for it, <a href="mailto:thunderbirdlabs@gmail.com?subject=Lemnos">I want to hear about it</a>.</p>
+    <p>Lemnos is free and open source: the board software and radio firmware are MIT, and the rules and docs are CC BY-SA. The build guide is still coming, but the wiring, the code, and the guide to making your own games are all up now. If you build one, break one, or write a game for it, <a href="mailto:thunderbirdlabs@gmail.com?subject=Lemnos">I want to hear about it</a>.</p>
     <a class="button" href="https://github.com/tbirdlabs/lemnos">View on GitHub &rarr;</a>
     <a class="button secondary" href="lemnos.html">Back to Lemnos</a>
   </div>
