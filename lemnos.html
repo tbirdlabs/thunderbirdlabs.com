@@ -32,7 +32,7 @@
     <h1>Lemnos</h1>
     <span class="status progress">In progress</span>
   </div>
-  <p class="lede">The open, accessible game board: an island of 37 lit hexes with six seats around it, each with a 10-light bar of its own. Every game plays with a single switch, and anything a game knows shows up in the board&rsquo;s lights, so nobody has to read a screen, hold cards or move little pieces. You play it with whatever controller works for you, and the board does the bookkeeping. There are no pieces to set up, move or put away, so nobody needs a helper between turns.</p>
+  <p class="lede">The open, accessible game board: an island of 37 lit hexes with six slots around it for the players&rsquo; controllers and their 10-light bars. Every game plays with a single switch, and anything a game knows shows up in the board&rsquo;s lights, so nobody has to read a screen, hold cards or move little pieces. You play it with whatever controller works for you, and the board does the bookkeeping. There are no pieces to set up, move or put away, so nobody needs a helper between turns.</p>
   <p class="article-link"><a href="lemnos-notes.html">Build notes: northern lights too slow for the chip, previews that ran out of memory, and a controller that did nothing &rarr;</a></p>
 
   <!-- TODO: add photos of the board here -->
@@ -49,12 +49,14 @@
   <h2>Controllers</h2>
   <p>Every game uses the same three actions: <b>move</b>, <b>pick</b> and <b>back</b>. Anything that can send those can play, and players at the same table can each use something different:</p>
   <ul class="notes">
+    <li>The Standard Controller: a knob and a button, with the player&rsquo;s own 10-light bar built in.</li>
     <li>One switch: the board steps through the choices on its own, and you press when it gets to the one you want.</li>
     <li>A foot pedal, big buttons, a D-pad or a knob, wired straight to the board.</li>
     <li>Bluetooth controllers (with the optional radio): a Wiimote, Switch Joy-Cons, PS3, PS4 and PS5 controllers, Xbox controllers, the Xbox Adaptive Controller and whatever switches are plugged into it, and many more.</li>
     <li>A phone or tablet: a D-pad on a web page, over Wi&#8209;Fi (also with the radio).</li>
     <li>A computer, from a web page on the board&rsquo;s USB drive, using an on-screen D-pad or the keyboard.</li>
   </ul>
+  <p>Whatever they play with, every player still needs their light bar in front of them, so there&rsquo;s also the Basic Display: the Standard Controller&rsquo;s housing with the bar and no controls. The board has six slots around its edge, and each Standard Controller, Basic Display or the radio&rsquo;s mount takes one, so with the radio there&rsquo;s room for five players at the board, in any mix.</p>
 
   <h2>Built to the PlayforAll brief</h2>
   <p>Lemnos started as an entry for PrintLab&rsquo;s PlayforAll brief in MakerWorld&rsquo;s Make for Good contest: an accessible tabletop game for people with cerebral palsy who have trouble with fine motor control and hand-eye coordination. These are the brief&rsquo;s must-haves, and how the board meets each one.</p>
@@ -62,7 +64,7 @@
   <h3>Physical and 3D printable</h3>
   <p>Lemnos is a board you sit around with your friends, not a screen. The game happens on the island in the middle of the table, and the bars in front of each player.</p>
   <p>All of it is 3D printed: the board itself and everything inside it that holds the electronics, the controllers, and the radio&rsquo;s housing. Print it, wire it, play.</p>
-  <p>The wired controllers are tethered to the board. They pull out to wherever each player sits, then retract and dock to the board with magnets, so the whole thing folds up into a single unit and opens out into the board and however many controllers you built.</p>
+  <p>The Standard Controllers and Basic Displays are tethered to the board. They pull out to wherever each player sits, then push back in and dock to the board with magnets, so the whole thing folds up into a single unit and opens out into the board and however many controllers and displays you built.</p>
 
   <h3>Accessible interaction</h3>
   <p>There are no pieces to pinch, grasp or place. Every game plays with a single switch, and anything that can send move, pick and back can play: a pedal, big buttons, a knob, an Xbox Adaptive Controller and whatever switches are plugged into it, a phone. Each player uses whatever works for them, at the same table, in the same game.</p>
@@ -77,20 +79,20 @@
   <p>Island Rush has a clear goal (get to the truck, and hold it), real choices (charge or build up, go around the tiger or fight it), and enough luck in the dice that no two games go the same way. Games run about 3 to 8 minutes, so there&rsquo;s always time for one more, and thousands of simulated games keep it fair for every seat. It isn&rsquo;t a therapy exercise. It&rsquo;s a game you&rsquo;d play anyway.</p>
 
   <h3>Practicality</h3>
-  <p>Nothing has to be positioned, so nothing can be knocked out of place, lost under the couch, or set up wrong. The controllers never come off the board, and it all packs away as one piece. The lights show everything, and the board remembers everything.</p>
+  <p>Nothing has to be positioned, so nothing can be knocked out of place, lost under the couch, or set up wrong. The controllers and displays never come off the board, and it all packs away as one piece. The lights show everything, and the board remembers everything.</p>
 
   <h3>Safety</h3>
-  <p>No small parts to lose or swallow: there are no pieces at all, and the controllers stay tethered to the board. Nothing flashes fast enough to set off photosensitive seizures, the brightness starts low, and the LED current is capped. The full list is <a href="#safeties">below</a>.</p>
+  <p>No small parts to lose or swallow: there are no pieces at all, and the controllers and displays stay tethered to the board. Nothing flashes fast enough to set off photosensitive seizures, the brightness starts low, and the LED current is capped. The full list is <a href="#safeties">below</a>.</p>
 
   <h2>Specs</h2>
   <ul class="specs">
     <li><b>The Board</b><br>37 hexes in 7 rows, 111 LEDs (155 on the small board with 144/m strip)</li>
-    <li><b>Seats</b><br>6, each with a 10-light bar built into its controller</li>
+    <li><b>Slots</b><br>6, for any mix of Standard Controllers and Basic Displays (each with a 10-light bar) and the radio</li>
     <li><b>Brain</b><br>Adafruit Feather RP2040 SCORPIO running CircuitPython</li>
     <li><b>LEDs</b><br>5&nbsp;V WS2812B-type strip on 8 parallel outputs; the whole board updates in about 3.5&nbsp;ms</li>
-    <li><b>Radio (optional)</b><br>An ESP32 for Bluetooth controllers, phones, a settings page and the time of day (a Pico W or Pico 2 W works for Bluetooth controllers only, for now)</li>
-    <li><b>Players</b><br>1 to 6, with the computer filling empty seats</li>
-    <li><b>Storage</b><br>Wired controllers are tethered, retract and dock magnetically; it all folds into one unit</li>
+    <li><b>Radio (optional)</b><br>An ESP32 (LilyGO T-Display) in its own mount, which takes one slot, for Bluetooth controllers, phones, a settings page and the time of day (a Pico W or Pico 2 W works for Bluetooth controllers only, for now)</li>
+    <li><b>Players</b><br>1 to 6 (up to 5 with the radio), with the computer filling empty seats</li>
+    <li><b>Storage</b><br>Controllers and displays are tethered, retract and dock magnetically; it all folds into one unit</li>
   </ul>
 
   <h2>How a game works</h2>
@@ -134,7 +136,7 @@ class Game(BaseGame):
     <li><b>Easy on the eyes.</b> The LEDs are genuinely painful at full brightness, so the default is 10%, set 1 to 10 on a log scale from the USB page or a phone and remembered through power-off. At low brightness the cursor&rsquo;s glow is doubled so it doesn&rsquo;t just disappear.</li>
     <li><b>A power cap.</b> All the LEDs at full white would pull about 10&nbsp;A (13 on the small board). The board works out the current every frame and dims the whole frame to stay under 4&nbsp;A by default.</li>
     <li><b>Hard to leave by accident.</b> The menu takes a 3-second hold on a wired switch, and then the board asks again: your bar turns green with one red light, and only picking the red one leaves. Anything else, or 30 seconds of nothing, goes right back to the game, which waited for you.</li>
-    <li><b>No loose parts.</b> There are no game pieces at all, and the wired controllers stay tethered to the board. Nothing to lose, nothing to swallow.</li>
+    <li><b>No loose parts.</b> There are no game pieces at all, and the controllers and displays stay tethered to the board. Nothing to lose, nothing to swallow.</li>
   </ul>
   <p><b>Protecting the board (and the game you&rsquo;re in the middle of)</b></p>
   <ul class="notes">
