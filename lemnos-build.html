@@ -32,9 +32,9 @@
     <h1>Building Lemnos</h1>
   </div>
   <p class="lede">Everything you need for the small Lemnos board (144 LEDs/m strip), its controllers and displays, and the optional radio, and how to put it all together.</p>
-  <p class="caption">The listings are not affiliate links or endorsements, just the parts I used or ones like them. Generic parts from any seller will do.</p>
+  <p class="caption">Prices checked October 26, 2026, and they will probably have changed by the time you read this. These are not affiliate links or endorsements, just the parts I used or the closest things I could find. Generic parts from any seller will do.</p>
   <nav class="toc" aria-label="On this page">
-    <p><b>Buying</b><span><a href="#slots">Six slots</a> <a href="#parts">Parts</a> <a href="#hardware">Hardware</a> <a href="#shop">From your shop</a></span></p>
+    <p><b>Buying</b><span><a href="#slots">Six slots</a> <a href="#costs">What it costs</a> <a href="#parts">Parts</a> <a href="#hardware">Hardware</a> <a href="#shop">From your shop</a></span></p>
     <p><b>Building</b><span><a href="#tools">Tools</a> <a href="#printing">Printing</a> <a href="#inserts">Inserts</a> <a href="#island">Island LEDs</a> <a href="#units">Controllers and displays</a> <a href="#tethers">Tethers and magnets</a> <a href="#paracord">Paracord tethers</a> <a href="#lacing">Tying off</a> <a href="#wiring">Wiring</a> <a href="#radio">Radio</a> <a href="#close">Closing it up</a> <a href="#software">Software</a> <a href="#playing">Playing</a> <a href="#files">Files</a></span></p>
   </nav>
 
@@ -49,20 +49,78 @@
   </ul>
   <p>Every controller and display is tethered to its own slot. It pulls out to wherever its player sits and pushes back in until the magnets catch, so the whole thing packs away as one piece with no loose parts. You only fill the slots you&rsquo;ll use, and you can add more later.</p>
 
+  <h2 id="costs">What it costs</h2>
+  <p>Pretty much everything comes in packs much bigger than one board needs. If you buy every pack for the board plus a Standard Controller and a Basic Display, it comes to about <b>$108</b>, plus shipping on the SCORPIO, and the radio is another <b>$16</b>. The parts that actually end up in the board come to about <b>$26.80</b>, plus about <b>$4.40</b> for each Standard Controller and <b>$1.30</b> for each Basic Display, so a board with two of each is about <b>$38</b>, and the rest goes in your parts bin. The same packs cover up to five Standard Controllers (the buttons come in fives), and the two LED rolls cover the island and 13 bars.</p>
+
   <h2 id="parts">Parts</h2>
-  <h3>Electronics</h3>
+  <h3>The board</h3>
   <div class="table-scroll">
   <table class="bom">
-    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th></tr></thead>
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th><th class="num">Pack</th><th class="num">Pack price</th><th class="num">Each</th><th class="num">Per unit</th></tr></thead>
     <tbody>
-      <tr><td>Microcontroller<small>Runs the board; CircuitPython</small></td><td><a href="https://www.adafruit.com/product/5650">Adafruit Feather RP2040 SCORPIO</a></td><td class="num">1</td></tr>
-      <tr><td>WS2812B-type 5&nbsp;V addressable LED strip, 144 LEDs/m<small>155 LEDs (about 1.1&nbsp;m) for the island, plus 10 per controller or display; 1.5&nbsp;m covers the island and five bars</small></td><td>Any 5&nbsp;V WS2812B, 144/m, with adhesive backing</td><td class="num">~1.5&nbsp;m</td></tr>
-      <tr><td>EC11 rotary encoder with push switch<small>One per Standard Controller</small></td><td><a href="https://www.amazon.com/dp/B0C6Q67V97">Generic EC11, like these</a></td><td class="num">0&ndash;6</td></tr>
-      <tr><td>12&nbsp;mm momentary push button<small>One per Standard Controller</small></td><td><a href="https://www.amazon.com/dp/B08L49F7DV">Generic 12&nbsp;mm, like these</a></td><td class="num">0&ndash;6</td></tr>
-      <tr><td>Radio (optional)<small>For the Radio Case; any ESP32 works mounted inside the board</small></td><td>LilyGO TTGO T-Display (ESP32)</td><td class="num">0&ndash;1</td></tr>
-      <tr><td>Power<small>The board draws well under 2&nbsp;A at the default brightness</small></td><td>A USB-C phone charger and cable, into the SCORPIO</td><td class="num">1</td></tr>
-      <tr><td>Barrel jack, M11&nbsp;&times;&nbsp;1 threaded panel mount (optional)<small>There&rsquo;s a hole for one in the back, if you&rsquo;d rather feed 5&nbsp;V that way</small></td><td><a href="https://www.amazon.com/dp/B0DP6MNQQB">Like this</a></td><td class="num">0&ndash;1</td></tr>
+      <tr><td>Microcontroller<small>Plus shipping</small></td><td><a href="https://www.adafruit.com/product/5650">Adafruit Feather RP2040 SCORPIO</a></td><td class="num">1</td><td class="num">1</td><td class="num">$14.50</td><td class="num">$14.50</td><td class="num">$14.50</td></tr>
+      <tr><td>WS2812B LED strip, 144 LEDs/m, 5 V<small>Two rolls: the island alone is 155 LEDs; what&#x27;s left covers 13 bars</small></td><td><a href="https://www.amazon.com/dp/B097BXQF8J">SEZO WS2812B ECO, two 1 m rolls</a></td><td class="num">155</td><td class="num">2&nbsp;m</td><td class="num">$21.98</td><td class="num">$10.99/m</td><td class="num">$11.83</td></tr>
+      <tr><td>Heat-set inserts, M3&nbsp;&times;&nbsp;4 and M2&nbsp;&times;&nbsp;2<small>6 M3 x 4 for the risers and 2 M2 x 2 for the SCORPIO, whose holes are only 3 mm deep</small></td><td><a href="https://www.amazon.com/dp/B0FVKYJ83G">Pofsnnx M2-M6 assortment, 350 pcs</a></td><td class="num">8</td><td class="num">350</td><td class="num">$9.99</td><td class="num">$0.03</td><td class="num">$0.23</td></tr>
+      <tr><td>M3 screw kit, 6-30 mm<small>The M3 x 8 socket heads</small></td><td><a href="https://www.amazon.com/dp/B0CP7Y7M6D">Sutemribor M3 assortment, 304 stainless</a></td><td class="num">6</td><td class="num">546</td><td class="num">$9.99</td><td class="num">$0.02</td><td class="num">$0.11</td></tr>
+      <tr><td>M2&nbsp;&times;&nbsp;4 socket head screws</td><td><a href="https://www.amazon.com/dp/B094NT4BZ2">iexcell, 304 stainless</a></td><td class="num">2</td><td class="num">100</td><td class="num">$8.26</td><td class="num">$0.08</td><td class="num">$0.17</td></tr>
+      <tr><td>8&nbsp;&times;&nbsp;3 mm magnets<small>Counted with each controller, display and the radio</small></td><td><a href="https://www.amazon.com/dp/B07B3SDRCP">100-pack</a></td><td class="num">pack</td><td class="num">100</td><td class="num">$9.99</td><td class="num">$0.10</td><td class="num">&ndash;</td></tr>
     </tbody>
+    <tfoot><tr><td colspan="4">Total</td><td class="num">$74.71</td><td></td><td class="num">$26.83</td></tr></tfoot>
+  </table>
+  </div>
+
+  <h3>Each Standard Controller</h3>
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th><th class="num">Pack</th><th class="num">Pack price</th><th class="num">Each</th><th class="num">Per unit</th></tr></thead>
+    <tbody>
+      <tr><td>EC11 rotary encoder with push switch</td><td><a href="https://www.amazon.com/dp/B0C6Q67V97">WWZMDiB 6-pack</a></td><td class="num">1</td><td class="num">6</td><td class="num">$8.88</td><td class="num">$1.48</td><td class="num">$1.48</td></tr>
+      <tr><td>12 mm momentary push button</td><td><a href="https://www.amazon.com/dp/B08L49F7DV">Gebildet prewired, 5-pack</a></td><td class="num">1</td><td class="num">5</td><td class="num">$7.99</td><td class="num">$1.60</td><td class="num">$1.60</td></tr>
+      <tr><td>550 paracord<small>Fits the 7 conductors</small></td><td><a href="https://www.amazon.com/dp/B08HNZB3PZ">Amazon Basics Type III, 100 ft</a></td><td class="num">~15&nbsp;cm</td><td class="num">100&nbsp;ft</td><td class="num">$6.29</td><td class="num">$0.21/m</td><td class="num">$0.03</td></tr>
+      <tr><td>LED strip, 10 LEDs<small>Already bought</small></td><td>From the board&#x27;s rolls</td><td class="num">10</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">$0.76</td></tr>
+      <tr><td>8&nbsp;&times;&nbsp;3 mm magnets<small>Already bought; 2 in the unit, 2 in its slot</small></td><td>From the magnet pack</td><td class="num">4</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">$0.40</td></tr>
+      <tr><td>M3 inserts and M3&nbsp;&times;&nbsp;8 screws<small>Already bought; 2 of each</small></td><td>From the board&#x27;s packs</td><td class="num">2</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">$0.09</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">Total</td><td class="num">$23.16</td><td></td><td class="num">$4.37</td></tr></tfoot>
+  </table>
+  </div>
+
+  <h3>Each Basic Display</h3>
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th><th class="num">Pack</th><th class="num">Pack price</th><th class="num">Each</th><th class="num">Per unit</th></tr></thead>
+    <tbody>
+      <tr><td>325 paracord<small>Holds up to 4 conductors</small></td><td><a href="https://www.amazon.com/dp/B0CT8DCMQ6">2.7 mm, 100 ft</a></td><td class="num">~15&nbsp;cm</td><td class="num">100&nbsp;ft</td><td class="num">$9.99</td><td class="num">$0.33/m</td><td class="num">$0.05</td></tr>
+      <tr><td>LED strip, 10 LEDs<small>Already bought</small></td><td>From the board&#x27;s rolls</td><td class="num">10</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">$0.76</td></tr>
+      <tr><td>8&nbsp;&times;&nbsp;3 mm magnets<small>Already bought; 2 in the unit, 2 in its slot</small></td><td>From the magnet pack</td><td class="num">4</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">$0.40</td></tr>
+      <tr><td>M3 inserts and M3&nbsp;&times;&nbsp;8 screws<small>Already bought; 2 of each</small></td><td>From the board&#x27;s packs</td><td class="num">2</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">$0.09</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">Total</td><td class="num">$9.99</td><td></td><td class="num">$1.31</td></tr></tfoot>
+  </table>
+  </div>
+
+  <h3>Radio (optional)</h3>
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th><th class="num">Pack</th><th class="num">Pack price</th><th class="num">Each</th><th class="num">Per unit</th></tr></thead>
+    <tbody>
+      <tr><td>ESP32 radio<small>Not the T-Display-S3</small></td><td><a href="https://www.amazon.com/dp/B099MPFJ9M">LILYGO T-Display (ESP32)</a></td><td class="num">1</td><td class="num">1</td><td class="num">$16.00</td><td class="num">$16.00</td><td class="num">$16.00</td></tr>
+      <tr><td>325 paracord<small>4 conductors</small></td><td>From the display&#x27;s spool, or the same listing</td><td class="num">~15&nbsp;cm</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">$0.05</td></tr>
+      <tr><td>8&nbsp;&times;&nbsp;3 mm magnets<small>Already bought; 1 in the case, 1 in its slot</small></td><td>From the magnet pack</td><td class="num">2</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">$0.20</td></tr>
+      <tr><td>M3 insert and M3&nbsp;&times;&nbsp;8 screw<small>Already bought</small></td><td>From the board&#x27;s packs</td><td class="num">1</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">$0.05</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">Total</td><td class="num">$16.00</td><td></td><td class="num">$16.30</td></tr></tfoot>
+  </table>
+  </div>
+
+  <h3 id="optional">Optional</h3>
+  <div class="table-scroll">
+  <table class="bom">
+    <thead><tr><th>Part</th><th>Listing</th><th class="num">Use</th><th class="num">Pack</th><th class="num">Pack price</th><th class="num">Each</th><th class="num">Per unit</th></tr></thead>
+    <tbody>
+      <tr><td>Barrel jack, M11&nbsp;&times;&nbsp;1 threaded panel mount<small>Only if you&#x27;d rather not power it through the SCORPIO&#x27;s USB-C</small></td><td><a href="https://www.amazon.com/dp/B0DP6MNQQB">5.5 x 2.1 mm, 6 sets</a></td><td class="num">1</td><td class="num">6</td><td class="num">$9.97</td><td class="num">$1.66</td><td class="num">$1.66</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">Total</td><td class="num">$9.97</td><td></td><td class="num">$1.66</td></tr></tfoot>
   </table>
   </div>
 
@@ -85,6 +143,7 @@
   <h3 id="shop">From your shop</h3>
   <ul class="notes">
     <li>22&nbsp;AWG stranded wire, for the internal wiring and the tethers. A few colors makes things easier.</li>
+    <li>A USB-C phone charger and cable, to power the board through the SCORPIO. It draws well under 2&nbsp;A at the default brightness.</li>
     <li>DuPont connectors and header pins. Everything inside connects on DuPonts, so any part can come back out.</li>
     <li>Something to join several 5&nbsp;V and ground wires. Mine is a DuPont socket with all its pins soldered together; Wago 221 lever nuts work too.</li>
     <li>Solder, and some small heat-shrink tubing.</li>
@@ -117,6 +176,7 @@
   </ul>
 
   <h3 id="inserts">Inserts</h3>
+  <p>Inserts are optional. The hole sizes are parameters in the CAD (<code>cover_hole_diameter</code> for the M3s and <code>feather_hole_diameter</code> for the M2s), so you can size them down to slightly under the screw&rsquo;s major diameter, a little under 3&nbsp;mm for M3 or 2&nbsp;mm for M2, and thread the screws straight into the plastic.</p>
   <ol class="steps">
     <li>Heat-set the 6 M3 inserts into the risers in the Base, and the 2 M2 inserts for the SCORPIO.
       <figure class="step-fig">
@@ -255,7 +315,7 @@
 
   <h3 id="tethers">Tethers and magnets</h3>
   <ol class="steps">
-    <li>Cut the 22&nbsp;AWG conductors to the tether length you want and run them through the paracord (see <a href="#paracord">How to make a paracord tether</a>). A Standard Controller needs 7: 5&nbsp;V, ground, LED data, encoder A and B, encoder push, and the button. That takes 550 cord. A Basic Display needs 3 (5&nbsp;V, ground, and LED data) and the radio 4 (5&nbsp;V, ground, TX, and RX), so 325 is fine for those.</li>
+    <li>Cut the 22&nbsp;AWG conductors to the tether length you want (mine are about 15&nbsp;cm, or 6&Prime;; make them as long as you like, as long as the extra still fits inside the board with everything docked) and run them through the paracord (see <a href="#paracord">How to make a paracord tether</a>). A Standard Controller needs 7: 5&nbsp;V, ground, LED data, encoder A and B, encoder push, and the button. That takes 550 cord. A Basic Display needs 3 (5&nbsp;V, ground, and LED data) and the radio 4 (5&nbsp;V, ground, TX, and RX), so 325 is fine for those.</li>
     <li>The Base has three built-in tie-off points. Tie each tether to one (see <a href="#lacing">How to tie off the tethers</a>), so a pull on the cord never reaches the solder joints, and use them to tidy the internal wiring too. The tethers stay fixed to the board: controllers and displays extend for play but don&rsquo;t come off.</li>
     <li>Press the slot magnets in: 2 in each slot you&rsquo;ll use, 1 for the Radio Case&rsquo;s slot. The back slot&rsquo;s pair goes into the Base, and the rest go into the Skirt&rsquo;s outer faces. They&rsquo;re a press fit, but put a drop of super glue under each one so it can&rsquo;t come loose. Every unit is tethered to its own slot, so polarity only has to match between a unit and its slot. (The controllers&rsquo; and displays&rsquo; own magnets are in <a href="#units">their steps</a>.)
       <figure class="step-fig">
