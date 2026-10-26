@@ -35,7 +35,7 @@
   <p class="caption">The listings are not affiliate links or endorsements, just the parts I used or ones like them. Generic parts from any seller will do.</p>
   <nav class="toc" aria-label="On this page">
     <p><b>Buying</b><span><a href="#slots">Six slots</a> <a href="#parts">Parts</a> <a href="#hardware">Hardware</a> <a href="#shop">From your shop</a></span></p>
-    <p><b>Building</b><span><a href="#tools">Tools</a> <a href="#printing">Printing</a> <a href="#inserts">Inserts</a> <a href="#island">Island LEDs</a> <a href="#units">Controllers and displays</a> <a href="#tethers">Tethers and magnets</a> <a href="#wiring">Wiring</a> <a href="#radio">Radio</a> <a href="#close">Closing it up</a> <a href="#software">Software</a> <a href="#playing">Playing</a> <a href="#files">Files</a></span></p>
+    <p><b>Building</b><span><a href="#tools">Tools</a> <a href="#printing">Printing</a> <a href="#inserts">Inserts</a> <a href="#island">Island LEDs</a> <a href="#units">Controllers and displays</a> <a href="#tethers">Tethers and magnets</a> <a href="#paracord">Paracord tethers</a> <a href="#lacing">Tying off</a> <a href="#wiring">Wiring</a> <a href="#radio">Radio</a> <a href="#close">Closing it up</a> <a href="#software">Software</a> <a href="#playing">Playing</a> <a href="#files">Files</a></span></p>
   </nav>
 
   <!-- TODO: photos of the board, a Standard Controller, and a Basic Display -->
@@ -88,18 +88,21 @@
     <li>DuPont connectors and header pins. Everything inside connects on DuPonts, so any part can come back out.</li>
     <li>Something to join several 5&nbsp;V and ground wires. Mine is a DuPont socket with all its pins soldered together; Wago 221 lever nuts work too.</li>
     <li>Solder, and some small heat-shrink tubing.</li>
-    <li>Zip ties or lacing cord, for the tie-off points.</li>
+    <li>Waxed lacing cord, for the tie-off points (zip ties work too).</li>
+    <li>Electrical tape, for fishing the conductors through the paracord.</li>
     <li>Super glue, a drop under each magnet.</li>
     <li>PETG: about 390&nbsp;g for the full set, with clear PETG for the Tiles and Windows.</li>
   </ul>
 
   <h2>Build guide</h2>
+  <p class="screen-only">The pictures are made from the CAD model: a render on the left and an exploded drawing with a parts list on the right (click either one to see it bigger). The parts you&rsquo;re adding in that step are gray, and the ones you&rsquo;ve already put together are in color.</p>
   <p>Like Clotho, most of this should make sense once the parts are in your hands. The wrong parts won&rsquo;t fit, and the board&rsquo;s test pattern tells you right away if the wiring is off. The <a href="https://github.com/tbirdlabs/lemnos/blob/main/docs/wiring.md">wiring reference</a> on GitHub has the full pin tables.</p>
 
   <h3 id="tools">Tools</h3>
   <ul class="notes">
     <li>A soldering iron, with a tip for heat-set inserts if you have one</li>
     <li>Wire strippers and flush cutters</li>
+    <li>A heat gun or lighter, for the heat-shrink</li>
     <li>Allen keys for M2 and M3</li>
     <li>A computer with a USB-C cable, to load the software</li>
     <li>Optional but nice: a multimeter, to check 5&nbsp;V and ground before anything gets plugged in</li>
@@ -115,14 +118,30 @@
 
   <h3 id="inserts">Inserts</h3>
   <ol class="steps">
-    <li>Heat-set the 6 M3 inserts into the risers in the Base, and the 2 M2 inserts for the SCORPIO.</li>
+    <li>Heat-set the 6 M3 inserts into the risers in the Base, and the 2 M2 inserts for the SCORPIO.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step01-inserts.jpg" alt="Render of the Base with six M3 heat-set inserts lifted above the six risers around its edge and two smaller M2 inserts above the SCORPIO mount at the back" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step01-inserts-drawing.png" alt="Exploded drawing of the Base and its inserts with their parts list" loading="lazy">
+        </div>
+        <p class="caption">The six M3 inserts go in the risers around the edge; the two M2 inserts go in the SCORPIO mount at the back.</p>
+      </figure>
+    </li>
     <li>Heat-set 2 M3 inserts into each Standard Controller and Basic Display Body, and 1 into the Radio Case.</li>
   </ol>
 
   <h3 id="island">Island LEDs</h3>
   <ol class="steps">
     <li>Cut the strip into 7 rows of 17, 21, 25, 29, 25, 21, and 17 LEDs. Each row has 3 LEDs per hex and one between hexes. You can lay the strip in the Strip Carrier to measure each row instead of counting.</li>
-    <li>Stick the rows into the Strip Carrier with the strip&rsquo;s own adhesive. The carrier doubles as the assembly jig.</li>
+    <li>Stick the rows into the Strip Carrier with the strip&rsquo;s own adhesive. The carrier doubles as the assembly jig.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step03-island-leds.jpg" alt="Render of the seven LED strip rows lifted above the Strip Carrier, each over its own channel" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step03-island-leds-drawing.png" alt="Exploded drawing of the Strip Carrier and the seven LED strip rows with their parts list" loading="lazy">
+        </div>
+        <p class="caption">Seven rows, one per channel. The wiring between the rows isn&rsquo;t in the model.</p>
+      </figure>
+    </li>
     <li>Join the rows end to end in a serpentine: the end of each row loops back to the same end of the next, so the data runs along one row, back along the next, and so on. Watch the arrows on the strip; data only flows one way.</li>
     <li>Data can go in at any corner. Note which one; you&rsquo;ll set it as <code>ISLAND_START</code> in <code>config.py</code>.</li>
   </ol>
@@ -137,9 +156,32 @@
 
   <h3 id="tethers">Tethers and magnets</h3>
   <ol class="steps">
-    <li>Cut the 22&nbsp;AWG conductors to the tether length you want and run them through the paracord. A Standard Controller needs 7: 5&nbsp;V, ground, LED data, encoder A and B, encoder push, and the button. That takes 550 cord. A Basic Display needs 3 (5&nbsp;V, ground, and LED data) and the radio 4 (5&nbsp;V, ground, TX, and RX), so 325 is fine for those.</li>
-    <li>The Base has three built-in tie-off points. Zip-tie or lace each tether to one, so a pull on the cord never reaches the solder joints, and use them to tidy the internal wiring too. The tethers stay fixed to the board: controllers and displays extend for play but don&rsquo;t come off.</li>
+    <li>Cut the 22&nbsp;AWG conductors to the tether length you want and run them through the paracord (see <a href="#paracord">How to make a paracord tether</a>). A Standard Controller needs 7: 5&nbsp;V, ground, LED data, encoder A and B, encoder push, and the button. That takes 550 cord. A Basic Display needs 3 (5&nbsp;V, ground, and LED data) and the radio 4 (5&nbsp;V, ground, TX, and RX), so 325 is fine for those.</li>
+    <li>The Base has three built-in tie-off points. Tie each tether to one (see <a href="#lacing">How to tie off the tethers</a>), so a pull on the cord never reaches the solder joints, and use them to tidy the internal wiring too. The tethers stay fixed to the board: controllers and displays extend for play but don&rsquo;t come off.</li>
     <li>Press the magnets in: 2 in each controller or display and 2 in its slot on the board (1 and 1 for the Radio Case). They&rsquo;re a press fit, but put a drop of super glue under each one so it can&rsquo;t come loose. Every unit is tethered to its own slot, so polarity only has to match between a unit and its slot.</li>
+  </ol>
+
+  <h3 id="paracord">How to make a paracord tether</h3>
+  <p>The tethers are ordinary 22&nbsp;AWG wires inside a paracord jacket. The paracord makes them tough, flexible, and nice to handle, and it looks a lot better than a bundle of wire. 550 cord takes the Standard Controller&rsquo;s 7 conductors (snugly), and 325 takes up to 4, which covers a Basic Display or the radio.</p>
+  <!-- TODO: photos: gutting the cord, the taped bundle, feeding the sheath, the finished end -->
+  <ol class="steps">
+    <li><b>Cut the cord.</b> Cut the paracord a little longer than you want the tether, and the conductors a good bit longer than that, so you have tails to work with at both ends.</li>
+    <li><b>Gut it.</b> Paracord is a woven sheath around a core of thin strands. Hold the sheath at one end and pull the core strands out of the other. They&rsquo;ll bunch the sheath up as they go, so work it along a bit at a time. Keep one of the core strands; it makes a handy pull string.</li>
+    <li><b>Make up the bundle.</b> Line up the conductors and stagger their ends a few millimeters apart, so the bundle tapers to a point instead of ending in a blunt stump. Tape the tapered end tight with a single thin wrap of tape, as smooth as you can make it; this is the end that has to go through the sheath, and any lump catches.</li>
+    <li><b>Fish it through.</b> Push the taped end into the sheath and work the sheath onto the bundle, bunching it up and then smoothing it out along the wires, a few centimeters at a time, like putting on a sock. If it gets stuck, tie the kept core strand to the taped end, feed the strand through first, and pull with it while you work the sheath along.</li>
+    <li><b>Finish the ends.</b> Paracord frays the moment you cut it. Trim the sheath where you want the tether to end, slide a piece of heat-shrink over the end so it covers the last bit of sheath and the first bit of the wires, and shrink it down. That holds the sheath in place and keeps it from fraying. Do both ends, then strip and terminate the conductors.</li>
+  </ol>
+
+  <h3 id="lacing">How to tie off the tethers</h3>
+  <p>The tethers are tied down inside the board, at the strain reliefs and the Base&rsquo;s three tie-off points, so a pull on the cord never reaches the solder joints. I used Bell System-style waxed lacing cord, the stuff phone techs have been lacing cable with for a hundred years. It grips, it doesn&rsquo;t slip, and it never has to come off. A zip tie works too, but lacing is tidier and doesn&rsquo;t leave a sharp tail.</p>
+  <p>The knot is a <b>common whipping</b>, which is just a set of tight turns with both ends buried underneath. Wrapped around the cable by itself it&rsquo;s a whipping; wrapped around the cable and a tie-off point together, it binds them and is called a seizing. Either way, it&rsquo;s tied the same way.</p>
+  <!-- TODO: photos: the loop laid down, the turns, the end through the loop, the finished seizing -->
+  <ol class="steps">
+    <li><b>Lay a loop.</b> Lay a loop of lacing cord along the cable (and the tie-off point, if you&rsquo;re seizing to one), with the loop pointing the way you&rsquo;ll be wrapping and a short tail sticking out the other end.</li>
+    <li><b>Wrap.</b> Starting at the tail end, wrap the cord around everything, loop included, in tight turns laid side by side. A handful of turns is plenty here; the runs are short and the load is small.</li>
+    <li><b>Through the loop.</b> Leave the end of the loop sticking out past the last turn, and put the working end through it.</li>
+    <li><b>Pull it under.</b> Pull the tail at the start until the loop, and the working end with it, disappears under the turns. Stop about halfway, so both ends are buried and locked.</li>
+    <li><b>Trim.</b> Cut both ends off close to the turns.</li>
   </ol>
 
   <h3 id="wiring">Wiring</h3>
@@ -162,7 +204,15 @@
     <li><b>LEDs.</b> Island data to channel 0, and each controller or display&rsquo;s bar to the channel for its seat.</li>
     <li><b>Controls.</b> The first Standard Controller&rsquo;s encoder goes to D24 and D25, its push switch to D9, and its button to D10. Further controllers go on free pins; the <a href="https://github.com/tbirdlabs/lemnos/blob/main/docs/wiring.md#free-inputs">free inputs table</a> lists them, and <code>config.py</code> says which pin does what. Every switch just shorts its pin to ground. An encoder&rsquo;s two pins have to be consecutive GPIOs.</li>
     <li><b>Power.</b> 5&nbsp;V and ground to every strip, controller, and display through your power distribution, with all the grounds tied together.</li>
-    <li><b>The SCORPIO</b> mounts on its two M2 inserts.</li>
+    <li><b>The SCORPIO</b> mounts on its two M2 inserts with two M2&nbsp;&times;&nbsp;4 screws.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step02-scorpio.jpg" alt="Render of the SCORPIO board lifted above its mount at the back of the Base, with two M2 screws above it" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step02-scorpio-drawing.png" alt="Exploded drawing of the SCORPIO and its screws over the Base with their parts list" loading="lazy">
+        </div>
+        <p class="caption">The SCORPIO sits in its mount at the back of the Base, USB-C toward the back wall. The wiring isn&rsquo;t in the model.</p>
+      </figure>
+    </li>
   </ol>
 
   <h3 id="radio">Radio (optional)</h3>
@@ -174,9 +224,34 @@
 
   <h3 id="close">Closing it up</h3>
   <ol class="steps">
-    <li>Set the Strip Carrier with its LEDs in the Base, and the 37 Tiles in the carrier. They just sit in place.</li>
+    <li>Set the Strip Carrier with its LEDs in the Base.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step04-carrier.jpg" alt="Render of the Strip Carrier with its LED rows lifted above the Base" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step04-carrier-drawing.png" alt="Exploded drawing of the Strip Carrier going into the Base with its parts list" loading="lazy">
+        </div>
+        <p class="caption">The carrier sits on top of the Base, over the SCORPIO and the wiring.</p>
+      </figure>
+    </li>
+    <li>Set the 37 Tiles in the carrier. They just sit in place.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step05-tiles.jpg" alt="Render of the 37 hexagonal Tiles lifted above the Strip Carrier in the Base" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step05-tiles-drawing.png" alt="Exploded drawing of the Tiles over the Strip Carrier with their parts list" loading="lazy">
+        </div>
+        <p class="caption">One Tile per hex. Clear PETG, so they mostly disappear in the render.</p>
+      </figure>
+    </li>
     <li>The Skirt can go on at any point; it doesn&rsquo;t touch the Base, the carrier, or the wiring.</li>
-    <li>The Cover holds the Tiles and the Skirt in place. Screw it down with the 6 M3 screws into the Base&rsquo;s risers.</li>
+    <li>The Cover holds the Tiles and the Skirt in place. Screw it down with the 6 M3 screws into the Base&rsquo;s risers.
+      <figure class="step-fig">
+        <div class="pair">
+          <img src="images/guide/lemnos-step06-skirt-cover.jpg" alt="Render of the Skirt lifted around the Base, the Cover above it, and six M3 screws above the Cover" loading="lazy">
+          <img class="drawing" src="images/guide/lemnos-step06-skirt-cover-drawing.png" alt="Exploded drawing of the Skirt, Cover, and screws with their parts list" loading="lazy">
+        </div>
+        <p class="caption">The Skirt goes around the edge, the Cover goes over everything, and the six screws go down into the risers.</p>
+      </figure>
+    </li>
   </ol>
 
   <h3 id="software">Software</h3>
