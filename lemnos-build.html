@@ -464,6 +464,10 @@
   <h3 id="wiring">Wiring</h3>
   <p>The SCORPIO has 8 LED outputs on the inner pins of the 2&nbsp;&times;&nbsp;8 header on its short end; the outer pins are all ground. All 8 update together, so the whole board refreshes in about 5&nbsp;ms. Seats are numbered clockwise from the bottom.</p>
   <p>Except for 5&nbsp;V and ground, every pair of wires can go on backwards without hurting anything: the two switches (the button and the encoder&rsquo;s push switch), the encoder&rsquo;s two pins, and TX and RX. Swapped switches or encoder pins just work backwards. Swapped TX and RX just won&rsquo;t talk, so swap them back.</p>
+  <figure class="wiring-fig">
+    <img src="images/lemnos-wiring-diagram.svg" alt="Wiring diagram: the SCORPIO feeds the 5 V and ground joiners from its USB pin; the island, the Standard Controller at seat 1, a Basic Display at seat 2, and the Radio Case each take 5 V and ground from the joiners; LED data runs from NEO0, NEO1 and NEO2; the controller&rsquo;s encoder goes to D24 and D25, its push switch to D9 and its button to D10; the radio&rsquo;s TX and RX cross over to the SCORPIO&rsquo;s RX and TX" loading="lazy">
+    <p class="caption">How it all connects. Click it to see it full size.</p>
+  </figure>
   <div class="table-scroll">
   <table class="bom">
     <thead><tr><th>Channel</th><th>SCORPIO pin</th><th>Runs to</th><th class="num">LEDs</th></tr></thead>

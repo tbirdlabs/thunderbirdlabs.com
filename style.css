@@ -273,6 +273,9 @@ body:has(.lightbox[open]) { overflow: hidden; }
 .step-fig .drawing { background: #fff; }
 .step-fig .caption { margin-top: 6px; max-width: 72ch; }
 @media (max-width: 560px) { .step-fig .pair { grid-template-columns: 1fr; } }
+/* Lemnos wiring diagram: a tall white SVG, full column width up to its own size */
+.wiring-fig { margin: 12px 0 18px; }
+.wiring-fig img { width: 100%; max-width: 760px; border-radius: 6px; background: #fff; }
 @page { size: letter; margin: 16mm 15mm; }
 .print-only { display: none; }
 @media print {
@@ -280,6 +283,7 @@ body:has(.lightbox[open]) { overflow: hidden; }
   .step-fig .pair { display: block; }
   .step-fig img:not(.drawing) { display: none; }
   /* photos have no drawing to stand in for them, so they print, two to a row */
+  .article .wiring-fig img { width: auto; max-width: 100%; max-height: 23cm; border-radius: 0; }
   .step-fig .pair:has(.photo) { display: flex; flex-wrap: wrap; gap: 3mm; }
   .step-fig img.photo { display: block; width: min(7.5cm, calc(50% - 1.5mm)); border-radius: 0; }
   .step-fig .drawing { width: 11.5cm; max-height: none; margin: 0; border-radius: 0; }

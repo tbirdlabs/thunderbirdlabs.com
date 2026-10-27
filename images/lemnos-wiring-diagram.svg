@@ -1,0 +1,180 @@
+<svg width="100%" viewBox="0 0 760 1210" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: white;">
+<style>
+text { fill: #2C2C2A; }
+text.th { font-size: 14px; font-weight: 500; }
+text.ts { font-size: 12px; font-weight: 400; fill: #5F5E5A; }
+text.tw { font-size: 10px; font-weight: 500; }
+text.tn { font-size: 12px; font-weight: 400; }
+.w { fill: none; stroke-width: 2; }
+.red { stroke: #DC2626; } .blk { stroke: #2C2C2A; } .blu { stroke: #2563EB; } .yel { stroke: #AE8B00; }
+.brn { stroke: #8B5A2B; } .org { stroke: #EA7A1A; } .grn { stroke: #15803D; } .wht { stroke: #A8A29E; }
+.pin { fill: #8A8986; }
+</style>
+
+<text class="th" x="380" y="28" text-anchor="middle">Lemnos — wiring diagram, small board</text>
+<text class="ts" x="380" y="46" text-anchor="middle">Feather RP2040 SCORPIO + 155-LED island + Standard Controller + Basic Display + T-Display radio</text>
+
+<!-- ===== Power in ===== -->
+<rect x="20" y="62" width="150" height="40" rx="4" fill="#FCEBEB" stroke="#B42318" stroke-width="1"/>
+<text class="tn" x="95" y="80" text-anchor="middle">USB-C charger</text>
+<text class="ts" x="95" y="95" text-anchor="middle">5 V, any phone charger</text>
+<line x1="95" y1="102" x2="95" y2="120" stroke="#5F5E5A" stroke-width="5"/>
+
+<!-- ===== SCORPIO ===== -->
+<rect x="20" y="120" width="720" height="130" rx="4" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+<rect x="80" y="116" width="30" height="10" rx="2" fill="#5F5E5A" opacity="0.5"/>
+<text class="ts" x="118" y="134">USB-C</text>
+<text class="th" x="380" y="150" text-anchor="middle">Adafruit Feather RP2040 SCORPIO</text>
+<text class="ts" x="380" y="168" text-anchor="middle">NEO0–NEO7 are the inner pins of the 2 × 8 header on its short end; the outer pins are all ground.</text>
+<text class="ts" x="380" y="184" text-anchor="middle">NEO3–NEO6 drive seats 3–6 the same way NEO2 drives seat 2. NEO7 is spare.</text>
+
+<!-- SCORPIO pins (bottom edge) -->
+<g class="pin">
+<rect x="46" y="246" width="8" height="8"/><rect x="81" y="246" width="8" height="8"/>
+<rect x="126" y="246" width="8" height="8"/><rect x="166" y="246" width="8" height="8"/>
+<rect x="271" y="246" width="8" height="8"/><rect x="306" y="246" width="8" height="8"/>
+<rect x="341" y="246" width="8" height="8"/><rect x="396" y="246" width="8" height="8"/><rect x="441" y="246" width="8" height="8"/>
+<rect x="516" y="246" width="8" height="8"/><rect x="661" y="246" width="8" height="8"/>
+</g>
+<text class="tn" x="50" y="226" text-anchor="middle">USB</text><text class="tw" x="50" y="239" text-anchor="middle">5 V</text>
+<text class="tn" x="85" y="226" text-anchor="middle">GND</text>
+<text class="tn" x="130" y="226" text-anchor="middle">RX</text><text class="tw" x="130" y="239" text-anchor="middle">GPIO1</text>
+<text class="tn" x="170" y="226" text-anchor="middle">TX</text><text class="tw" x="170" y="239" text-anchor="middle">GPIO0</text>
+<text class="tn" x="275" y="226" text-anchor="middle">NEO1</text><text class="tw" x="275" y="239" text-anchor="middle">GPIO17</text>
+<text class="tn" x="310" y="226" text-anchor="middle">D10</text>
+<text class="tn" x="345" y="226" text-anchor="middle">D24</text>
+<text class="tn" x="400" y="226" text-anchor="middle">D25</text>
+<text class="tn" x="445" y="226" text-anchor="middle">D9</text>
+<text class="tn" x="520" y="226" text-anchor="middle">NEO2</text><text class="tw" x="520" y="239" text-anchor="middle">GPIO18</text>
+<text class="tn" x="665" y="226" text-anchor="middle">NEO0</text><text class="tw" x="665" y="239" text-anchor="middle">GPIO16</text>
+
+<!-- ===== Joiners (5 V and ground buses) ===== -->
+<line x1="40" y1="290" x2="740" y2="290" class="w red"/>
+<line x1="40" y1="305" x2="740" y2="305" class="w blk"/>
+<text class="tw" x="740" y="284" text-anchor="end" fill="#DC2626">5 V JOINER</text>
+<text class="tw" x="740" y="319" text-anchor="end">GND JOINER</text>
+<!-- SCORPIO feeds them -->
+<line x1="50" y1="254" x2="50" y2="290" class="w red"/><circle cx="50" cy="290" r="3.5" fill="#DC2626"/>
+<line x1="85" y1="254" x2="85" y2="305" class="w blk"/><circle cx="85" cy="305" r="3.5" fill="#2C2C2A"/>
+
+<!-- ===== Radio Case ===== -->
+<rect x="20" y="350" width="210" height="130" rx="4" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+<g class="pin"><rect x="46" y="346" width="8" height="8"/><rect x="81" y="346" width="8" height="8"/><rect x="126" y="346" width="8" height="8"/><rect x="166" y="346" width="8" height="8"/></g>
+<text class="tn" x="50" y="370" text-anchor="middle">5V</text><text class="tw" x="50" y="383" text-anchor="middle" fill="#DC2626">RED</text>
+<text class="tn" x="85" y="370" text-anchor="middle">GND</text><text class="tw" x="85" y="383" text-anchor="middle">BLK</text>
+<text class="tn" x="130" y="370" text-anchor="middle">TX</text><text class="tw" x="130" y="383" text-anchor="middle" fill="#15803D">GRN</text>
+<text class="tn" x="170" y="370" text-anchor="middle">RX</text><text class="tw" x="170" y="383" text-anchor="middle" fill="#78716C">WHT</text>
+<text class="th" x="125" y="420" text-anchor="middle">Radio Case (optional)</text>
+<text class="ts" x="125" y="437" text-anchor="middle">LilyGO T-Display: TX G25, RX G26</text>
+<text class="ts" x="125" y="453" text-anchor="middle">325 tether, 4 wires</text>
+<text class="ts" x="125" y="469" text-anchor="middle">TX and RX cross over</text>
+<line x1="50" y1="290" x2="50" y2="346" class="w red"/>
+<line x1="85" y1="305" x2="85" y2="346" class="w blk"/>
+<line x1="130" y1="254" x2="130" y2="346" class="w grn"/>
+<line x1="170" y1="254" x2="170" y2="346" class="w wht"/>
+
+<!-- ===== Island ===== -->
+<rect x="580" y="350" width="160" height="130" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<g class="pin"><rect x="601" y="346" width="8" height="8"/><rect x="631" y="346" width="8" height="8"/><rect x="661" y="346" width="8" height="8"/></g>
+<text class="tw" x="605" y="370" text-anchor="middle" fill="#DC2626">5V</text>
+<text class="tw" x="635" y="370" text-anchor="middle">GND</text>
+<text class="tw" x="665" y="370" text-anchor="middle" fill="#2563EB">DIN</text>
+<text class="th" x="660" y="410" text-anchor="middle">Island</text>
+<text class="ts" x="660" y="425" text-anchor="middle">155 LEDs, 7 rows,</text>
+<text class="ts" x="660" y="440" text-anchor="middle">one serpentine run</text>
+<text class="ts" x="660" y="455" text-anchor="middle">325 tether, 3 wires</text>
+<text class="ts" x="660" y="470" text-anchor="middle">(the top lifts off on it)</text>
+<line x1="605" y1="290" x2="605" y2="346" class="w red"/><circle cx="605" cy="290" r="3.5" fill="#DC2626"/>
+<line x1="635" y1="305" x2="635" y2="346" class="w blk"/><circle cx="635" cy="305" r="3.5" fill="#2C2C2A"/>
+<line x1="665" y1="254" x2="665" y2="346" class="w blu"/>
+
+<!-- ===== Standard Controller ===== -->
+<rect x="20" y="540" width="480" height="330" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<!-- tether wires in -->
+<line x1="250" y1="290" x2="250" y2="600" class="w red"/><circle cx="250" cy="290" r="3.5" fill="#DC2626"/>
+<line x1="480" y1="305" x2="480" y2="612" class="w blk"/><circle cx="480" cy="305" r="3.5" fill="#2C2C2A"/>
+<line x1="275" y1="254" x2="275" y2="624" class="w blu"/>
+<line x1="310" y1="254" x2="310" y2="716" class="w wht"/>
+<line x1="345" y1="254" x2="345" y2="682" class="w yel"/>
+<line x1="400" y1="254" x2="400" y2="682" class="w brn"/>
+<polyline points="445,254 445,800 420,800 420,786" class="w org"/>
+<text class="th" x="32" y="562">Standard Controller, seat 1</text>
+<text class="ts" x="32" y="579">550 tether, 7 wires</text>
+<text class="ts" x="32" y="848">My colors: red 5 V, black ground, blue LED data, white button,</text>
+<text class="ts" x="32" y="862">yellow and brown encoder A and B, orange encoder switch.</text>
+
+<!-- LED bar -->
+<rect x="45" y="640" width="190" height="28" rx="2" fill="#FFFFFF" stroke="#5F5E5A" stroke-width="1"/>
+<g fill="#E8E6DF" stroke="#8A8986" stroke-width="0.5">
+<rect x="62" y="648" width="12" height="12"/><rect x="78" y="648" width="12" height="12"/><rect x="94" y="648" width="12" height="12"/><rect x="110" y="648" width="12" height="12"/><rect x="126" y="648" width="12" height="12"/>
+<rect x="142" y="648" width="12" height="12"/><rect x="158" y="648" width="12" height="12"/><rect x="174" y="648" width="12" height="12"/><rect x="190" y="648" width="12" height="12"/><rect x="206" y="648" width="12" height="12"/>
+</g>
+<g class="pin"><rect x="56" y="636" width="8" height="6"/><rect x="81" y="636" width="8" height="6"/><rect x="106" y="636" width="8" height="6"/><rect x="221" y="636" width="8" height="6"/></g>
+<text class="tw" x="60" y="682" text-anchor="middle" fill="#DC2626">5V</text>
+<text class="tw" x="85" y="682" text-anchor="middle">GND</text>
+<text class="tw" x="110" y="682" text-anchor="middle" fill="#2563EB">DIN</text>
+<text class="tw" x="225" y="682" text-anchor="middle">GND</text>
+<text class="ts" x="140" y="698" text-anchor="middle">10-LED bar, LED 1 at left</text>
+<polyline points="250,600 60,600 60,636" class="w red"/>
+<polyline points="480,612 85,612 85,636" class="w blk"/>
+<polyline points="275,624 110,624 110,636" class="w blu"/>
+<!-- strip's right-end ground lead to the encoder -->
+<polyline points="225,636 225,630 372,630 372,682" class="w blk"/>
+
+<!-- Button -->
+<rect x="40" y="740" width="90" height="56" rx="4" fill="#FFFFFF" stroke="#5F5E5A" stroke-width="1"/>
+<circle cx="85" cy="772" r="12" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
+<g class="pin"><rect x="56" y="736" width="8" height="8"/><rect x="101" y="736" width="8" height="8"/></g>
+<text class="tn" x="85" y="812" text-anchor="middle">Button</text>
+<polyline points="310,716 60,716 60,736" class="w wht"/>
+<polyline points="105,736 105,726 285,726 285,808 340,808 340,786" class="w blk"/>
+<text class="ts" x="140" y="760">spare black,</text>
+<text class="ts" x="140" y="774">about 25 cm</text>
+
+<!-- Encoder -->
+<rect x="322" y="686" width="108" height="94" rx="4" fill="#FFFFFF" stroke="#5F5E5A" stroke-width="1"/>
+<circle cx="390" cy="740" r="16" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
+<circle cx="390" cy="740" r="4" fill="#5F5E5A"/>
+<g class="pin"><rect x="341" y="682" width="8" height="8"/><rect x="368" y="682" width="8" height="8"/><rect x="396" y="682" width="8" height="8"/>
+<rect x="336" y="776" width="8" height="8"/><rect x="416" y="776" width="8" height="8"/></g>
+<text class="tw" x="345" y="702" text-anchor="middle">A</text>
+<text class="tw" x="372" y="702" text-anchor="middle">GND</text>
+<text class="tw" x="400" y="702" text-anchor="middle">B</text>
+<text class="tw" x="340" y="772" text-anchor="middle">GND</text>
+<text class="tw" x="420" y="772" text-anchor="middle">SW</text>
+<polyline points="372,706 372,714 330,714 330,766 340,766" fill="none" stroke="#2C2C2A" stroke-width="1.5" stroke-dasharray="4 2"/>
+<text class="tw" x="336" y="745">jumper</text>
+<text class="tn" x="365" y="826" text-anchor="middle">EC11 encoder</text>
+
+
+<!-- ===== Basic Display ===== -->
+<rect x="505" y="540" width="235" height="130" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<line x1="520" y1="254" x2="520" y2="546" class="w blu"/>
+<line x1="545" y1="290" x2="545" y2="546" class="w red"/><circle cx="545" cy="290" r="3.5" fill="#DC2626"/>
+<line x1="570" y1="305" x2="570" y2="546" class="w blk"/><circle cx="570" cy="305" r="3.5" fill="#2C2C2A"/>
+<g class="pin"><rect x="516" y="536" width="8" height="8"/><rect x="541" y="536" width="8" height="8"/><rect x="566" y="536" width="8" height="8"/></g>
+<text class="tw" x="520" y="560" text-anchor="middle" fill="#2563EB">DIN</text>
+<text class="tw" x="545" y="560" text-anchor="middle" fill="#DC2626">5V</text>
+<text class="tw" x="570" y="560" text-anchor="middle">GND</text>
+<text class="th" x="622" y="598" text-anchor="middle">Basic Display, seat 2</text>
+<text class="ts" x="622" y="615" text-anchor="middle">10-LED bar only, LED 1 at left</text>
+<text class="ts" x="622" y="631" text-anchor="middle">325 tether, 3 wires</text>
+<text class="ts" x="622" y="647" text-anchor="middle">Seats 3–6: the same, on NEO3–NEO6</text>
+
+<!-- ===== Notes ===== -->
+<rect x="20" y="900" width="720" height="78" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text class="tn" x="380" y="923" text-anchor="middle">Every switch shorts its pin to ground. Another Standard Controller wires the same way,</text>
+<text class="tn" x="380" y="941" text-anchor="middle">on free pins; config.py says which pin does what, and an encoder's two pins must be consecutive GPIOs.</text>
+<text class="tn" x="380" y="959" text-anchor="middle">The colors are the ones I used. Any colors work if you keep track of them.</text>
+
+<rect x="20" y="990" width="720" height="60" rx="6" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text class="tn" x="380" y="1014" text-anchor="middle">Only 5 V and ground have to be right. Every other pair can go on backwards without hurting anything:</text>
+<text class="tn" x="380" y="1032" text-anchor="middle">swapped encoder pins or switches just work backwards, and swapped TX and RX just won't talk.</text>
+
+<rect x="20" y="1062" width="720" height="60" rx="6" fill="#FCEBEB" stroke="#B42318" stroke-width="0.5"/>
+<text class="tn" x="380" y="1086" text-anchor="middle">The joiners are DuPont sockets with all their pins soldered together. Every 5 V goes to one, every ground</text>
+<text class="tn" x="380" y="1104" text-anchor="middle">to the other. The software caps the LEDs at 4 A (POWER_LIMIT_A in config.py).</text>
+
+<text class="ts" x="380" y="1150" text-anchor="middle">Dots mark connections. Wires that cross without a dot are not connected.</text>
+<text class="ts" x="380" y="1168" text-anchor="middle">The full pin tables are in docs/wiring.md on GitHub.</text>
+</svg>
